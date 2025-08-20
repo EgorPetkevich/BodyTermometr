@@ -11,7 +11,10 @@ import RxCocoa
 import SnapKit
 
 protocol MainViewModelProtocol {
+    //Out
     var userInfoDTO: Observable<UserInfoDTO> { get }
+    //In
+    var profileButtonTapped: PublishSubject<Void> { get }
 }
 
 final class MainVC: UIViewController {
@@ -21,7 +24,7 @@ final class MainVC: UIViewController {
         
         static let hiText: String = "Hi there!"
         static func hiUserText(userName: String) -> String {
-            return "Hi there, \(userName)!"
+            userName.isEmpty ? "Hi there!" : "Hi there, \(userName)!"
         }
     }
     
@@ -56,6 +59,11 @@ final class MainVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .appBg
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true,
@@ -69,12 +77,9 @@ final class MainVC: UIViewController {
                 self?.setupUserInfo(with: dto)
             })
             .disposed(by: bag)
-    }
-    
-    private func setupUserInfo(with dto: UserInfoDTO) {
-        hiTitleLabel.text = TextConst.hiUserText(userName: dto.userName)
-        profileButton.icon = dto.gender?.icon
-       
+        profileButton.tap
+            .bind(to: viewModel.profileButtonTapped)
+            .disposed(by: bag)
     }
     
 }
@@ -83,8 +88,6 @@ final class MainVC: UIViewController {
 private extension MainVC {
     
     func commonInit() {
-        self.view.backgroundColor = .appBg
-        //add subs
         self.view.addSubview(hiTitleLabel)
         self.view.addSubview(profileButton)
         self.view.addSubview(menuButton)
@@ -125,6 +128,12 @@ private extension MainVC {
             make.top.equalTo(bodyTempView.snp.bottom).offset(8.0)
             make.horizontalEdges.equalToSuperview().inset(16.0)
         }
+    }
+    
+    private func setupUserInfo(with dto: UserInfoDTO) {
+        hiTitleLabel.text = TextConst.hiUserText(userName: dto.userName)
+        profileButton.icon = dto.gender?.icon
+       
     }
     
 }

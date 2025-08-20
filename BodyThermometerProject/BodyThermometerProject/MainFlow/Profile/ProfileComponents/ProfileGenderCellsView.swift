@@ -13,21 +13,23 @@ import SnapKit
 final class ProfileGenderCellsView: UIView {
     
     private enum TextConst {
-        static let female: String = "Female"
-        static let male: String = "Male"
+        static let titleText: String = "Gender"
+        static let femaleText: String = "Female"
+        static let maleText: String = "Male"
     }
     
     private enum LayoutConst {
+        static let height: CGFloat = 100.0
         static let cellRadius: CGFloat = 24.0
         static let cellHeight: CGFloat = 70.0
     }
     
     private lazy var femaleLabel: UILabel =
-        .mediumTitleLabel(withText: TextConst.female,
+        .mediumTitleLabel(withText: TextConst.femaleText,
                           ofSize: 18.0,
                           color: .appWhite)
     private lazy var maleLabel: UILabel =
-        .mediumTitleLabel(withText: TextConst.female,
+        .mediumTitleLabel(withText: TextConst.maleText,
                           ofSize: 18.0,
                           color: .appBlack)
     
@@ -37,7 +39,9 @@ final class ProfileGenderCellsView: UIView {
     private lazy var maleView: UIView =
     UIView()
         .bgColor(.white)
-    
+
+    private lazy var titleLabel: UILabel =
+        .regularTitleLabel(withText: TextConst.titleText, ofSize: 12.0)
     private lazy var femaleCoverButton: UIButton = UIButton()
     private lazy var maleCoverButton: UIButton = UIButton()
     
@@ -90,41 +94,45 @@ final class ProfileGenderCellsView: UIView {
 extension ProfileGenderCellsView {
     
     func commonInit() {
+        self.addSubview(titleLabel)
         self.addSubview(femaleView)
         femaleView.addSubview(femaleLabel)
         femaleView.addSubview(femaleCoverButton)
         self.addSubview(maleView)
         maleView.addSubview(maleLabel)
         maleView.addSubview(maleCoverButton)
-        
         femaleCoverButton.layer.zPosition = .greatestFiniteMagnitude
         maleCoverButton.layer.zPosition = .greatestFiniteMagnitude
     }
     
     func setuSnapKitConstraints() {
         self.snp.makeConstraints { make in
-            make.height.equalTo(LayoutConst.cellHeight)
+            make.height.equalTo(LayoutConst.height)
         }
-        femaleView.snp.makeConstraints { make in
-            make.left.equalToSuperview()
-            make.height.equalToSuperview()
-            make.right.equalTo(self.snp.centerX).inset(4.0)
-        }
-        femaleLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        femaleCoverButton.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        self.titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().inset(16.0)
         }
         maleView.snp.makeConstraints { make in
-            make.right.equalToSuperview()
-            make.height.equalToSuperview()
-            make.left.equalTo(self.snp.centerX).offset(4.0)
+            make.left.equalToSuperview()
+            make.height.equalTo(LayoutConst.cellHeight)
+            make.right.equalTo(self.snp.centerX).inset(4.0)
         }
         maleLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         maleCoverButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        femaleView.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.height.equalTo(LayoutConst.cellHeight)
+            make.left.equalTo(self.snp.centerX).offset(4.0)
+        }
+        femaleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        femaleCoverButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

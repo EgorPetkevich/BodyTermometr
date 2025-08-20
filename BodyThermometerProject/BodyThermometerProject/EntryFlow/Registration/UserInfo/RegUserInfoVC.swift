@@ -52,11 +52,11 @@ final class RegUserInfoVC: UIViewController {
         .setTintColor(.appBlack)
         .setBgColor(.appWhite)
     
-    private lazy var nameTextFieldView: RegistrationTextFieldView =
-    RegistrationTextFieldView(type: .name)
+    private lazy var nameTextFieldView: UserNameTextFieldView =
+    UserNameTextFieldView()
     
-    private lazy var ageTextFieldView: RegistrationTextFieldView =
-    RegistrationTextFieldView(type: .age)
+    private lazy var ageTextFieldView: UserAgeTextFieldView =
+    UserAgeTextFieldView()
     
     private lazy var continueButtonView: ContinueButtonView =
     ContinueButtonView()

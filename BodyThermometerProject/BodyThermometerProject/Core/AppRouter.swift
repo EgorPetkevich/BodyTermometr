@@ -28,8 +28,8 @@ final class AppRouter {
     func start() {
         window = UIWindow(windowScene: windowScene)
     
-        startOnbordingFlow()
-//        startMainFlow()
+//        startOnbordingFlow()
+        startMainFlow()
     }
     
     private func setRoot(

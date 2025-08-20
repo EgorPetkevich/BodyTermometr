@@ -17,4 +17,10 @@ final class MainRouter: MainRouterProtocol {
         self.container = container
     }
     
+    func openProfile() {
+        let vc = ProfileAssembler.assebly(container: container)
+        vc.modalPresentationStyle = .fullScreen
+        root?.present(vc, animated: true)
+    }
+    
 }

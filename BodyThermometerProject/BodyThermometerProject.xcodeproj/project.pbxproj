@@ -13,9 +13,12 @@
 		F217C71A2E55CFBD005606E1 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7192E55CFBD005606E1 /* ProfileRouter.swift */; };
 		F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C71B2E55CFC4005606E1 /* ProfileAssembler.swift */; };
 		F217C71F2E55D1E4005606E1 /* ProfileUserIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C71E2E55D1E4005606E1 /* ProfileUserIconView.swift */; };
-		F217C7212E55D77B005606E1 /* ProfileTextFiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7202E55D77B005606E1 /* ProfileTextFiledView.swift */; };
 		F217C7232E55D7A7005606E1 /* ProfileGenderCellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7222E55D7A7005606E1 /* ProfileGenderCellsView.swift */; };
 		F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7242E55E4E8005606E1 /* UserNameTextFieldView.swift */; };
+		F217C7272E55EAD0005606E1 /* UserAgeTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7262E55EAD0005606E1 /* UserAgeTextFieldView.swift */; };
+		F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */; };
+		F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */; };
+		F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */; };
 		F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */; };
 		F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */; };
 		F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */; };
@@ -38,7 +41,6 @@
 		F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF76B2E51E75E0091764F /* RegistrationPageControlView.swift */; };
 		F24DF76E2E51EBA80091764F /* RegistrationPageControl+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF76D2E51EBA80091764F /* RegistrationPageControl+Setup.swift */; };
 		F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF7712E51FC950091764F /* UIColor+Style.swift */; };
-		F24DF7772E520DF50091764F /* RegistrationTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF7762E520DF50091764F /* RegistrationTextFieldView.swift */; };
 		F24DF7792E521B890091764F /* KeyboardHelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF7782E521B890091764F /* KeyboardHelperService.swift */; };
 		F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF77A2E5220C00091764F /* Reactive+UIViewController.swift */; };
 		F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DF77C2E522B380091764F /* RegistrationGenderCellsView.swift */; };
@@ -117,9 +119,12 @@
 		F217C7192E55CFBD005606E1 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		F217C71B2E55CFC4005606E1 /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
 		F217C71E2E55D1E4005606E1 /* ProfileUserIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserIconView.swift; sourceTree = "<group>"; };
-		F217C7202E55D77B005606E1 /* ProfileTextFiledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiledView.swift; sourceTree = "<group>"; };
 		F217C7222E55D7A7005606E1 /* ProfileGenderCellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGenderCellsView.swift; sourceTree = "<group>"; };
 		F217C7242E55E4E8005606E1 /* UserNameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTextFieldView.swift; sourceTree = "<group>"; };
+		F217C7262E55EAD0005606E1 /* UserAgeTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeTextFieldView.swift; sourceTree = "<group>"; };
+		F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDataManager+Profile.swift"; sourceTree = "<group>"; };
+		F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaveButtonView.swift; sourceTree = "<group>"; };
+		F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyBordHelperService+Profile.swift"; sourceTree = "<group>"; };
 		F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVC.swift; sourceTree = "<group>"; };
 		F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVM.swift; sourceTree = "<group>"; };
 		F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdAssembler.swift; sourceTree = "<group>"; };
@@ -142,7 +147,6 @@
 		F24DF76B2E51E75E0091764F /* RegistrationPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageControlView.swift; sourceTree = "<group>"; };
 		F24DF76D2E51EBA80091764F /* RegistrationPageControl+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrationPageControl+Setup.swift"; sourceTree = "<group>"; };
 		F24DF7712E51FC950091764F /* UIColor+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Style.swift"; sourceTree = "<group>"; };
-		F24DF7762E520DF50091764F /* RegistrationTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTextFieldView.swift; sourceTree = "<group>"; };
 		F24DF7782E521B890091764F /* KeyboardHelperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelperService.swift; sourceTree = "<group>"; };
 		F24DF77A2E5220C00091764F /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		F24DF77C2E522B380091764F /* RegistrationGenderCellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationGenderCellsView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		F217C7132E55CEFF005606E1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F217C7282E560D7D005606E1 /* UseCase */,
 				F217C71D2E55D1D2005606E1 /* ProfileComponents */,
 				F217C7142E55CF07005606E1 /* Router */,
 				F217C7152E55CFB0005606E1 /* ProfileVC.swift */,
@@ -267,10 +272,19 @@
 			isa = PBXGroup;
 			children = (
 				F217C71E2E55D1E4005606E1 /* ProfileUserIconView.swift */,
-				F217C7202E55D77B005606E1 /* ProfileTextFiledView.swift */,
 				F217C7222E55D7A7005606E1 /* ProfileGenderCellsView.swift */,
+				F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */,
 			);
 			path = ProfileComponents;
+			sourceTree = "<group>";
+		};
+		F217C7282E560D7D005606E1 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */,
+				F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		F246419D2E4F39C5000D0A07 /* Router */ = {
@@ -345,7 +359,6 @@
 				F264416B2E4CBF9C007D879B /* OnboardingPageControlView.swift */,
 				F24DF77C2E522B380091764F /* RegistrationGenderCellsView.swift */,
 				F24DF76B2E51E75E0091764F /* RegistrationPageControlView.swift */,
-				F24DF7762E520DF50091764F /* RegistrationTextFieldView.swift */,
 			);
 			path = RegistrationComponents;
 			sourceTree = "<group>";
@@ -390,8 +403,8 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				F217C7132E55CEFF005606E1 /* Profile */,
 				F24DF78D2E53566D0091764F /* Main */,
+				F217C7132E55CEFF005606E1 /* Profile */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
@@ -514,6 +527,7 @@
 			children = (
 				F26441642E4C7F36007D879B /* ContinueButtonView.swift */,
 				F217C7242E55E4E8005606E1 /* UserNameTextFieldView.swift */,
+				F217C7262E55EAD0005606E1 /* UserAgeTextFieldView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -920,6 +934,7 @@
 				F264415E2E4C7584007D879B /* IBMPlexSansFont.swift in Sources */,
 				F217C71F2E55D1E4005606E1 /* ProfileUserIconView.swift in Sources */,
 				F217C71A2E55CFBD005606E1 /* ProfileRouter.swift in Sources */,
+				F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */,
 				F264418E2E4E1623007D879B /* OnbThirdAssembler.swift in Sources */,
 				F29BE4572E54E023009E1D66 /* MainStatisticsDataView.swift in Sources */,
 				F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */,
@@ -935,6 +950,7 @@
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
 				F26441782E4CD35C007D879B /* OnbFirstAssembler.swift in Sources */,
 				F24641A72E4F455E000D0A07 /* PaywallRevVC.swift in Sources */,
+				F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */,
 				F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */,
 				F24DF76E2E51EBA80091764F /* RegistrationPageControl+Setup.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
@@ -950,13 +966,12 @@
 				F26441672E4C8330007D879B /* UIView+Layer.swift in Sources */,
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
 				F24DF7922E5356830091764F /* MainVM.swift in Sources */,
-				F24DF7772E520DF50091764F /* RegistrationTextFieldView.swift in Sources */,
 				F24641AB2E4F4579000D0A07 /* PaywallRevAssembler.swift in Sources */,
 				F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */,
 				F24DF7792E521B890091764F /* KeyboardHelperService.swift in Sources */,
 				F24DF7982E5370280091764F /* Gender.swift in Sources */,
 				F26441752E4CD2E0007D879B /* OnbFirstRouter.swift in Sources */,
-				F217C7212E55D77B005606E1 /* ProfileTextFiledView.swift in Sources */,
+				F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */,
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
@@ -983,6 +998,7 @@
 				F296A4092E11665B00E1348E /* Specimen.swift in Sources */,
 				F296A4242E1193C100E1348E /* ContainerConfigurator.swift in Sources */,
 				F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */,
+				F217C7272E55EAD0005606E1 /* UserAgeTextFieldView.swift in Sources */,
 				F26441622E4C788A007D879B /* AppColors.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,

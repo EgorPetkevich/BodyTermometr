@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol MainRouterProtocol {
-    
+    func openProfile()
 }
 
 protocol MainRealmDataManagerUseCaseProtocol {
@@ -22,6 +22,7 @@ final class MainVM: MainViewModelProtocol {
     @Subject(value: UserInfoDTO(UserInfoModel()))
     var userInfoDTO: Observable<UserInfoDTO>
     //In
+    var profileButtonTapped: PublishSubject<Void> = .init()
     
     private let router: MainRouterProtocol
     private let realmDataManager: MainRealmDataManagerUseCaseProtocol
@@ -42,6 +43,10 @@ final class MainVM: MainViewModelProtocol {
             .userInfo
             .bind(to: _userInfoDTO.rx)
             .disposed(by: bag)
+        profileButtonTapped.subscribe(onNext: { [weak self] in
+            self?.router.openProfile()
+        })
+        .disposed(by: bag)
         
     }
     
