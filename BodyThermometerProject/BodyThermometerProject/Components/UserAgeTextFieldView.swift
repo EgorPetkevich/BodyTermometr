@@ -38,7 +38,7 @@ final class UserAgeTextFieldView: UIView {
                            ofSize: 12.0,
                            color: .appGrey)
     
-    private lazy var textField: UITextField = {
+    lazy var textField: UITextField = {
         let tf = UITextField()
         tf.placeholder = TextConst.placeholderText
         tf.textColor = .appBlack

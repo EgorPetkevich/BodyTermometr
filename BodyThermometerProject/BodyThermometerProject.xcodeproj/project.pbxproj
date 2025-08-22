@@ -86,6 +86,16 @@
 		F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */; };
 		F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */; };
 		F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A22E4E82F3007D879B /* UIButton+Style.swift */; };
+		F289DC2F2E5728FF00E05658 /* SelectPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC2E2E5728FF00E05658 /* SelectPhotoVC.swift */; };
+		F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC302E57290400E05658 /* SelectPhotoVM.swift */; };
+		F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC332E57290E00E05658 /* SelectPhotoRouter.swift */; };
+		F289DC362E57291600E05658 /* SelectPhotoAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC352E57291600E05658 /* SelectPhotoAssembler.swift */; };
+		F289DC392E572C2400E05658 /* SelectPhotoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC382E572C2400E05658 /* SelectPhotoButtonView.swift */; };
+		F289DC3B2E575E0500E05658 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC3A2E575E0500E05658 /* FileManagerService.swift */; };
+		F289DC3D2E575E5200E05658 /* UDManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC3C2E575E5200E05658 /* UDManagerService.swift */; };
+		F289DC3F2E57618100E05658 /* UserIconPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC3E2E57618100E05658 /* UserIconPath.swift */; };
+		F289DC422E57628600E05658 /* FileManagerService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC412E57628600E05658 /* FileManagerService+Profile.swift */; };
+		F28DF4A22E587D2B00B1F773 /* FileManagerService+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28DF4A12E587D2B00B1F773 /* FileManagerService+Main.swift */; };
 		F296A3F52E11533500E1348E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296A3F42E11533500E1348E /* AppDelegate.swift */; };
 		F296A3F72E11533500E1348E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296A3F62E11533500E1348E /* SceneDelegate.swift */; };
 		F296A3FE2E11533800E1348E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F296A3FD2E11533800E1348E /* Assets.xcassets */; };
@@ -192,6 +202,16 @@
 		F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialAssembler.swift; sourceTree = "<group>"; };
 		F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialRouter.swift; sourceTree = "<group>"; };
 		F26441A22E4E82F3007D879B /* UIButton+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Style.swift"; sourceTree = "<group>"; };
+		F289DC2E2E5728FF00E05658 /* SelectPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoVC.swift; sourceTree = "<group>"; };
+		F289DC302E57290400E05658 /* SelectPhotoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoVM.swift; sourceTree = "<group>"; };
+		F289DC332E57290E00E05658 /* SelectPhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoRouter.swift; sourceTree = "<group>"; };
+		F289DC352E57291600E05658 /* SelectPhotoAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoAssembler.swift; sourceTree = "<group>"; };
+		F289DC382E572C2400E05658 /* SelectPhotoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoButtonView.swift; sourceTree = "<group>"; };
+		F289DC3A2E575E0500E05658 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		F289DC3C2E575E5200E05658 /* UDManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDManagerService.swift; sourceTree = "<group>"; };
+		F289DC3E2E57618100E05658 /* UserIconPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIconPath.swift; sourceTree = "<group>"; };
+		F289DC412E57628600E05658 /* FileManagerService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManagerService+Profile.swift"; sourceTree = "<group>"; };
+		F28DF4A12E587D2B00B1F773 /* FileManagerService+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManagerService+Main.swift"; sourceTree = "<group>"; };
 		F296A3F12E11533500E1348E /* BodyThermometerProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyThermometerProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F296A3F42E11533500E1348E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F296A3F62E11533500E1348E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,8 +270,8 @@
 		F217C7132E55CEFF005606E1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				F217C7282E560D7D005606E1 /* UseCase */,
 				F217C71D2E55D1D2005606E1 /* ProfileComponents */,
+				F217C7282E560D7D005606E1 /* UseCase */,
 				F217C7142E55CF07005606E1 /* Router */,
 				F217C7152E55CFB0005606E1 /* ProfileVC.swift */,
 				F217C7172E55CFB7005606E1 /* ProfileVM.swift */,
@@ -283,6 +303,7 @@
 			children = (
 				F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */,
 				F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */,
+				F289DC412E57628600E05658 /* FileManagerService+Profile.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -403,6 +424,7 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F289DC2D2E5728E100E05658 /* SelectPhoto */,
 				F24DF78D2E53566D0091764F /* Main */,
 				F217C7132E55CEFF005606E1 /* Profile */,
 			);
@@ -434,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				F24DF79C2E5375C10091764F /* RealDataManager+Main.swift */,
+				F28DF4A12E587D2B00B1F773 /* FileManagerService+Main.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -454,12 +477,13 @@
 			path = MO;
 			sourceTree = "<group>";
 		};
-		F24DF7A32E5388020091764F /* Gender */ = {
+		F24DF7A32E5388020091764F /* Setup */ = {
 			isa = PBXGroup;
 			children = (
 				F24DF7972E5370280091764F /* Gender.swift */,
+				F289DC3E2E57618100E05658 /* UserIconPath.swift */,
 			);
-			path = Gender;
+			path = Setup;
 			sourceTree = "<group>";
 		};
 		F26440F72E4C6E8C007D879B /* Onboarding */ = {
@@ -640,6 +664,34 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F289DC2D2E5728E100E05658 /* SelectPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				F289DC372E572C0000E05658 /* Components */,
+				F289DC322E57290700E05658 /* Router */,
+				F289DC2E2E5728FF00E05658 /* SelectPhotoVC.swift */,
+				F289DC302E57290400E05658 /* SelectPhotoVM.swift */,
+				F289DC352E57291600E05658 /* SelectPhotoAssembler.swift */,
+			);
+			path = SelectPhoto;
+			sourceTree = "<group>";
+		};
+		F289DC322E57290700E05658 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F289DC332E57290E00E05658 /* SelectPhotoRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F289DC372E572C0000E05658 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F289DC382E572C2400E05658 /* SelectPhotoButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F296A3E82E11533500E1348E = {
 			isa = PBXGroup;
 			children = (
@@ -738,6 +790,8 @@
 			isa = PBXGroup;
 			children = (
 				F24DF7782E521B890091764F /* KeyboardHelperService.swift */,
+				F289DC3A2E575E0500E05658 /* FileManagerService.swift */,
+				F289DC3C2E575E5200E05658 /* UDManagerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -745,7 +799,7 @@
 		F296A4192E11737F00E1348E /* RealmDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				F24DF7A32E5388020091764F /* Gender */,
+				F24DF7A32E5388020091764F /* Setup */,
 				F24DF7A22E5381C20091764F /* MO */,
 				F24DF79F2E53818E0091764F /* DTO */,
 				F296A41A2E11739E00E1348E /* RealmModels */,
@@ -927,6 +981,7 @@
 				F24DF77F2E531FD40091764F /* UserInfoModel.swift in Sources */,
 				F296A42F2E11981D00E1348E /* SubjectsProtocols.swift in Sources */,
 				F26440F92E4C6F6E007D879B /* OnbFirstVC.swift in Sources */,
+				F289DC392E572C2400E05658 /* SelectPhotoButtonView.swift in Sources */,
 				F296A4332E11985100E1348E /* Subject.swift in Sources */,
 				F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */,
 				F264417C2E4CE63A007D879B /* UIImageView+Set.swift in Sources */,
@@ -945,6 +1000,7 @@
 				F26441842E4E07EC007D879B /* OnbSecondAssebler.swift in Sources */,
 				F296A41C2E117C4A00E1348E /* UITableView+Register.swift in Sources */,
 				F24DF75A2E51DE460091764F /* RegUserInfoVM.swift in Sources */,
+				F289DC422E57628600E05658 /* FileManagerService+Profile.swift in Sources */,
 				F24DF79D2E5375C10091764F /* RealDataManager+Main.swift in Sources */,
 				F24641B22E4FB43F000D0A07 /* PaywallButtonView.swift in Sources */,
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
@@ -955,15 +1011,19 @@
 				F24DF76E2E51EBA80091764F /* RegistrationPageControl+Setup.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
 				F29BE4552E547C65009E1D66 /* UIIMageView+Style.swift in Sources */,
+				F289DC2F2E5728FF00E05658 /* SelectPhotoVC.swift in Sources */,
 				F24DF75C2E51DE4C0091764F /* RegUserInfoAssembler.swift in Sources */,
 				F296A40B2E11681300E1348E /* Category.swift in Sources */,
 				F217C7232E55D7A7005606E1 /* ProfileGenderCellsView.swift in Sources */,
 				F296A3F52E11533500E1348E /* AppDelegate.swift in Sources */,
 				F296A41F2E118B2200E1348E /* RealmDataManager.swift in Sources */,
+				F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */,
+				F289DC362E57291600E05658 /* SelectPhotoAssembler.swift in Sources */,
 				F29BE4532E547B6F009E1D66 /* MainBodyTempView.swift in Sources */,
 				F264418C2E4E15F6007D879B /* OnbThirdRouter.swift in Sources */,
 				F24641A52E4F3A5F000D0A07 /* PaywallProdRouter.swift in Sources */,
 				F26441672E4C8330007D879B /* UIView+Layer.swift in Sources */,
+				F289DC3F2E57618100E05658 /* UserIconPath.swift in Sources */,
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
 				F24DF7922E5356830091764F /* MainVM.swift in Sources */,
 				F24641AB2E4F4579000D0A07 /* PaywallRevAssembler.swift in Sources */,
@@ -986,6 +1046,7 @@
 				F26440FB2E4C6F7B007D879B /* OnbSecondVC.swift in Sources */,
 				F26441972E4E212E007D879B /* PaywallProdTrialVC.swift in Sources */,
 				F296A4312E11982F00E1348E /* OutputProperty.swift in Sources */,
+				F289DC3D2E575E5200E05658 /* UDManagerService.swift in Sources */,
 				F24DF7682E51DF3E0091764F /* RegGenderRouter.swift in Sources */,
 				F26440FD2E4C6F88007D879B /* OnbThirdVC.swift in Sources */,
 				F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */,
@@ -993,6 +1054,7 @@
 				F296A4222E11930C00E1348E /* Container.swift in Sources */,
 				F264416C2E4CBF9C007D879B /* OnboardingPageControlView.swift in Sources */,
 				F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */,
+				F28DF4A22E587D2B00B1F773 /* FileManagerService+Main.swift in Sources */,
 				F26441072E4C7337007D879B /* UILabel+Style.swift in Sources */,
 				F24DF7662E51DF360091764F /* RegGenderAssembler.swift in Sources */,
 				F296A4092E11665B00E1348E /* Specimen.swift in Sources */,
@@ -1000,6 +1062,7 @@
 				F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */,
 				F217C7272E55EAD0005606E1 /* UserAgeTextFieldView.swift in Sources */,
 				F26441622E4C788A007D879B /* AppColors.swift in Sources */,
+				F289DC3B2E575E0500E05658 /* FileManagerService.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
 				F24641AD2E4F4587000D0A07 /* PaywallRevRouter.swift in Sources */,
@@ -1015,6 +1078,7 @@
 				F26441862E4E0930007D879B /* AppRouter.swift in Sources */,
 				F26441652E4C7F36007D879B /* ContinueButtonView.swift in Sources */,
 				F296A3F72E11533500E1348E /* SceneDelegate.swift in Sources */,
+				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,
 			);

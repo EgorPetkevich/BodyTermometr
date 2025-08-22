@@ -14,19 +14,23 @@ protocol ProfileViewModelProtocol {
     //Out
     var userInfoDTO: Observable<UserInfoDTO> { get }
     var keyBoardFrame: Observable<CGRect> { get }
+    var iconImage: Observable<UIImage> { get }
     //In
     var backButtonTapped: PublishSubject<Void> { get }
+    var choosePhotoButtonTapped: PublishSubject<Void> { get }
     var saveButtonTapped: PublishSubject<Void> { get }
     var userNameSubject: BehaviorSubject<String?> { get }
     var userAgeSubject: BehaviorSubject<String?> { get }
     var userGenderSubject: BehaviorSubject<Gender> { get }
+    
+    func viewDidLoad()
 }
 
 final class ProfileVC: UIViewController {
     
     private enum TextConst {
         static let titleText: String = "Profile"
-        static let choosePhotoText: String = "Choose photo"
+        static let choosePhotoText: String = " " + "Choose photo"
     }
     
     private enum LayoutConst {
@@ -40,6 +44,7 @@ final class ProfileVC: UIViewController {
     UIButton(type: .system)
         .setImage(.arrowLeftIcon)
         .setBgColor(.appWhite)
+        .setTintColor(.appBlack)
     
     private lazy var userIconView: ProfileUserIconView = ProfileUserIconView()
     
@@ -47,6 +52,7 @@ final class ProfileVC: UIViewController {
     UIButton(type: .system)
         .setImage(.cameraIcon)
         .setTitle(TextConst.choosePhotoText)
+        .setFont(.appSemiBoldFont(ofSize: 14.0))
         .setTintColor(.appBlack)
     
     private lazy var userNameTextFieldView: UserNameTextFieldView =
@@ -66,6 +72,8 @@ final class ProfileVC: UIViewController {
     
     private var bag = DisposeBag()
     
+    private var hasCustomIcon = false
+    
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -80,54 +88,18 @@ final class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         self.view.backgroundColor = .appBg
         rx.hideKeyboardOnTap(disposeBag: bag)
     }
     
     private func bind() {
-        viewModel
-            .userInfoDTO
-            .subscribe(onNext: { [weak self] dto in
-                self?.setupUserInfo(with: dto)
-            })
-            .disposed(by: bag)
-        
-        backButton.rx.tap
-            .bind(to: viewModel.backButtonTapped)
-            .disposed(by: bag)
-        
-        saveButton.rx.tap
-            .bind(to: viewModel.saveButtonTapped)
-            .disposed(by: bag)
-        
-        userNameTextFieldView
-            .textFieldTextObservable
-            .bind(to: viewModel.userNameSubject)
-            .disposed(by: bag)
-        userAgeTextFieldView.textFieldTextObservable
-            .bind(to: viewModel.userAgeSubject)
-            .disposed(by: bag)
-        userGenderCellsView
-            .selectedGenderSubject
-            .bind(to: viewModel.userGenderSubject)
-            .disposed(by: bag)
-        
-        viewModel.keyBoardFrame
-            .map { $0.height }
-            .map { height -> CGFloat in
-                height > 0 ? 24 + height : 47
-            }
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] inset in
-                guard let self else { return }
-                self.saveButtonBottomConstraint?.update(inset: inset)
-
-                UIView.animate(withDuration: 0.25) {
-                    self.view.layoutIfNeeded()
-                }
-            })
-            .disposed(by: bag)
-        
+        bindViewModelOutputs()
+        bindActions()
+        bindTextInputs()
+        bindGenderIconUpdates()
+        bindKeyboardInset()
+        bindAgeFieldEditingAnimation()
     }
     
 }
@@ -178,9 +150,9 @@ private extension ProfileVC {
             make.top.equalTo(userAgeTextFieldView.snp.bottom).offset(16.0)
         }
         saveButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(16.0)
+            make.horizontalEdges.equalToSuperview()
             saveButtonBottomConstraint =
-            make.bottom.equalToSuperview().inset(47.0).constraint
+            make.bottom.equalToSuperview().inset(43.0).constraint
         }
         
     }
@@ -188,8 +160,129 @@ private extension ProfileVC {
     private func setupUserInfo(with dto: UserInfoDTO) {
         userNameTextFieldView.textFieldText = dto.userName
         userAgeTextFieldView.textFieldText = dto.userAge
-        userIconView.icon = dto.gender?.icon
+        if !hasCustomIcon {
+            userIconView.icon = dto.gender?.icon
+        }
         userGenderCellsView.selectedGenderSubject.onNext(dto.gender ?? .female)
     }
     
+    // MARK: - Bindings split
+    func bindViewModelOutputs() {
+        viewModel
+            .userInfoDTO
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, dto in
+                owner.setupUserInfo(with: dto)
+            })
+            .disposed(by: bag)
+
+        viewModel.iconImage
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, image in
+                owner.hasCustomIcon = true
+                owner.userIconView.iconImageView.image = image
+            })
+            .disposed(by: bag)
+    }
+
+    func bindActions() {
+        backButton.rx.tap
+            .bind(to: viewModel.backButtonTapped)
+            .disposed(by: bag)
+
+        choosePhotoButton.rx.tap
+            .bind(to: viewModel.choosePhotoButtonTapped)
+            .disposed(by: bag)
+
+        userIconView.tap
+            .bind(to: viewModel.choosePhotoButtonTapped)
+            .disposed(by: bag)
+
+        saveButton.onTap
+            .bind(to: viewModel.saveButtonTapped)
+            .disposed(by: bag)
+    }
+
+    func bindTextInputs() {
+        userNameTextFieldView
+            .textFieldTextObservable
+            .bind(to: viewModel.userNameSubject)
+            .disposed(by: bag)
+
+        userAgeTextFieldView
+            .textFieldTextObservable
+            .bind(to: viewModel.userAgeSubject)
+            .disposed(by: bag)
+
+        userGenderCellsView
+            .selectedGenderSubject
+            .bind(to: viewModel.userGenderSubject)
+            .disposed(by: bag)
+    }
+
+    func bindGenderIconUpdates() {
+        userGenderCellsView
+            .selectedGenderSubject
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, gender in
+                if !owner.hasCustomIcon {
+                    owner.userIconView.icon = gender.icon
+                }
+            })
+            .disposed(by: bag)
+    }
+
+    func bindKeyboardInset() {
+        viewModel.keyBoardFrame
+            .map { $0.height }
+            .map { $0 > 0 ? $0 : 43 }
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, inset in
+                owner.saveButtonBottomConstraint?.update(inset: inset)
+                UIView.animate(withDuration: 0.25) {
+                    owner.view.layoutIfNeeded()
+                }
+            })
+            .disposed(by: bag)
+    }
+
+    func bindAgeFieldEditingAnimation() {
+        userAgeTextFieldView.textField.rx.controlEvent(.editingDidBegin)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.setEditMode(true)
+            })
+            .disposed(by: bag)
+
+        userAgeTextFieldView.textField.rx.controlEvent(.editingDidEnd)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.setEditMode(false)
+            })
+            .disposed(by: bag)
+    }
+
+    // MARK: - UI state helpers
+    func setEditMode(_ editing: Bool) {
+        userIconView.isHidden = editing
+        choosePhotoButton.isHidden = editing
+        saveButton.backgroundColor = editing ? .appBgBlur : .appBg
+
+        userNameTextFieldView.snp.remakeConstraints { make in
+            if editing {
+                make.top.equalTo(view.snp.top).inset(106.0)
+            } else {
+                make.top.equalTo(choosePhotoButton.snp.bottom).offset(24.0)
+            }
+            make.horizontalEdges.equalToSuperview().inset(16.0)
+        }
+
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+    }
 }

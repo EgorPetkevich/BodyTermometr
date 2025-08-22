@@ -16,7 +16,9 @@ final class MainProfileButtonView: UIView {
         static let size: CGSize = .init(width: 48.0, height: 48.0)
     }
     
-    private lazy var iconImageView: UIImageView = UIImageView()
+    private lazy var iconImageView: UIImageView =
+    UIImageView()
+        .contentMode(.scaleAspectFill)
     private lazy var coverButton: UIButton = UIButton()
     
     var tap: Observable<Void> {
@@ -67,6 +69,7 @@ private extension MainProfileButtonView {
 
     func commonInit() {
         self.backgroundColor = .appWhite
+        self.clipsToBounds = true
         self.addSubview(iconImageView)
         self.addSubview(coverButton)
         coverButton.layer.zPosition = .greatestFiniteMagnitude

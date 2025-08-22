@@ -15,10 +15,14 @@ final class ProfileAssembler {
         let router = ProfileRouter(container: container)
         let realmDataManager =
         ProfileRealmDataManagerUseCase(realmDataManager: container.resolve())
-        let keybordHelper = ProfileKeyBoardHelperServiceUseCase(keyBoardHelperService: container.resolve())
+        let fileManageService =
+        ProfileFileManagerServiceUseCase(fileManager: container.resolve())
+        let keybordHelper =
+        ProfileKeyBoardHelperServiceUseCase(keyBoardHelperService: container.resolve())
         let viewModel = ProfileVM(router: router,
                                   realmDataManager: realmDataManager,
-                                  keyboardHelper: keybordHelper)
+                                  keyboardHelper: keybordHelper,
+                                  fileManageService: fileManageService)
         let viewController = ProfileVC(viewModel: viewModel)
                                        
         

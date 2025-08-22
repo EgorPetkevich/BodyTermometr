@@ -12,7 +12,7 @@ struct UserInfoDTO: Equatable {
     var userName: String = ""
     var userAge: String = ""
     var gender: Gender?
-    
+    var iconPath: String = UserIconPath.path.rawValue
     init(_ m: UserInfoModel) {
         id = "current"
         userName = m.userName

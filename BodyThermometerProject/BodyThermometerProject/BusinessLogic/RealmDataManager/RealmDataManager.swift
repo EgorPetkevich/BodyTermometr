@@ -105,6 +105,23 @@ extension RealmDataManager {
         }
     }
     
+    func updateIconPath(_ path: String) {
+        let model = get(UserInfoModel.self, primaryKey: "current") ?? {
+            let m = UserInfoModel()
+            m.id = "current"
+            return m
+        }()
+
+        do {
+            try realm.write {
+                model.iconPath = path
+                realm.add(model, update: .modified)
+            }
+        } catch {
+            print("Realm write error:", error)
+        }
+    }
+    
     
     func getUserInfoDTO() -> UserInfoDTO {
         let model = get(UserInfoModel.self,

@@ -17,6 +17,7 @@ final class ContainerConfigurator {
         container.lazyRegister { RealmDataManager() }
         container.lazyRegister { KeyboardHelperService() }
         container.lazyRegister { RealmDataManager() }
+        container.lazyRegister { FileManagerService() }
         
         return container
     }

@@ -23,4 +23,5 @@ extension UIColor {
     
     static let appBg: UIColor = .init(229, 236, 238, 1)
     static let appButton: UIColor = .init(99, 208, 247, 1)
+    static let appBgBlur: UIColor = .init(255, 255, 255, 0.01)
 }

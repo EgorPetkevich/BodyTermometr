@@ -15,9 +15,11 @@ final class MainAssembler {
         let router = MainRouter(container: container)
         let realmDataManager =
         MainRealmDataManagerUseCase(realmDataManager: container.resolve())
-        
+        let fileManagerService =
+        MainFileManagerServiceUseCase(fileManager: container.resolve())
         let viewModel = MainVM(router: router,
-                               realmDataManager: realmDataManager)
+                               realmDataManager: realmDataManager,
+                               fileManageService: fileManagerService)
         let viewController = MainVC(viewModel: viewModel)
         
         router.root = viewController

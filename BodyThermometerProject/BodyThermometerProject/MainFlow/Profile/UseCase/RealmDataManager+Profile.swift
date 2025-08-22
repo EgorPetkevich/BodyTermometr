@@ -25,4 +25,8 @@ struct ProfileRealmDataManagerUseCase: ProfileRealmDataManagerUseCaseProtocol {
         realmDataManager.saveUserInfo(name: name, age: age, gender: gender)
     }
     
+    func updateIconPath(_ iconPath: String) {
+        realmDataManager.updateIconPath(iconPath)
+    }
+    
 }

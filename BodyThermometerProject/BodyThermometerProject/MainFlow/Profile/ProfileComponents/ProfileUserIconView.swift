@@ -16,7 +16,8 @@ final class ProfileUserIconView: UIView {
         static let size: CGSize = .init(width: 100.0, height: 100.0)
     }
     
-    private lazy var iconImageView: UIImageView = UIImageView()
+    lazy var iconImageView: UIImageView = UIImageView()
+        .contentMode(.scaleAspectFill)
     private lazy var coverButton: UIButton = UIButton()
     
     var tap: Observable<Void> {
@@ -27,6 +28,8 @@ final class ProfileUserIconView: UIView {
         get { iconImageView.image }
         set { iconImageView.image = newValue }
     }
+    
+    var reactiveIcon: Binder<UIImage?> { iconImageView.rx.image }
     
     private let bag = DisposeBag()
     
@@ -67,6 +70,7 @@ private extension ProfileUserIconView {
 
     func commonInit() {
         self.backgroundColor = .appWhite
+        self.clipsToBounds = true
         self.addSubview(iconImageView)
         self.addSubview(coverButton)
         coverButton.layer.zPosition = .greatestFiniteMagnitude

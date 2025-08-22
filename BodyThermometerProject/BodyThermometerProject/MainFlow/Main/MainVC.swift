@@ -13,8 +13,11 @@ import SnapKit
 protocol MainViewModelProtocol {
     //Out
     var userInfoDTO: Observable<UserInfoDTO> { get }
+    var iconImage: Observable<UIImage> { get }
     //In
     var profileButtonTapped: PublishSubject<Void> { get }
+    
+    func viewWillAppear()
 }
 
 final class MainVC: UIViewController {
@@ -27,6 +30,8 @@ final class MainVC: UIViewController {
             userName.isEmpty ? "Hi there!" : "Hi there, \(userName)!"
         }
     }
+    
+    private var hasCustomIcon = false
     
     private lazy var titleLabel: UILabel =
         .semiBoldTitleLabel(withText: TextConst.titleText, ofSize: 42.0)
@@ -66,6 +71,7 @@ final class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
         navigationController?.setNavigationBarHidden(true,
                                                      animated: false)
     }
@@ -79,6 +85,14 @@ final class MainVC: UIViewController {
             .disposed(by: bag)
         profileButton.tap
             .bind(to: viewModel.profileButtonTapped)
+            .disposed(by: bag)
+        viewModel.iconImage
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] image in
+                guard let self else { return }
+                self.hasCustomIcon = true
+                self.profileButton.icon = image
+            })
             .disposed(by: bag)
     }
     

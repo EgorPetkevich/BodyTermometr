@@ -27,7 +27,7 @@ final class RegistrationGenderCellsView: UIView {
                           ofSize: 18.0,
                           color: .appWhite)
     private lazy var maleLabel: UILabel =
-        .mediumTitleLabel(withText: TextConst.female,
+        .mediumTitleLabel(withText: TextConst.male,
                           ofSize: 18.0,
                           color: .appBlack)
     

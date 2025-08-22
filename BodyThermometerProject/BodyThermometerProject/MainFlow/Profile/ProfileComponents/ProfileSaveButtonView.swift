@@ -17,13 +17,17 @@ final class ProfileSaveButtonView: UIButton {
     }
     
     private enum LayoutConst {
-        static let height: CGFloat = 64.0
+        static let height: CGFloat = 76.0
+        static let buttonHeight: CGFloat = 64.0
     }
     
     private lazy var saveLabel: UILabel =
         .semiBoldTitleLabel(withText: TextConst.saveText, ofSize: 14.0)
+    private lazy var buttonView: UIView =
+    UIView()
+        .bgColor(.appButton)
     
-    private lazy var coverButton: UIButton = UIButton()
+    private var coverButton: UIButton = UIButton()
     
     var onTap: Observable<Void> {
         coverButton.rx.tap.asObservable()
@@ -68,10 +72,11 @@ final class ProfileSaveButtonView: UIButton {
 private extension ProfileSaveButtonView {
     
     func commonInit() {
-        self.backgroundColor = .appButton
+        self.backgroundColor = .appBg
         //add subs
-        self.addSubview(saveLabel)
-        self.addSubview(coverButton)
+        self.addSubview(buttonView)
+        buttonView.addSubview(saveLabel)
+        buttonView.addSubview(coverButton)
         coverButton.layer.zPosition = .greatestFiniteMagnitude
     }
     
@@ -79,7 +84,12 @@ private extension ProfileSaveButtonView {
         self.snp.makeConstraints { make in
             make.height.equalTo(LayoutConst.height)
         }
-        self.radius = LayoutConst.height / 2.0
+        buttonView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16.0)
+            make.top.equalToSuperview().inset(8.0)
+            make.bottom.equalToSuperview().inset(4.0)
+        }
+        buttonView.radius = LayoutConst.buttonHeight / 2.0
         saveLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }

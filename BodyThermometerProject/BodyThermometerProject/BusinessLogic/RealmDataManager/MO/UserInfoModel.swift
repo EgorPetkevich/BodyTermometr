@@ -13,4 +13,5 @@ final class UserInfoModel: Object {
     @Persisted var userName: String = ""
     @Persisted var userAge: String = ""
     @Persisted var gender: Gender?
+    @Persisted var iconPath: String = UserIconPath.path.rawValue
 }
