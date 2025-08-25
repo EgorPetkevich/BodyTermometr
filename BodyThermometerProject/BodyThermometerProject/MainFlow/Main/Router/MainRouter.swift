@@ -23,4 +23,15 @@ final class MainRouter: MainRouterProtocol {
         root?.present(vc, animated: true)
     }
     
+    func openSettings() {
+        let vc = SettingsAssembler.assembly()
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 663 }]
+            sheet.prefersGrabberVisible = false
+        }
+        vc.modalPresentationStyle = .pageSheet
+
+        root?.present(vc, animated: true)
+    }
+    
 }

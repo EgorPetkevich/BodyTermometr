@@ -110,7 +110,6 @@ final class ProfileVM: NSObject, ProfileViewModelProtocol {
         realmDataManager
             .userInfo
             .do(onNext: { [weak self] dto in
-                // propagate DTO values into input subjects so validation sees them as filled
                 self?.userNameSubject.onNext(dto.userName)
                 self?.userAgeSubject.onNext(dto.userAge)
                 if let gender = dto.gender { self?.userGenderSubject.onNext(gender) }

@@ -116,6 +116,21 @@
 		F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */; };
 		F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */; };
 		F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */; };
+		F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */; };
+		F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */; };
+		F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */; };
+		F2FABDD92E5B5C6A0035BF77 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD82E5B5C6A0035BF77 /* SettingsRouter.swift */; };
+		F2FABDDE2E5C56DF0035BF77 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDDD2E5C56DF0035BF77 /* SettingsSection.swift */; };
+		F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDDF2E5C59E60035BF77 /* SettingsRow.swift */; };
+		F2FABDE32E5C741D0035BF77 /* SettingsGoPremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDE22E5C741D0035BF77 /* SettingsGoPremiumView.swift */; };
+		F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDE42E5C7D990035BF77 /* AppConfig.swift */; };
+		F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABEF42E5C8E280035BF77 /* StoreKit+Review.swift */; };
+		F2FABEF72E5C8FC00035BF77 /* MailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABEF62E5C8FC00035BF77 /* MailVC.swift */; };
+		F2FABEFC2E5C8FF30035BF77 /* MailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABEFB2E5C8FF30035BF77 /* MailAssembler.swift */; };
+		F2FABF042E5CC4680035BF77 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF032E5CC4680035BF77 /* NotificationVC.swift */; };
+		F2FABF062E5CC46D0035BF77 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */; };
+		F2FABF082E5CC4750035BF77 /* NotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF072E5CC4750035BF77 /* NotificationAssembler.swift */; };
+		F2FABF0B2E5CC4850035BF77 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF0A2E5CC4850035BF77 /* NotificationRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +249,21 @@
 		F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeartRateView.swift; sourceTree = "<group>"; };
 		F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileButtonView.swift; sourceTree = "<group>"; };
 		F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButtonView.swift; sourceTree = "<group>"; };
+		F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembler.swift; sourceTree = "<group>"; };
+		F2FABDD82E5B5C6A0035BF77 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		F2FABDDD2E5C56DF0035BF77 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		F2FABDDF2E5C59E60035BF77 /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
+		F2FABDE22E5C741D0035BF77 /* SettingsGoPremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGoPremiumView.swift; sourceTree = "<group>"; };
+		F2FABDE42E5C7D990035BF77 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		F2FABEF42E5C8E280035BF77 /* StoreKit+Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreKit+Review.swift"; sourceTree = "<group>"; };
+		F2FABEF62E5C8FC00035BF77 /* MailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailVC.swift; sourceTree = "<group>"; };
+		F2FABEFB2E5C8FF30035BF77 /* MailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAssembler.swift; sourceTree = "<group>"; };
+		F2FABF032E5CC4680035BF77 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
+		F2FABF072E5CC4750035BF77 /* NotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAssembler.swift; sourceTree = "<group>"; };
+		F2FABF0A2E5CC4850035BF77 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +454,9 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F2FABF022E5CC4560035BF77 /* Notification */,
+				F2FABEFA2E5C8FCB0035BF77 /* Mail */,
+				F2FABDD02E5B5C0E0035BF77 /* Settings */,
 				F289DC2D2E5728E100E05658 /* SelectPhoto */,
 				F24DF78D2E53566D0091764F /* Main */,
 				F217C7132E55CEFF005606E1 /* Profile */,
@@ -744,6 +777,7 @@
 				F26441662E4C8330007D879B /* UIView+Layer.swift */,
 				F26441792E4CE14B007D879B /* UILabel+Set.swift */,
 				F264417B2E4CE63A007D879B /* UIImageView+Set.swift */,
+				F2FABEF42E5C8E280035BF77 /* StoreKit+Review.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -755,6 +789,7 @@
 				F296A3F62E11533500E1348E /* SceneDelegate.swift */,
 				F26441852E4E0930007D879B /* AppRouter.swift */,
 				F24DF7892E5340C90091764F /* AppFlow.swift */,
+				F2FABDE42E5C7D990035BF77 /* AppConfig.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -855,6 +890,88 @@
 				F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */,
 			);
 			path = MainComponents;
+			sourceTree = "<group>";
+		};
+		F2FABDD02E5B5C0E0035BF77 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDE12E5C73F90035BF77 /* SettingsComponents */,
+				F2FABDDA2E5C56B80035BF77 /* Adapter */,
+				F2FABDD72E5B5C560035BF77 /* Router */,
+				F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */,
+				F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */,
+				F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F2FABDD72E5B5C560035BF77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDD82E5B5C6A0035BF77 /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F2FABDDA2E5C56B80035BF77 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDDB2E5C56C20035BF77 /* Section */,
+				F2FABDDC2E5C56CD0035BF77 /* Row */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		F2FABDDB2E5C56C20035BF77 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDDD2E5C56DF0035BF77 /* SettingsSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		F2FABDDC2E5C56CD0035BF77 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDDF2E5C59E60035BF77 /* SettingsRow.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		F2FABDE12E5C73F90035BF77 /* SettingsComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDE22E5C741D0035BF77 /* SettingsGoPremiumView.swift */,
+			);
+			path = SettingsComponents;
+			sourceTree = "<group>";
+		};
+		F2FABEFA2E5C8FCB0035BF77 /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABEF62E5C8FC00035BF77 /* MailVC.swift */,
+				F2FABEFB2E5C8FF30035BF77 /* MailAssembler.swift */,
+			);
+			path = Mail;
+			sourceTree = "<group>";
+		};
+		F2FABF022E5CC4560035BF77 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABF092E5CC47A0035BF77 /* Router */,
+				F2FABF032E5CC4680035BF77 /* NotificationVC.swift */,
+				F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */,
+				F2FABF072E5CC4750035BF77 /* NotificationAssembler.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		F2FABF092E5CC47A0035BF77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABF0A2E5CC4850035BF77 /* NotificationRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -983,6 +1100,7 @@
 				F26440F92E4C6F6E007D879B /* OnbFirstVC.swift in Sources */,
 				F289DC392E572C2400E05658 /* SelectPhotoButtonView.swift in Sources */,
 				F296A4332E11985100E1348E /* Subject.swift in Sources */,
+				F2FABDE32E5C741D0035BF77 /* SettingsGoPremiumView.swift in Sources */,
 				F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */,
 				F264417C2E4CE63A007D879B /* UIImageView+Set.swift in Sources */,
 				F24DF7942E53568B0091764F /* MainAssembler.swift in Sources */,
@@ -991,6 +1109,7 @@
 				F217C71A2E55CFBD005606E1 /* ProfileRouter.swift in Sources */,
 				F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */,
 				F264418E2E4E1623007D879B /* OnbThirdAssembler.swift in Sources */,
+				F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */,
 				F29BE4572E54E023009E1D66 /* MainStatisticsDataView.swift in Sources */,
 				F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */,
 				F26441692E4C84F5007D879B /* UIView+Style.swift in Sources */,
@@ -1001,6 +1120,7 @@
 				F296A41C2E117C4A00E1348E /* UITableView+Register.swift in Sources */,
 				F24DF75A2E51DE460091764F /* RegUserInfoVM.swift in Sources */,
 				F289DC422E57628600E05658 /* FileManagerService+Profile.swift in Sources */,
+				F2FABF0B2E5CC4850035BF77 /* NotificationRouter.swift in Sources */,
 				F24DF79D2E5375C10091764F /* RealDataManager+Main.swift in Sources */,
 				F24641B22E4FB43F000D0A07 /* PaywallButtonView.swift in Sources */,
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
@@ -1008,10 +1128,13 @@
 				F24641A72E4F455E000D0A07 /* PaywallRevVC.swift in Sources */,
 				F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */,
 				F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */,
+				F2FABDD92E5B5C6A0035BF77 /* SettingsRouter.swift in Sources */,
 				F24DF76E2E51EBA80091764F /* RegistrationPageControl+Setup.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
 				F29BE4552E547C65009E1D66 /* UIIMageView+Style.swift in Sources */,
 				F289DC2F2E5728FF00E05658 /* SelectPhotoVC.swift in Sources */,
+				F2FABF062E5CC46D0035BF77 /* NotificationVM.swift in Sources */,
+				F2FABEFC2E5C8FF30035BF77 /* MailAssembler.swift in Sources */,
 				F24DF75C2E51DE4C0091764F /* RegUserInfoAssembler.swift in Sources */,
 				F296A40B2E11681300E1348E /* Category.swift in Sources */,
 				F217C7232E55D7A7005606E1 /* ProfileGenderCellsView.swift in Sources */,
@@ -1028,6 +1151,7 @@
 				F24DF7922E5356830091764F /* MainVM.swift in Sources */,
 				F24641AB2E4F4579000D0A07 /* PaywallRevAssembler.swift in Sources */,
 				F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */,
+				F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */,
 				F24DF7792E521B890091764F /* KeyboardHelperService.swift in Sources */,
 				F24DF7982E5370280091764F /* Gender.swift in Sources */,
 				F26441752E4CD2E0007D879B /* OnbFirstRouter.swift in Sources */,
@@ -1041,6 +1165,7 @@
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
 				F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */,
 				F217C7182E55CFB7005606E1 /* ProfileVM.swift in Sources */,
+				F2FABEF72E5C8FC00035BF77 /* MailVC.swift in Sources */,
 				F24DF7882E5334120091764F /* RealmDataManager+RegGender.swift in Sources */,
 				F264418A2E4E15C0007D879B /* OnbThirdVM.swift in Sources */,
 				F26440FB2E4C6F7B007D879B /* OnbSecondVC.swift in Sources */,
@@ -1050,8 +1175,11 @@
 				F24DF7682E51DF3E0091764F /* RegGenderRouter.swift in Sources */,
 				F26440FD2E4C6F88007D879B /* OnbThirdVC.swift in Sources */,
 				F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */,
+				F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */,
 				F26441722E4CCFC4007D879B /* OnbFirstVM.swift in Sources */,
+				F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */,
 				F296A4222E11930C00E1348E /* Container.swift in Sources */,
+				F2FABDDE2E5C56DF0035BF77 /* SettingsSection.swift in Sources */,
 				F264416C2E4CBF9C007D879B /* OnboardingPageControlView.swift in Sources */,
 				F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */,
 				F28DF4A22E587D2B00B1F773 /* FileManagerService+Main.swift in Sources */,
@@ -1064,12 +1192,14 @@
 				F26441622E4C788A007D879B /* AppColors.swift in Sources */,
 				F289DC3B2E575E0500E05658 /* FileManagerService.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
+				F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
 				F24641AD2E4F4587000D0A07 /* PaywallRevRouter.swift in Sources */,
 				F24641B02E4F9497000D0A07 /* EnableTrialView.swift in Sources */,
 				F24DF7A12E53819A0091764F /* UserInfoDTO.swift in Sources */,
 				F217C7162E55CFB0005606E1 /* ProfileVC.swift in Sources */,
 				F26441992E4E213E007D879B /* PaywallProdTrialVM.swift in Sources */,
+				F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */,
 				F24DF75E2E51DE550091764F /* RegUserInfoRouter.swift in Sources */,
 				F24DF7962E5356910091764F /* MainRouter.swift in Sources */,
 				F24DF7852E532D0E0091764F /* KeyBoardHelperService+RegUseInfo.swift in Sources */,
@@ -1078,6 +1208,8 @@
 				F26441862E4E0930007D879B /* AppRouter.swift in Sources */,
 				F26441652E4C7F36007D879B /* ContinueButtonView.swift in Sources */,
 				F296A3F72E11533500E1348E /* SceneDelegate.swift in Sources */,
+				F2FABF042E5CC4680035BF77 /* NotificationVC.swift in Sources */,
+				F2FABF082E5CC4750035BF77 /* NotificationAssembler.swift in Sources */,
 				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,

@@ -11,6 +11,7 @@ import RxCocoa
 
 protocol MainRouterProtocol {
     func openProfile()
+    func openSettings()
 }
 
 protocol MainRealmDataManagerUseCaseProtocol {
@@ -29,6 +30,7 @@ final class MainVM: MainViewModelProtocol {
     var iconImage: Observable<UIImage>
     //In
     var profileButtonTapped: PublishSubject<Void> = .init()
+    var settingsButtonTapped: PublishSubject<Void> = .init()
     
     private let router: MainRouterProtocol
     private let realmDataManager: MainRealmDataManagerUseCaseProtocol
@@ -66,9 +68,10 @@ final class MainVM: MainViewModelProtocol {
             self?.router.openProfile()
         })
         .disposed(by: bag)
-        
-        
-        
+        settingsButtonTapped.subscribe(onNext: { [weak self] in
+            self?.router.openSettings()
+        })
+        .disposed(by: bag)
     }
     
 }

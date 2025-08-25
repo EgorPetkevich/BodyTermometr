@@ -16,6 +16,7 @@ protocol MainViewModelProtocol {
     var iconImage: Observable<UIImage> { get }
     //In
     var profileButtonTapped: PublishSubject<Void> { get }
+    var settingsButtonTapped: PublishSubject<Void> { get }
     
     func viewWillAppear()
 }
@@ -85,6 +86,9 @@ final class MainVC: UIViewController {
             .disposed(by: bag)
         profileButton.tap
             .bind(to: viewModel.profileButtonTapped)
+            .disposed(by: bag)
+        menuButton.tap
+            .bind(to: viewModel.settingsButtonTapped)
             .disposed(by: bag)
         viewModel.iconImage
             .observe(on: MainScheduler.instance)
