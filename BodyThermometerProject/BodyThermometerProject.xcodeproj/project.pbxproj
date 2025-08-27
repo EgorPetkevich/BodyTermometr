@@ -86,6 +86,9 @@
 		F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */; };
 		F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */; };
 		F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A22E4E82F3007D879B /* UIButton+Style.swift */; };
+		F27659D22E5E3DB9008A54E1 /* BPMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27659D12E5E3DB9008A54E1 /* BPMView.swift */; };
+		F27659D42E5E3F12008A54E1 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F27659D32E5E3F12008A54E1 /* IBMPlexSans-ExtraLight.ttf */; };
+		F27659D62E5F2058008A54E1 /* RGBMesuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27659D52E5F2058008A54E1 /* RGBMesuring.swift */; };
 		F289DC2F2E5728FF00E05658 /* SelectPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC2E2E5728FF00E05658 /* SelectPhotoVC.swift */; };
 		F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC302E57290400E05658 /* SelectPhotoVM.swift */; };
 		F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289DC332E57290E00E05658 /* SelectPhotoRouter.swift */; };
@@ -131,6 +134,20 @@
 		F2FABF062E5CC46D0035BF77 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */; };
 		F2FABF082E5CC4750035BF77 /* NotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF072E5CC4750035BF77 /* NotificationAssembler.swift */; };
 		F2FABF0B2E5CC4850035BF77 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABF0A2E5CC4850035BF77 /* NotificationRouter.swift */; };
+		F2FCCFA42E5DCAF400241719 /* MeasuringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFA32E5DCAF400241719 /* MeasuringVC.swift */; };
+		F2FCCFA62E5DCAF800241719 /* MeasuringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFA52E5DCAF800241719 /* MeasuringVM.swift */; };
+		F2FCCFA82E5DCB0300241719 /* MeasuringAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFA72E5DCB0300241719 /* MeasuringAssembler.swift */; };
+		F2FCCFAA2E5DCB0900241719 /* MeasuringRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFA92E5DCB0900241719 /* MeasuringRouter.swift */; };
+		F2FCCFAC2E5DCB1700241719 /* MeasuringGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFAB2E5DCB1700241719 /* MeasuringGuideVC.swift */; };
+		F2FCCFAE2E5DCB2000241719 /* MeasuringGuideAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCCFAD2E5DCB2000241719 /* MeasuringGuideAssembler.swift */; };
+		F2FCD0BF2E5DD83100241719 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0BE2E5DD83100241719 /* CameraPreviewView.swift */; };
+		F2FCD0C12E5DD84000241719 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0C02E5DD84000241719 /* CircularProgressView.swift */; };
+		F2FCD0C42E5DD98300241719 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0C32E5DD98300241719 /* Filter.swift */; };
+		F2FCD0C62E5DD99E00241719 /* HeartbeatHapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0C52E5DD99D00241719 /* HeartbeatHapticEngine.swift */; };
+		F2FCD0C82E5DD9B400241719 /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0C72E5DD9B400241719 /* PulseDetector.swift */; };
+		F2FCD0CA2E5DD9C500241719 /* PulseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0C92E5DD9C500241719 /* PulseManager.swift */; };
+		F2FCD0D22E5E192E00241719 /* MeasuringGuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0D12E5E192E00241719 /* MeasuringGuideVM.swift */; };
+		F2FCD0D52E5E197E00241719 /* MeasuringGuideRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCD0D42E5E197E00241719 /* MeasuringGuideRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +234,9 @@
 		F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialAssembler.swift; sourceTree = "<group>"; };
 		F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialRouter.swift; sourceTree = "<group>"; };
 		F26441A22E4E82F3007D879B /* UIButton+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Style.swift"; sourceTree = "<group>"; };
+		F27659D12E5E3DB9008A54E1 /* BPMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMView.swift; sourceTree = "<group>"; };
+		F27659D32E5E3F12008A54E1 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		F27659D52E5F2058008A54E1 /* RGBMesuring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBMesuring.swift; sourceTree = "<group>"; };
 		F289DC2E2E5728FF00E05658 /* SelectPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoVC.swift; sourceTree = "<group>"; };
 		F289DC302E57290400E05658 /* SelectPhotoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoVM.swift; sourceTree = "<group>"; };
 		F289DC332E57290E00E05658 /* SelectPhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoRouter.swift; sourceTree = "<group>"; };
@@ -264,6 +284,20 @@
 		F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
 		F2FABF072E5CC4750035BF77 /* NotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAssembler.swift; sourceTree = "<group>"; };
 		F2FABF0A2E5CC4850035BF77 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
+		F2FCCFA32E5DCAF400241719 /* MeasuringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringVC.swift; sourceTree = "<group>"; };
+		F2FCCFA52E5DCAF800241719 /* MeasuringVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringVM.swift; sourceTree = "<group>"; };
+		F2FCCFA72E5DCB0300241719 /* MeasuringAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringAssembler.swift; sourceTree = "<group>"; };
+		F2FCCFA92E5DCB0900241719 /* MeasuringRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringRouter.swift; sourceTree = "<group>"; };
+		F2FCCFAB2E5DCB1700241719 /* MeasuringGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringGuideVC.swift; sourceTree = "<group>"; };
+		F2FCCFAD2E5DCB2000241719 /* MeasuringGuideAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringGuideAssembler.swift; sourceTree = "<group>"; };
+		F2FCD0BE2E5DD83100241719 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		F2FCD0C02E5DD84000241719 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		F2FCD0C32E5DD98300241719 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		F2FCD0C52E5DD99D00241719 /* HeartbeatHapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatHapticEngine.swift; sourceTree = "<group>"; };
+		F2FCD0C72E5DD9B400241719 /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
+		F2FCD0C92E5DD9C500241719 /* PulseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseManager.swift; sourceTree = "<group>"; };
+		F2FCD0D12E5E192E00241719 /* MeasuringGuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringGuideVM.swift; sourceTree = "<group>"; };
+		F2FCD0D42E5E197E00241719 /* MeasuringGuideRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringGuideRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +488,7 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F2FCCFA02E5DC78700241719 /* Measuring */,
 				F2FABF022E5CC4560035BF77 /* Notification */,
 				F2FABEFA2E5C8FCB0035BF77 /* Mail */,
 				F2FABDD02E5B5C0E0035BF77 /* Settings */,
@@ -555,6 +590,7 @@
 		F26441322E4C74B9007D879B /* IBMFonts */ = {
 			isa = PBXGroup;
 			children = (
+				F27659D32E5E3F12008A54E1 /* IBMPlexSans-ExtraLight.ttf */,
 				F264412D2E4C74B9007D879B /* IBMPlexSans-Regular.ttf */,
 				F264412E2E4C74B9007D879B /* IBMPlexSans-SemiBold.ttf */,
 				F24DF7692E51E13E0091764F /* IBMPlexSans-Medium.ttf */,
@@ -974,6 +1010,69 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F2FCCFA02E5DC78700241719 /* Measuring */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCD0C22E5DD97200241719 /* RateLogic */,
+				F2FCD0BD2E5DD81A00241719 /* Components */,
+				F2FCCFA12E5DC7CA00241719 /* MeasuringGuide */,
+				F2FCCFA22E5DC81100241719 /* Router */,
+				F2FCCFA32E5DCAF400241719 /* MeasuringVC.swift */,
+				F2FCCFA52E5DCAF800241719 /* MeasuringVM.swift */,
+				F2FCCFA72E5DCB0300241719 /* MeasuringAssembler.swift */,
+			);
+			path = Measuring;
+			sourceTree = "<group>";
+		};
+		F2FCCFA12E5DC7CA00241719 /* MeasuringGuide */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCD0D32E5E196D00241719 /* Router */,
+				F2FCCFAB2E5DCB1700241719 /* MeasuringGuideVC.swift */,
+				F2FCD0D12E5E192E00241719 /* MeasuringGuideVM.swift */,
+				F2FCCFAD2E5DCB2000241719 /* MeasuringGuideAssembler.swift */,
+			);
+			path = MeasuringGuide;
+			sourceTree = "<group>";
+		};
+		F2FCCFA22E5DC81100241719 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCCFA92E5DCB0900241719 /* MeasuringRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F2FCD0BD2E5DD81A00241719 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCD0BE2E5DD83100241719 /* CameraPreviewView.swift */,
+				F2FCD0C02E5DD84000241719 /* CircularProgressView.swift */,
+				F27659D12E5E3DB9008A54E1 /* BPMView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F2FCD0C22E5DD97200241719 /* RateLogic */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCD0C32E5DD98300241719 /* Filter.swift */,
+				F2FCD0C52E5DD99D00241719 /* HeartbeatHapticEngine.swift */,
+				F2FCD0C72E5DD9B400241719 /* PulseDetector.swift */,
+				F2FCD0C92E5DD9C500241719 /* PulseManager.swift */,
+				F27659D52E5F2058008A54E1 /* RGBMesuring.swift */,
+			);
+			path = RateLogic;
+			sourceTree = "<group>";
+		};
+		F2FCD0D32E5E196D00241719 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCD0D42E5E197E00241719 /* MeasuringGuideRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1037,6 +1136,7 @@
 				F26441362E4C74B9007D879B /* IBMPlexSans-Regular.ttf in Resources */,
 				F26441412E4C74B9007D879B /* IBMPlexSans-SemiBold.ttf in Resources */,
 				F296A4012E11533800E1348E /* LaunchScreen.storyboard in Resources */,
+				F27659D42E5E3F12008A54E1 /* IBMPlexSans-ExtraLight.ttf in Resources */,
 				F296A3FE2E11533800E1348E /* Assets.xcassets in Resources */,
 				F24DF76A2E51E13E0091764F /* IBMPlexSans-Medium.ttf in Resources */,
 			);
@@ -1103,8 +1203,10 @@
 				F2FABDE32E5C741D0035BF77 /* SettingsGoPremiumView.swift in Sources */,
 				F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */,
 				F264417C2E4CE63A007D879B /* UIImageView+Set.swift in Sources */,
+				F2FCD0D22E5E192E00241719 /* MeasuringGuideVM.swift in Sources */,
 				F24DF7942E53568B0091764F /* MainAssembler.swift in Sources */,
 				F264415E2E4C7584007D879B /* IBMPlexSansFont.swift in Sources */,
+				F2FCD0C12E5DD84000241719 /* CircularProgressView.swift in Sources */,
 				F217C71F2E55D1E4005606E1 /* ProfileUserIconView.swift in Sources */,
 				F217C71A2E55CFBD005606E1 /* ProfileRouter.swift in Sources */,
 				F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */,
@@ -1112,6 +1214,7 @@
 				F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */,
 				F29BE4572E54E023009E1D66 /* MainStatisticsDataView.swift in Sources */,
 				F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */,
+				F2FCCFA42E5DCAF400241719 /* MeasuringVC.swift in Sources */,
 				F26441692E4C84F5007D879B /* UIView+Style.swift in Sources */,
 				F296A4352E11986100E1348E /* Relay.swift in Sources */,
 				F24DF7902E53567C0091764F /* MainVC.swift in Sources */,
@@ -1139,12 +1242,15 @@
 				F296A40B2E11681300E1348E /* Category.swift in Sources */,
 				F217C7232E55D7A7005606E1 /* ProfileGenderCellsView.swift in Sources */,
 				F296A3F52E11533500E1348E /* AppDelegate.swift in Sources */,
+				F2FCD0D52E5E197E00241719 /* MeasuringGuideRouter.swift in Sources */,
 				F296A41F2E118B2200E1348E /* RealmDataManager.swift in Sources */,
 				F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */,
+				F2FCD0BF2E5DD83100241719 /* CameraPreviewView.swift in Sources */,
 				F289DC362E57291600E05658 /* SelectPhotoAssembler.swift in Sources */,
 				F29BE4532E547B6F009E1D66 /* MainBodyTempView.swift in Sources */,
 				F264418C2E4E15F6007D879B /* OnbThirdRouter.swift in Sources */,
 				F24641A52E4F3A5F000D0A07 /* PaywallProdRouter.swift in Sources */,
+				F2FCD0C62E5DD99E00241719 /* HeartbeatHapticEngine.swift in Sources */,
 				F26441672E4C8330007D879B /* UIView+Layer.swift in Sources */,
 				F289DC3F2E57618100E05658 /* UserIconPath.swift in Sources */,
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
@@ -1156,10 +1262,12 @@
 				F24DF7982E5370280091764F /* Gender.swift in Sources */,
 				F26441752E4CD2E0007D879B /* OnbFirstRouter.swift in Sources */,
 				F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */,
+				F27659D62E5F2058008A54E1 /* RGBMesuring.swift in Sources */,
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
 				F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */,
+				F2FCCFAA2E5DCB0900241719 /* MeasuringRouter.swift in Sources */,
 				F24DF7642E51DF2F0091764F /* RegGenderVM.swift in Sources */,
 				F24DF7582E51DE3F0091764F /* RegUserInfoVC.swift in Sources */,
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
@@ -1176,21 +1284,28 @@
 				F26440FD2E4C6F88007D879B /* OnbThirdVC.swift in Sources */,
 				F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */,
 				F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */,
+				F2FCCFA62E5DCAF800241719 /* MeasuringVM.swift in Sources */,
 				F26441722E4CCFC4007D879B /* OnbFirstVM.swift in Sources */,
 				F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */,
 				F296A4222E11930C00E1348E /* Container.swift in Sources */,
+				F2FCD0C82E5DD9B400241719 /* PulseDetector.swift in Sources */,
+				F2FCD0C42E5DD98300241719 /* Filter.swift in Sources */,
 				F2FABDDE2E5C56DF0035BF77 /* SettingsSection.swift in Sources */,
 				F264416C2E4CBF9C007D879B /* OnboardingPageControlView.swift in Sources */,
 				F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */,
+				F2FCCFAC2E5DCB1700241719 /* MeasuringGuideVC.swift in Sources */,
 				F28DF4A22E587D2B00B1F773 /* FileManagerService+Main.swift in Sources */,
+				F2FCCFAE2E5DCB2000241719 /* MeasuringGuideAssembler.swift in Sources */,
 				F26441072E4C7337007D879B /* UILabel+Style.swift in Sources */,
 				F24DF7662E51DF360091764F /* RegGenderAssembler.swift in Sources */,
+				F27659D22E5E3DB9008A54E1 /* BPMView.swift in Sources */,
 				F296A4092E11665B00E1348E /* Specimen.swift in Sources */,
 				F296A4242E1193C100E1348E /* ContainerConfigurator.swift in Sources */,
 				F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */,
 				F217C7272E55EAD0005606E1 /* UserAgeTextFieldView.swift in Sources */,
 				F26441622E4C788A007D879B /* AppColors.swift in Sources */,
 				F289DC3B2E575E0500E05658 /* FileManagerService.swift in Sources */,
+				F2FCCFA82E5DCB0300241719 /* MeasuringAssembler.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
@@ -1213,6 +1328,7 @@
 				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,
+				F2FCD0CA2E5DD9C500241719 /* PulseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

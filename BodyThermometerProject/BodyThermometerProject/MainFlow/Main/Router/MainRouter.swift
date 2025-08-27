@@ -34,4 +34,10 @@ final class MainRouter: MainRouterProtocol {
         root?.present(vc, animated: true)
     }
     
+    func openHeartRate() {
+        let vc = MeasuringAssembler.assembly()
+        vc.modalPresentationStyle = .fullScreen
+        root?.present(vc, animated: true)
+    }
+    
 }

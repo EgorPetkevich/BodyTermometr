@@ -21,4 +21,8 @@ extension UIFont {
         return UIFont(name: "IBMPlexSans-Medium", size: size)!
     }
     
+    static func appExtraLightFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "IBMPlexSans-ExtraLight", size: size)!
+    }
+    
 }

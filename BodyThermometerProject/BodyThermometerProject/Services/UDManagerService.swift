@@ -17,12 +17,15 @@ final class UDManagerService {
         case isPremium
         case createImageDirectory
         case notificationState
+        case measuringGuideState
         case timer
     }
     
     private static var ud: UserDefaults = .standard
     private static let isPremiumRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.isPremium))
     private static let notificationStateRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.notificationState))
+    private static let measuringGuideStateRelay = BehaviorRelay<Bool>(value: UDManagerService.getMesuringGuideState())
+    
     
     private init() {}
     
@@ -32,6 +35,15 @@ final class UDManagerService {
     
     static func get(_ key: Keys) -> Bool {
         ud.bool(forKey: key.rawValue)
+    }
+    
+    static func getMesuringGuideState() -> Bool {
+        if UserDefaults.standard.object(forKey: Keys.measuringGuideState.rawValue) == nil {
+            UserDefaults.standard.setValue(true, forKey: Keys.measuringGuideState.rawValue)
+            return true
+        } else {
+            return UDManagerService.get(.measuringGuideState)
+        }
     }
     
 }
@@ -56,11 +68,15 @@ extension UDManagerService {
 extension UDManagerService {
     
     static var isPremiumObservable: Observable<Bool> {
-        isPremiumRelay.asObservable().distinctUntilChanged()
+        isPremiumRelay
+            .asObservable()
+            .distinctUntilChanged()
     }
     
     static var isPremiumDriver: Driver<Bool> {
-        isPremiumRelay.asDriver().distinctUntilChanged()
+        isPremiumRelay
+            .asDriver()
+            .distinctUntilChanged()
     }
 
     static func setIsPremium(_ value: Bool) {
@@ -73,15 +89,42 @@ extension UDManagerService {
 extension UDManagerService {
     
     static var notificatonStateObservable: Observable<Bool> {
-        notificationStateRelay.asObservable().distinctUntilChanged()
+        notificationStateRelay
+            .asObservable()
+            .distinctUntilChanged()
     }
     
     static var notificatonStateDriver: Driver<Bool> {
-        notificationStateRelay.asDriver().distinctUntilChanged()
+        notificationStateRelay
+            .asDriver()
+            .distinctUntilChanged()
     }
 
     static func setNotificatonState(_ value: Bool) {
-        UDManagerService.set(.isPremium, value: value)
-        if notificationStateRelay.value != value { notificationStateRelay.accept(value) }
+        UDManagerService.set(.notificationState, value: value)
+        if notificationStateRelay.value !=
+            value { notificationStateRelay.accept(value) }
+    }
+}
+
+// Subscription Status (Measuring Guide)
+extension UDManagerService {
+    
+    static var measuringGuideObservable: Observable<Bool> {
+        measuringGuideStateRelay
+            .asObservable()
+            .distinctUntilChanged()
+    }
+    static var measuringGuideDriver: Driver<Bool> {
+        measuringGuideStateRelay
+            .asDriver()
+            .distinctUntilChanged()
+    }
+
+    static func setMeasuringGuideEnabled(_ value: Bool) {
+        UDManagerService.set(.measuringGuideState, value: value)
+        if measuringGuideStateRelay.value != value {
+            measuringGuideStateRelay.accept(value)
+        }
     }
 }

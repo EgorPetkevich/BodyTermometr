@@ -11,6 +11,7 @@
 		<string>IBMPlexSans-SemiBold.ttf</string>
 		<string>IBMPlexSans-Regular.ttf</string>
 		<string>IBMPlexSans-Medium.ttf</string>
+		<string>IBMPlexSans-ExtraLight.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

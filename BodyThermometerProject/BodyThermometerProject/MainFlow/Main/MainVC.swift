@@ -17,7 +17,7 @@ protocol MainViewModelProtocol {
     //In
     var profileButtonTapped: PublishSubject<Void> { get }
     var settingsButtonTapped: PublishSubject<Void> { get }
-    
+    var heartRateTapped: PublishSubject<Void> { get }
     func viewWillAppear()
 }
 
@@ -97,6 +97,9 @@ final class MainVC: UIViewController {
                 self.hasCustomIcon = true
                 self.profileButton.icon = image
             })
+            .disposed(by: bag)
+        heartRateView.tap
+            .bind(to: viewModel.heartRateTapped)
             .disposed(by: bag)
     }
     

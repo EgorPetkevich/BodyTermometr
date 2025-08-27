@@ -28,7 +28,6 @@ final class AppRouter {
     func start() {
         window = UIWindow(windowScene: windowScene)
         UDManagerService.setIsPremium(false)
-        UDManagerService.setNotificatonState(true)
 //        startOnbordingFlow()
         startMainFlow()
     }

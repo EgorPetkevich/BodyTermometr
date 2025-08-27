@@ -51,4 +51,13 @@ extension UILabel {
                           color: color)
     }
     
+    static func extraLightTitleLabel(withText text: String,
+                                    ofSize size: CGFloat,
+                                    color: UIColor? = .appBlack
+    ) -> UILabel {
+        return titleLabel(withText: text,
+                          font: UIFont.appExtraLightFont(ofSize: size),
+                          color: color)
+    }
+    
 }
