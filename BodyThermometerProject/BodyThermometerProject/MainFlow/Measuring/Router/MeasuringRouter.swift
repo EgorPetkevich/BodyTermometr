@@ -12,6 +12,12 @@ final class MeasuringRouter: MeasuringRouterProtocol {
     weak var root: UIViewController?
     weak var measuringGuideVC: UIViewController?
     
+    private var container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
+    
     func openMeasuringGuide() {
         let vc = MeasuringGuideAssembler.assembly()
         if let sheet = vc.sheetPresentationController {
@@ -26,6 +32,12 @@ final class MeasuringRouter: MeasuringRouterProtocol {
     func clouseMeasuringGuide() {
         measuringGuideVC?.dismiss(animated: true)
         measuringGuideVC = nil
+    }
+    
+    func openMeasuringResule(_ result: Int) {
+        let vc = MeasuringResultAssembler.assembly(container: container,
+                                                   bpmResult: result)
+        root?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func dismiss() {

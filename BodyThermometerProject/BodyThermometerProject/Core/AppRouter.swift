@@ -30,6 +30,8 @@ final class AppRouter {
         UDManagerService.setIsPremium(false)
 //        startOnbordingFlow()
         startMainFlow()
+//        let vc = MeasuringResultAssembler.assembly(container: container, bpmResult: 40)
+//        setRoot(vc)
     }
     
     private func setRoot(

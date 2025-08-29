@@ -90,9 +90,11 @@ final class MeasuringVC: UIViewController {
         view.backgroundColor = .appBg
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true,
+                                                     animated: false)
         viewModel.viewWillAppear.accept(())
     }
     

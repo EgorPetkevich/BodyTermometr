@@ -10,7 +10,7 @@ import RxSwift
 import RealmSwift
 import RxRealm
 
-final class RealmDataManager {
+class RealmDataManager {
 
     private let realm: Realm
 
@@ -31,17 +31,12 @@ final class RealmDataManager {
         do {
             try realm.write {
                 realm.add(object, update: update)
+                print("[Sucess] write \(object)")
             }
         } catch {
             print("[Error] Failed to save object: \(error)")
         }
     }
-
-    // MARK: - Read
-//    func getAll<T: Object>(_ type: T.Type) -> Observable<Results<T>> {
-//        let results = realm.objects(type)
-//        return Observable.collection(from: results)
-//    }
     
     func getAll<T: Object>(_ type: T.Type) -> Results<T> {
             realm.objects(type)
@@ -141,3 +136,4 @@ extension RealmDataManager {
             .distinctUntilChanged()
     }
 }
+

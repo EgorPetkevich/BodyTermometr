@@ -11,8 +11,8 @@ final class MeasuringAssembler {
     
     private init() {}
     
-    static func assembly() -> UIViewController {
-        let router = MeasuringRouter()
+    static func assembly(container: Container) -> UIViewController {
+        let router = MeasuringRouter(container: container)
         let viewModel = MeasuringVM(router: router)
         let viewController = MeasuringVC(viewModel: viewModel)
         

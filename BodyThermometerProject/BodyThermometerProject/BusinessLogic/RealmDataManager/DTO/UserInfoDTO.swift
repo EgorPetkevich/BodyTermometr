@@ -19,4 +19,5 @@ struct UserInfoDTO: Equatable {
         userAge = m.userAge
         gender = m.gender
     }
+    
 }

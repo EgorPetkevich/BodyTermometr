@@ -14,6 +14,7 @@ import CoreImage
 protocol MeasuringRouterProtocol {
     func clouseMeasuringGuide()
     func openMeasuringGuide()
+    func openMeasuringResule(_ result: Int)
     func dismiss()
 }
 
@@ -56,6 +57,7 @@ final class MeasuringVM: MeasuringViewModelProtocol {
     private var measurementStartedFlag: Bool = false
     private var pulseTextFlag: String = "00"
     private var progressFlag: Double = 0.0
+    private var isShowingResult = false
 
 
     private let bag = DisposeBag()
@@ -79,14 +81,17 @@ final class MeasuringVM: MeasuringViewModelProtocol {
     }
     
     func initCaptureSession() {
-       heartRateManager.startCapture()
-   }
-    
+        heartRateManager.imageBufferHandler = { [unowned self] (imageBuffer) in
+            self.handle(buffer: imageBuffer)
+        }
+        heartRateManager.startCapture()
+    }
 
     // MARK: - Bindings
     private func bindLifecycle() {
         viewWillAppear
             .subscribe(onNext: { [weak self] in
+                self?.isShowingResult = false
                 self?.initCaptureSession()
             })
             .disposed(by: bag)
@@ -102,6 +107,7 @@ final class MeasuringVM: MeasuringViewModelProtocol {
             .subscribe(onNext: { [weak self] in
                 self?.stopMeasurement(resetUI: true, turnTorchOff: true)
                 self?.heartRateManager.stopCapture()
+                self?.heartRateManager.imageBufferHandler = nil
                 self?.updateTorchIfNeeded(status: false)
             })
             .disposed(by: bag)
@@ -125,6 +131,13 @@ final class MeasuringVM: MeasuringViewModelProtocol {
             .disposed(by: bag)
         crossButtonTapped.subscribe(onNext: {[weak self] in
             self?.router.dismiss()
+        })
+        .disposed(by: bag)
+        
+        showResultSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] result in
+            self?.router.openMeasuringResule(result)
         })
         .disposed(by: bag)
         
@@ -165,6 +178,7 @@ final class MeasuringVM: MeasuringViewModelProtocol {
 
     // MARK: - Measurement
     private func startMeasurement() {
+        if isShowingResult { return }
         self.updateTorchIfNeeded(status: true)
         elapsed = 0
         _measurementStarted.rx.onNext(true)
@@ -197,11 +211,16 @@ final class MeasuringVM: MeasuringViewModelProtocol {
 
     private func finishMeasurement() {
         updateTorchIfNeeded(status: false)
+        // Stop frame processing to prevent auto-restart while result is shown
+        heartRateManager.stopCapture()
+        heartRateManager.imageBufferHandler = nil
+        isShowingResult = true
+        measurementStartedFlag = false
         _measurementStarted.rx.onNext(false)
         let pulse = Int(pulseTextFlag) ?? 0
         
-        showResultSubject.onNext(pulse > 0 ? pulse : 0)
         _progress.rx.onNext(0.0)
+        showResultSubject.onNext(pulse > 0 ? pulse : 0)
     }
 
     private func stopMeasurement(resetUI: Bool, turnTorchOff: Bool) {
@@ -218,6 +237,7 @@ final class MeasuringVM: MeasuringViewModelProtocol {
 
     // MARK: - Frames
     fileprivate func handle(buffer: CMSampleBuffer) {
+        if isShowingResult { return }
         var redmean: CGFloat = 0.0;
         var greenmean: CGFloat = 0.0;
         var bluemean: CGFloat = 0.0;
@@ -307,4 +327,3 @@ final class MeasuringVM: MeasuringViewModelProtocol {
     }
     
 }
-
