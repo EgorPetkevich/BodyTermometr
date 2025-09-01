@@ -77,9 +77,11 @@ final class NotesView: UIView {
             .disposed(by: bag)
         
         crossButton.rx.tap
-            .subscribe(onNext: { [weak self] in
+            .withLatestFrom(textField.rx.text.orEmpty)
+            .subscribe(onNext: { [weak self] text in
                 self?.endEditing(true)
                 self?.isHidden = true
+                self?.doneSubject.onNext(text)
         })
         .disposed(by: bag)
     }

@@ -40,4 +40,10 @@ final class MainRouter: MainRouterProtocol {
         root.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func openTemperatureInput() {
+        guard let root else { return }
+        let vc = TemperatureInputAssembler.assembly(container: container)
+        root.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

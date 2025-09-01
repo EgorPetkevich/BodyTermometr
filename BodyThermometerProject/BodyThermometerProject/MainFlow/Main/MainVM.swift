@@ -13,6 +13,7 @@ protocol MainRouterProtocol {
     func openProfile()
     func openSettings()
     func openHeartRate()
+    func openTemperatureInput()
 }
 
 protocol MainRealmDataManagerUseCaseProtocol {
@@ -33,6 +34,7 @@ final class MainVM: MainViewModelProtocol {
     var profileButtonTapped: PublishSubject<Void> = .init()
     var settingsButtonTapped: PublishSubject<Void> = .init()
     var heartRateTapped: PublishSubject<Void> = .init()
+    var bodyTempTapped: PublishSubject<Void> = .init()
     
     private let router: MainRouterProtocol
     private let realmDataManager: MainRealmDataManagerUseCaseProtocol
@@ -78,6 +80,9 @@ final class MainVM: MainViewModelProtocol {
             self?.router.openHeartRate()
         })
         .disposed(by: bag)
+        bodyTempTapped.subscribe(onNext: { [weak self] in
+            self?.router.openTemperatureInput()
+        })
     }
     
 }

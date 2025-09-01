@@ -19,6 +19,22 @@
 		F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */; };
 		F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */; };
 		F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */; };
+		F241BC772E6497620060CB4B /* DateTimePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC762E6497620060CB4B /* DateTimePickView.swift */; };
+		F241BC792E64A57E0060CB4B /* MeasureSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC782E64A57E0060CB4B /* MeasureSiteView.swift */; };
+		F241BC7D2E64B1B70060CB4B /* SymptomsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC7C2E64B1B70060CB4B /* SymptomsCollection.swift */; };
+		F241BC7F2E64B1DF0060CB4B /* SymptomsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC7E2E64B1DF0060CB4B /* SymptomsCell.swift */; };
+		F241BC812E64C3640060CB4B /* FeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC802E64C3640060CB4B /* FeelingCell.swift */; };
+		F241BC832E64C3E10060CB4B /* FeelingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC822E64C3E10060CB4B /* FeelingCollection.swift */; };
+		F241BC852E64F9400060CB4B /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC842E64F9400060CB4B /* DatePickerVC.swift */; };
+		F241BC872E6502680060CB4B /* TempModelMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC862E6502680060CB4B /* TempModelMO.swift */; };
+		F241BC892E6503F70060CB4B /* TempModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC882E6503F70060CB4B /* TempModelDTO.swift */; };
+		F241BC8B2E65046C0060CB4B /* RealmTempManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC8A2E65046C0060CB4B /* RealmTempManager.swift */; };
+		F241BC8E2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC8D2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift */; };
+		F241BDA02E65AC3D0060CB4B /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BD9F2E65AC3D0060CB4B /* StatisticsVC.swift */; };
+		F241BDA22E65AC410060CB4B /* StatisticsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA12E65AC410060CB4B /* StatisticsVM.swift */; };
+		F241BDA42E65AC470060CB4B /* StatisticsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA32E65AC470060CB4B /* StatisticsRouter.swift */; };
+		F241BDA62E65AC4F0060CB4B /* StatisticsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA52E65AC4F0060CB4B /* StatisticsAssembler.swift */; };
+		F241BDA92E65ACB10060CB4B /* StatisticsTempChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */; };
 		F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */; };
 		F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */; };
 		F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */; };
@@ -86,6 +102,20 @@
 		F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */; };
 		F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */; };
 		F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26441A22E4E82F3007D879B /* UIButton+Style.swift */; };
+		F267F1502E63282E007F294C /* TemperatureInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F14F2E63282E007F294C /* TemperatureInputVC.swift */; };
+		F267F1522E632835007F294C /* TemperatureInputVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1512E632835007F294C /* TemperatureInputVM.swift */; };
+		F267F1542E63283D007F294C /* TemperatureInputAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1532E63283D007F294C /* TemperatureInputAssembler.swift */; };
+		F267F1562E632842007F294C /* TemperatureInputRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1552E632842007F294C /* TemperatureInputRouter.swift */; };
+		F267F1592E6329A1007F294C /* TempreratureSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1582E6329A1007F294C /* TempreratureSwitchView.swift */; };
+		F267F15B2E632BD3007F294C /* TempratureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F15A2E632BD3007F294C /* TempratureInputView.swift */; };
+		F267F15D2E632CF7007F294C /* TemperatyreUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F15C2E632CF7007F294C /* TemperatyreUnit.swift */; };
+		F267F1602E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F15F2E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift */; };
+		F267F1622E6361E3007F294C /* TempConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1612E6361E3007F294C /* TempConditionVC.swift */; };
+		F267F1642E6361EB007F294C /* TempConditionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1632E6361EB007F294C /* TempConditionVM.swift */; };
+		F267F1662E6361F8007F294C /* TempConditionAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1652E6361F8007F294C /* TempConditionAssembler.swift */; };
+		F267F1692E63620F007F294C /* TempConditionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F1682E63620F007F294C /* TempConditionRouter.swift */; };
+		F267F16C2E636BC3007F294C /* TempConditionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F16B2E636BC3007F294C /* TempConditionTypeView.swift */; };
+		F267F16E2E636C7C007F294C /* TemperatureStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F16D2E636C7C007F294C /* TemperatureStatus.swift */; };
 		F26808462E606629005A6132 /* BPMStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808452E606629005A6132 /* BPMStatusView.swift */; };
 		F26808482E606A30005A6132 /* BMPStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808472E606A30005A6132 /* BMPStatus.swift */; };
 		F268084A2E607F88005A6132 /* BPMBarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808492E607F88005A6132 /* BPMBarControl.swift */; };
@@ -97,7 +127,7 @@
 		F26808582E609BD1005A6132 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808572E609BD1005A6132 /* UICollectionView+Register.swift */; };
 		F268085A2E60B7AD005A6132 /* SaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808592E60B7AD005A6132 /* SaveButtonView.swift */; };
 		F268085C2E60C427005A6132 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268085B2E60C427005A6132 /* NotesView.swift */; };
-		F268085E2E61AC3D005A6132 /* BPMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268085D2E61AC3D005A6132 /* BPMModel.swift */; };
+		F268085E2E61AC3D005A6132 /* BPMModelMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268085D2E61AC3D005A6132 /* BPMModelMO.swift */; };
 		F26808602E61AC47005A6132 /* BPMModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268085F2E61AC47005A6132 /* BPMModelDTO.swift */; };
 		F26808622E61B5C3005A6132 /* RealmBPMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808612E61B5C3005A6132 /* RealmBPMManager.swift */; };
 		F26808652E61B9A0005A6132 /* MeasutingResult+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26808642E61B9A0005A6132 /* MeasutingResult+Realm.swift */; };
@@ -187,6 +217,22 @@
 		F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDataManager+Profile.swift"; sourceTree = "<group>"; };
 		F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaveButtonView.swift; sourceTree = "<group>"; };
 		F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyBordHelperService+Profile.swift"; sourceTree = "<group>"; };
+		F241BC762E6497620060CB4B /* DateTimePickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickView.swift; sourceTree = "<group>"; };
+		F241BC782E64A57E0060CB4B /* MeasureSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureSiteView.swift; sourceTree = "<group>"; };
+		F241BC7C2E64B1B70060CB4B /* SymptomsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsCollection.swift; sourceTree = "<group>"; };
+		F241BC7E2E64B1DF0060CB4B /* SymptomsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsCell.swift; sourceTree = "<group>"; };
+		F241BC802E64C3640060CB4B /* FeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCell.swift; sourceTree = "<group>"; };
+		F241BC822E64C3E10060CB4B /* FeelingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCollection.swift; sourceTree = "<group>"; };
+		F241BC842E64F9400060CB4B /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
+		F241BC862E6502680060CB4B /* TempModelMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModelMO.swift; sourceTree = "<group>"; };
+		F241BC882E6503F70060CB4B /* TempModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModelDTO.swift; sourceTree = "<group>"; };
+		F241BC8A2E65046C0060CB4B /* RealmTempManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTempManager.swift; sourceTree = "<group>"; };
+		F241BC8D2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDataManager+TempCondition.swift"; sourceTree = "<group>"; };
+		F241BD9F2E65AC3D0060CB4B /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
+		F241BDA12E65AC410060CB4B /* StatisticsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVM.swift; sourceTree = "<group>"; };
+		F241BDA32E65AC470060CB4B /* StatisticsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRouter.swift; sourceTree = "<group>"; };
+		F241BDA52E65AC4F0060CB4B /* StatisticsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembler.swift; sourceTree = "<group>"; };
+		F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTempChartView.swift; sourceTree = "<group>"; };
 		F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVC.swift; sourceTree = "<group>"; };
 		F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVM.swift; sourceTree = "<group>"; };
 		F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdAssembler.swift; sourceTree = "<group>"; };
@@ -254,6 +300,20 @@
 		F264419E2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialAssembler.swift; sourceTree = "<group>"; };
 		F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdTrialRouter.swift; sourceTree = "<group>"; };
 		F26441A22E4E82F3007D879B /* UIButton+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Style.swift"; sourceTree = "<group>"; };
+		F267F14F2E63282E007F294C /* TemperatureInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureInputVC.swift; sourceTree = "<group>"; };
+		F267F1512E632835007F294C /* TemperatureInputVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureInputVM.swift; sourceTree = "<group>"; };
+		F267F1532E63283D007F294C /* TemperatureInputAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureInputAssembler.swift; sourceTree = "<group>"; };
+		F267F1552E632842007F294C /* TemperatureInputRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureInputRouter.swift; sourceTree = "<group>"; };
+		F267F1582E6329A1007F294C /* TempreratureSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempreratureSwitchView.swift; sourceTree = "<group>"; };
+		F267F15A2E632BD3007F294C /* TempratureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempratureInputView.swift; sourceTree = "<group>"; };
+		F267F15C2E632CF7007F294C /* TemperatyreUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatyreUnit.swift; sourceTree = "<group>"; };
+		F267F15F2E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyBoardHelperService+TemperatureInput.swift"; sourceTree = "<group>"; };
+		F267F1612E6361E3007F294C /* TempConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConditionVC.swift; sourceTree = "<group>"; };
+		F267F1632E6361EB007F294C /* TempConditionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConditionVM.swift; sourceTree = "<group>"; };
+		F267F1652E6361F8007F294C /* TempConditionAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConditionAssembler.swift; sourceTree = "<group>"; };
+		F267F1682E63620F007F294C /* TempConditionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConditionRouter.swift; sourceTree = "<group>"; };
+		F267F16B2E636BC3007F294C /* TempConditionTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConditionTypeView.swift; sourceTree = "<group>"; };
+		F267F16D2E636C7C007F294C /* TemperatureStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureStatus.swift; sourceTree = "<group>"; };
 		F26808452E606629005A6132 /* BPMStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMStatusView.swift; sourceTree = "<group>"; };
 		F26808472E606A30005A6132 /* BMPStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPStatus.swift; sourceTree = "<group>"; };
 		F26808492E607F88005A6132 /* BPMBarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMBarControl.swift; sourceTree = "<group>"; };
@@ -265,7 +325,7 @@
 		F26808572E609BD1005A6132 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		F26808592E60B7AD005A6132 /* SaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonView.swift; sourceTree = "<group>"; };
 		F268085B2E60C427005A6132 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
-		F268085D2E61AC3D005A6132 /* BPMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMModel.swift; sourceTree = "<group>"; };
+		F268085D2E61AC3D005A6132 /* BPMModelMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMModelMO.swift; sourceTree = "<group>"; };
 		F268085F2E61AC47005A6132 /* BPMModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMModelDTO.swift; sourceTree = "<group>"; };
 		F26808612E61B5C3005A6132 /* RealmBPMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBPMManager.swift; sourceTree = "<group>"; };
 		F26808642E61B9A0005A6132 /* MeasutingResult+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasutingResult+Realm.swift"; sourceTree = "<group>"; };
@@ -412,6 +472,61 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
+		F241BC7A2E64B1920060CB4B /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				F241BC7B2E64B19A0060CB4B /* Cells */,
+				F241BC7C2E64B1B70060CB4B /* SymptomsCollection.swift */,
+				F241BC822E64C3E10060CB4B /* FeelingCollection.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		F241BC7B2E64B19A0060CB4B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F241BC7E2E64B1DF0060CB4B /* SymptomsCell.swift */,
+				F241BC802E64C3640060CB4B /* FeelingCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F241BC8C2E6508BE0060CB4B /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F241BC8D2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F241BD9D2E65ABEB0060CB4B /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDA72E65AC7B0060CB4B /* Components */,
+				F241BD9E2E65AC030060CB4B /* Router */,
+				F241BD9F2E65AC3D0060CB4B /* StatisticsVC.swift */,
+				F241BDA12E65AC410060CB4B /* StatisticsVM.swift */,
+				F241BDA52E65AC4F0060CB4B /* StatisticsAssembler.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		F241BD9E2E65AC030060CB4B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDA32E65AC470060CB4B /* StatisticsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F241BDA72E65AC7B0060CB4B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F246419D2E4F39C5000D0A07 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,12 +643,13 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F241BD9D2E65ABEB0060CB4B /* Statistics */,
+				F267F14A2E6326D6007F294C /* Temperature */,
 				F24DF78D2E53566D0091764F /* Main */,
 				F217C7132E55CEFF005606E1 /* Profile */,
+				F267F14C2E6327D2007F294C /* MeasuringBPM */,
 				F2FABDD02E5B5C0E0035BF77 /* Settings */,
 				F2FABF022E5CC4560035BF77 /* Notification */,
-				F2FCCFA02E5DC78700241719 /* Measuring */,
-				F2765AE52E5F6358008A54E1 /* MeasuringResult */,
 				F2FCCFA12E5DC7CA00241719 /* MeasuringGuide */,
 				F289DC2D2E5728E100E05658 /* SelectPhoto */,
 				F2FABEFA2E5C8FCB0035BF77 /* Mail */,
@@ -576,6 +692,7 @@
 			children = (
 				F24DF7A02E53819A0091764F /* UserInfoDTO.swift */,
 				F268085F2E61AC47005A6132 /* BPMModelDTO.swift */,
+				F241BC882E6503F70060CB4B /* TempModelDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -584,7 +701,8 @@
 			isa = PBXGroup;
 			children = (
 				F24DF77E2E531FD40091764F /* UserInfoModel.swift */,
-				F268085D2E61AC3D005A6132 /* BPMModel.swift */,
+				F268085D2E61AC3D005A6132 /* BPMModelMO.swift */,
+				F241BC862E6502680060CB4B /* TempModelMO.swift */,
 			);
 			path = MO;
 			sourceTree = "<group>";
@@ -595,6 +713,7 @@
 				F24DF7972E5370280091764F /* Gender.swift */,
 				F289DC3E2E57618100E05658 /* UserIconPath.swift */,
 				F26808472E606A30005A6132 /* BMPStatus.swift */,
+				F267F16D2E636C7C007F294C /* TemperatureStatus.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -779,6 +898,96 @@
 				F26441A02E4E6BEC007D879B /* PaywallProdTrialRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F267F14A2E6326D6007F294C /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				F267F14D2E632802007F294C /* TemperatureInput */,
+				F267F14E2E632822007F294C /* TempCondition */,
+			);
+			path = Temperature;
+			sourceTree = "<group>";
+		};
+		F267F14B2E632717007F294C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F267F1552E632842007F294C /* TemperatureInputRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F267F14C2E6327D2007F294C /* MeasuringBPM */ = {
+			isa = PBXGroup;
+			children = (
+				F2FCCFA02E5DC78700241719 /* Measuring */,
+				F2765AE52E5F6358008A54E1 /* MeasuringResult */,
+			);
+			path = MeasuringBPM;
+			sourceTree = "<group>";
+		};
+		F267F14D2E632802007F294C /* TemperatureInput */ = {
+			isa = PBXGroup;
+			children = (
+				F267F15E2E6345B5007F294C /* UseCase */,
+				F267F1572E63295C007F294C /* Components */,
+				F267F14B2E632717007F294C /* Router */,
+				F267F14F2E63282E007F294C /* TemperatureInputVC.swift */,
+				F267F1512E632835007F294C /* TemperatureInputVM.swift */,
+				F267F1532E63283D007F294C /* TemperatureInputAssembler.swift */,
+			);
+			path = TemperatureInput;
+			sourceTree = "<group>";
+		};
+		F267F14E2E632822007F294C /* TempCondition */ = {
+			isa = PBXGroup;
+			children = (
+				F241BC8C2E6508BE0060CB4B /* UseCase */,
+				F241BC7A2E64B1920060CB4B /* Adapter */,
+				F267F16A2E636B65007F294C /* Components */,
+				F267F1672E636201007F294C /* Router */,
+				F267F1612E6361E3007F294C /* TempConditionVC.swift */,
+				F267F1632E6361EB007F294C /* TempConditionVM.swift */,
+				F267F1652E6361F8007F294C /* TempConditionAssembler.swift */,
+			);
+			path = TempCondition;
+			sourceTree = "<group>";
+		};
+		F267F1572E63295C007F294C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F267F15C2E632CF7007F294C /* TemperatyreUnit.swift */,
+				F267F1582E6329A1007F294C /* TempreratureSwitchView.swift */,
+				F267F15A2E632BD3007F294C /* TempratureInputView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F267F15E2E6345B5007F294C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F267F15F2E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F267F1672E636201007F294C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F267F1682E63620F007F294C /* TempConditionRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F267F16A2E636B65007F294C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F267F16B2E636BC3007F294C /* TempConditionTypeView.swift */,
+				F241BC762E6497620060CB4B /* DateTimePickView.swift */,
+				F241BC782E64A57E0060CB4B /* MeasureSiteView.swift */,
+				F241BC842E64F9400060CB4B /* DatePickerVC.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F26808512E609090005A6132 /* Cell */ = {
@@ -984,6 +1193,7 @@
 				F296A41A2E11739E00E1348E /* RealmModels */,
 				F296A41E2E118B2200E1348E /* RealmDataManager.swift */,
 				F26808612E61B5C3005A6132 /* RealmBPMManager.swift */,
+				F241BC8A2E65046C0060CB4B /* RealmTempManager.swift */,
 			);
 			path = RealmDataManager;
 			sourceTree = "<group>";
@@ -1312,6 +1522,7 @@
 				F2FABDE32E5C741D0035BF77 /* SettingsGoPremiumView.swift in Sources */,
 				F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */,
 				F264417C2E4CE63A007D879B /* UIImageView+Set.swift in Sources */,
+				F241BC7F2E64B1DF0060CB4B /* SymptomsCell.swift in Sources */,
 				F2765AE72E5F6375008A54E1 /* MeasuringResultVC.swift in Sources */,
 				F2FCD0D22E5E192E00241719 /* MeasuringGuideVM.swift in Sources */,
 				F24DF7942E53568B0091764F /* MainAssembler.swift in Sources */,
@@ -1321,6 +1532,7 @@
 				F217C71A2E55CFBD005606E1 /* ProfileRouter.swift in Sources */,
 				F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */,
 				F264418E2E4E1623007D879B /* OnbThirdAssembler.swift in Sources */,
+				F241BC892E6503F70060CB4B /* TempModelDTO.swift in Sources */,
 				F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */,
 				F29BE4572E54E023009E1D66 /* MainStatisticsDataView.swift in Sources */,
 				F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */,
@@ -1330,38 +1542,52 @@
 				F24DF7902E53567C0091764F /* MainVC.swift in Sources */,
 				F24641A92E4F456B000D0A07 /* PaywallRevVM.swift in Sources */,
 				F26441842E4E07EC007D879B /* OnbSecondAssebler.swift in Sources */,
+				F267F1542E63283D007F294C /* TemperatureInputAssembler.swift in Sources */,
+				F267F16E2E636C7C007F294C /* TemperatureStatus.swift in Sources */,
 				F296A41C2E117C4A00E1348E /* UITableView+Register.swift in Sources */,
+				F241BC7D2E64B1B70060CB4B /* SymptomsCollection.swift in Sources */,
 				F24DF75A2E51DE460091764F /* RegUserInfoVM.swift in Sources */,
 				F289DC422E57628600E05658 /* FileManagerService+Profile.swift in Sources */,
 				F2FABF0B2E5CC4850035BF77 /* NotificationRouter.swift in Sources */,
+				F241BDA92E65ACB10060CB4B /* StatisticsTempChartView.swift in Sources */,
+				F267F15D2E632CF7007F294C /* TemperatyreUnit.swift in Sources */,
 				F24DF79D2E5375C10091764F /* RealDataManager+Main.swift in Sources */,
 				F268085C2E60C427005A6132 /* NotesView.swift in Sources */,
 				F24641B22E4FB43F000D0A07 /* PaywallButtonView.swift in Sources */,
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
+				F241BDA02E65AC3D0060CB4B /* StatisticsVC.swift in Sources */,
 				F26441782E4CD35C007D879B /* OnbFirstAssembler.swift in Sources */,
+				F267F16C2E636BC3007F294C /* TempConditionTypeView.swift in Sources */,
 				F24641A72E4F455E000D0A07 /* PaywallRevVC.swift in Sources */,
 				F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */,
 				F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */,
 				F2FABDD92E5B5C6A0035BF77 /* SettingsRouter.swift in Sources */,
 				F24DF76E2E51EBA80091764F /* RegistrationPageControl+Setup.swift in Sources */,
 				F26808482E606A30005A6132 /* BMPStatus.swift in Sources */,
+				F267F1662E6361F8007F294C /* TempConditionAssembler.swift in Sources */,
 				F26808462E606629005A6132 /* BPMStatusView.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
+				F241BC852E64F9400060CB4B /* DatePickerVC.swift in Sources */,
+				F267F1522E632835007F294C /* TemperatureInputVM.swift in Sources */,
+				F241BDA22E65AC410060CB4B /* StatisticsVM.swift in Sources */,
 				F29BE4552E547C65009E1D66 /* UIIMageView+Style.swift in Sources */,
 				F26808602E61AC47005A6132 /* BPMModelDTO.swift in Sources */,
 				F289DC2F2E5728FF00E05658 /* SelectPhotoVC.swift in Sources */,
 				F2FABF062E5CC46D0035BF77 /* NotificationVM.swift in Sources */,
+				F241BC832E64C3E10060CB4B /* FeelingCollection.swift in Sources */,
 				F2FABEFC2E5C8FF30035BF77 /* MailAssembler.swift in Sources */,
 				F26808622E61B5C3005A6132 /* RealmBPMManager.swift in Sources */,
 				F24DF75C2E51DE4C0091764F /* RegUserInfoAssembler.swift in Sources */,
 				F296A40B2E11681300E1348E /* Category.swift in Sources */,
 				F217C7232E55D7A7005606E1 /* ProfileGenderCellsView.swift in Sources */,
 				F296A3F52E11533500E1348E /* AppDelegate.swift in Sources */,
+				F241BDA62E65AC4F0060CB4B /* StatisticsAssembler.swift in Sources */,
 				F2FCD0D52E5E197E00241719 /* MeasuringGuideRouter.swift in Sources */,
 				F296A41F2E118B2200E1348E /* RealmDataManager.swift in Sources */,
 				F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */,
 				F2FCD0BF2E5DD83100241719 /* CameraPreviewView.swift in Sources */,
 				F289DC362E57291600E05658 /* SelectPhotoAssembler.swift in Sources */,
+				F241BC792E64A57E0060CB4B /* MeasureSiteView.swift in Sources */,
 				F29BE4532E547B6F009E1D66 /* MainBodyTempView.swift in Sources */,
 				F264418C2E4E15F6007D879B /* OnbThirdRouter.swift in Sources */,
 				F24641A52E4F3A5F000D0A07 /* PaywallProdRouter.swift in Sources */,
@@ -1370,8 +1596,11 @@
 				F289DC3F2E57618100E05658 /* UserIconPath.swift in Sources */,
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
 				F26808652E61B9A0005A6132 /* MeasutingResult+Realm.swift in Sources */,
+				F241BC8B2E65046C0060CB4B /* RealmTempManager.swift in Sources */,
 				F24DF7922E5356830091764F /* MainVM.swift in Sources */,
+				F267F1562E632842007F294C /* TemperatureInputRouter.swift in Sources */,
 				F24641AB2E4F4579000D0A07 /* PaywallRevAssembler.swift in Sources */,
+				F267F15B2E632BD3007F294C /* TempratureInputView.swift in Sources */,
 				F268084A2E607F88005A6132 /* BPMBarControl.swift in Sources */,
 				F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */,
 				F26808582E609BD1005A6132 /* UICollectionView+Register.swift in Sources */,
@@ -1384,6 +1613,7 @@
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
+				F267F1592E6329A1007F294C /* TempreratureSwitchView.swift in Sources */,
 				F26808532E6090AA005A6132 /* ActivityCell.swift in Sources */,
 				F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */,
 				F2FCCFAA2E5DCB0900241719 /* MeasuringRouter.swift in Sources */,
@@ -1401,10 +1631,12 @@
 				F296A4312E11982F00E1348E /* OutputProperty.swift in Sources */,
 				F289DC3D2E575E5200E05658 /* UDManagerService.swift in Sources */,
 				F24DF7682E51DF3E0091764F /* RegGenderRouter.swift in Sources */,
+				F267F1642E6361EB007F294C /* TempConditionVM.swift in Sources */,
 				F26440FD2E4C6F88007D879B /* OnbThirdVC.swift in Sources */,
 				F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */,
 				F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */,
 				F2FCCFA62E5DCAF800241719 /* MeasuringVM.swift in Sources */,
+				F241BC812E64C3640060CB4B /* FeelingCell.swift in Sources */,
 				F26441722E4CCFC4007D879B /* OnbFirstVM.swift in Sources */,
 				F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */,
 				F268085A2E60B7AD005A6132 /* SaveButtonView.swift in Sources */,
@@ -1419,29 +1651,36 @@
 				F2FCCFAE2E5DCB2000241719 /* MeasuringGuideAssembler.swift in Sources */,
 				F26441072E4C7337007D879B /* UILabel+Style.swift in Sources */,
 				F24DF7662E51DF360091764F /* RegGenderAssembler.swift in Sources */,
+				F267F1622E6361E3007F294C /* TempConditionVC.swift in Sources */,
 				F27659D22E5E3DB9008A54E1 /* BPMView.swift in Sources */,
 				F296A4092E11665B00E1348E /* Specimen.swift in Sources */,
 				F296A4242E1193C100E1348E /* ContainerConfigurator.swift in Sources */,
 				F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */,
+				F267F1602E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift in Sources */,
 				F2765AEB2E5F6384008A54E1 /* MeasuringResultAssembler.swift in Sources */,
+				F241BC772E6497620060CB4B /* DateTimePickView.swift in Sources */,
 				F26808562E6094C8005A6132 /* ActivityCellSetup.swift in Sources */,
 				F217C7272E55EAD0005606E1 /* UserAgeTextFieldView.swift in Sources */,
 				F26441622E4C788A007D879B /* AppColors.swift in Sources */,
 				F289DC3B2E575E0500E05658 /* FileManagerService.swift in Sources */,
 				F2FCCFA82E5DCB0300241719 /* MeasuringAssembler.swift in Sources */,
+				F241BC872E6502680060CB4B /* TempModelMO.swift in Sources */,
 				F268084C2E6084CB005A6132 /* BPMStatusView+Rx.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */,
+				F267F1502E63282E007F294C /* TemperatureInputVC.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
+				F241BC8E2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift in Sources */,
 				F24641AD2E4F4587000D0A07 /* PaywallRevRouter.swift in Sources */,
 				F268084E2E6084EB005A6132 /* BPMBarControl+Rx.swift in Sources */,
 				F24641B02E4F9497000D0A07 /* EnableTrialView.swift in Sources */,
 				F24DF7A12E53819A0091764F /* UserInfoDTO.swift in Sources */,
-				F268085E2E61AC3D005A6132 /* BPMModel.swift in Sources */,
+				F268085E2E61AC3D005A6132 /* BPMModelMO.swift in Sources */,
 				F217C7162E55CFB0005606E1 /* ProfileVC.swift in Sources */,
 				F26441992E4E213E007D879B /* PaywallProdTrialVM.swift in Sources */,
 				F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */,
 				F24DF75E2E51DE550091764F /* RegUserInfoRouter.swift in Sources */,
+				F267F1692E63620F007F294C /* TempConditionRouter.swift in Sources */,
 				F24DF7962E5356910091764F /* MainRouter.swift in Sources */,
 				F24DF7852E532D0E0091764F /* KeyBoardHelperService+RegUseInfo.swift in Sources */,
 				F24DF78A2E5340C90091764F /* AppFlow.swift in Sources */,
@@ -1453,6 +1692,7 @@
 				F296A3F72E11533500E1348E /* SceneDelegate.swift in Sources */,
 				F2FABF042E5CC4680035BF77 /* NotificationVC.swift in Sources */,
 				F2FABF082E5CC4750035BF77 /* NotificationAssembler.swift in Sources */,
+				F241BDA42E65AC470060CB4B /* StatisticsRouter.swift in Sources */,
 				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,

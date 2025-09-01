@@ -23,6 +23,9 @@ extension UIColor {
     static let appYellow: UIColor = .init(211, 198, 77, 1)
     static let appGreen: UIColor = .init(77, 211, 140, 1)
     static let appRed: UIColor = .init(233, 73, 73, 1)
+    static let appPurple: UIColor = .init(104, 77, 211, 1)
+    static let appGold: UIColor = .init(211, 198, 77, 1)
+    static let appBlue: UIColor = .init(77, 131, 211, 1)
     
     static let appBg: UIColor = .init(229, 236, 238, 1)
     static let appButton: UIColor = .init(99, 208, 247, 1)

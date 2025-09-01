@@ -18,6 +18,8 @@ protocol MainViewModelProtocol {
     var profileButtonTapped: PublishSubject<Void> { get }
     var settingsButtonTapped: PublishSubject<Void> { get }
     var heartRateTapped: PublishSubject<Void> { get }
+    var bodyTempTapped: PublishSubject<Void> { get }
+    
     func viewWillAppear()
 }
 
@@ -89,6 +91,9 @@ final class MainVC: UIViewController {
             .disposed(by: bag)
         menuButton.tap
             .bind(to: viewModel.settingsButtonTapped)
+            .disposed(by: bag)
+        bodyTempView.tap
+            .bind(to: viewModel.bodyTempTapped)
             .disposed(by: bag)
         viewModel.iconImage
             .observe(on: MainScheduler.instance)

@@ -1,15 +1,16 @@
 //
-//  ActivityCell.swift
+//  FeelingCell.swift
 //  BodyThermometerProject
 //
-//  Created by George Popkich on 28.08.25.
+//  Created by George Popkich on 31.08.25.
 //
+
 import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
 
-final class ActivityCell: UICollectionViewCell {
+final class FeelingCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = UIImageView()
         .contentMode(.scaleAspectFit)
@@ -25,7 +26,7 @@ final class ActivityCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) { fatalError() }
 
-    func configure(with model: Activity) {
+    func configure(with model: Feeling) {
         imageView.image = model.image
         title.text = model.title
     }
@@ -46,11 +47,11 @@ final class ActivityCell: UICollectionViewCell {
 }
 
 //MARK: - Private
-private extension ActivityCell {
+private extension FeelingCell {
     
     func commonInit() {
         contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 24
+        contentView.layer.cornerRadius = 16.0
         contentView.layer.masksToBounds = true
         
         contentView.addSubview(imageView)
@@ -62,7 +63,6 @@ private extension ActivityCell {
             make.top.equalToSuperview().inset(8)
             make.centerX.equalToSuperview()
             make.size.equalTo(70)
-            
         }
         title.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

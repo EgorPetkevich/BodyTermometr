@@ -12,7 +12,7 @@ final class MeasuringResultRouter: MeasuringResultRouterProtocol {
     weak var root: UIViewController?
     
     func dismiss() {
-        root?.dismiss(animated: true)
+        root?.navigationController?.popViewController(animated: true)
     }
     
     func openMain() {

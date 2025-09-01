@@ -19,6 +19,7 @@ final class ContainerConfigurator {
         container.lazyRegister { FileManagerService() }
         container.lazyRegister { RealmDataManager() }
         container.lazyRegister { RealmBPMManager() }
+        container.lazyRegister { RealmTempManager() }
         
         return container
     }

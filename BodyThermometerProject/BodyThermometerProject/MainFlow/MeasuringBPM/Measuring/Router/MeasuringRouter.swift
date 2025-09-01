@@ -41,7 +41,7 @@ final class MeasuringRouter: MeasuringRouterProtocol {
     }
     
     func dismiss() {
-        root?.dismiss(animated: true)
+        root?.navigationController?.popToRootViewController(animated: true)
     }
     
 }
