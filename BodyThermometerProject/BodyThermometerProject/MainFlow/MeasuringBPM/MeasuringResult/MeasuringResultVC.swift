@@ -183,6 +183,7 @@ private extension MeasuringResultVC {
         view.addSubview(notesTextView)
         notesTextView.radius = 8.0
         notesTextView.addSubview(notesLabel)
+        notesView.layer.zPosition = .greatestFiniteMagnitude
     }
     
     func setupSnapKitConstraints() {

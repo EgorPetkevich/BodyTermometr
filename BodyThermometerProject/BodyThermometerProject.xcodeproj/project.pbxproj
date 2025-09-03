@@ -51,6 +51,7 @@
 		F241BDCC2E685F600060CB4B /* IntGuideTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDCB2E685F600060CB4B /* IntGuideTableView.swift */; };
 		F241BDCF2E687D950060CB4B /* BPMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDCE2E687D950060CB4B /* BPMPoint.swift */; };
 		F241BDD12E687DA40060CB4B /* TempPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDD02E687DA40060CB4B /* TempPoint.swift */; };
+		F241BDD52E68A5450060CB4B /* bpm_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F241BDD42E68A5450060CB4B /* bpm_animation.json */; };
 		F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */; };
 		F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */; };
 		F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */; };
@@ -265,6 +266,7 @@
 		F241BDCB2E685F600060CB4B /* IntGuideTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntGuideTableView.swift; sourceTree = "<group>"; };
 		F241BDCE2E687D950060CB4B /* BPMPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMPoint.swift; sourceTree = "<group>"; };
 		F241BDD02E687DA40060CB4B /* TempPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPoint.swift; sourceTree = "<group>"; };
+		F241BDD42E68A5450060CB4B /* bpm_animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bpm_animation.json; sourceTree = "<group>"; };
 		F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVC.swift; sourceTree = "<group>"; };
 		F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVM.swift; sourceTree = "<group>"; };
 		F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdAssembler.swift; sourceTree = "<group>"; };
@@ -644,6 +646,14 @@
 				F241BDCE2E687D950060CB4B /* BPMPoint.swift */,
 			);
 			path = Points;
+			sourceTree = "<group>";
+		};
+		F241BDD32E68A5370060CB4B /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDD42E68A5450060CB4B /* bpm_animation.json */,
+			);
+			path = Gif;
 			sourceTree = "<group>";
 		};
 		F246419D2E4F39C5000D0A07 /* Router */ = {
@@ -1270,6 +1280,7 @@
 		F296A4132E1172BB00E1348E /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				F241BDD32E68A5370060CB4B /* Gif */,
 				F26441602E4C775F007D879B /* IBMPlexSansFonts */,
 				F264415F2E4C76F9007D879B /* AppColors */,
 				F296A3FD2E11533800E1348E /* Assets.xcassets */,
@@ -1571,6 +1582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F241BDD52E68A5450060CB4B /* bpm_animation.json in Resources */,
 				F26441362E4C74B9007D879B /* IBMPlexSans-Regular.ttf in Resources */,
 				F26441412E4C74B9007D879B /* IBMPlexSans-SemiBold.ttf in Resources */,
 				F296A4012E11533800E1348E /* LaunchScreen.storyboard in Resources */,

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
-import AVFoundation
+import Lottie
 
 protocol MeasuringViewModelProtocol {
     // Out
@@ -44,6 +44,8 @@ final class MeasuringVC: UIViewController {
         .mediumTitleLabel(withText: TextConst.subTitleText, ofSize: 18.0)
         .textAlignment(.center)
         .numOfLines(2)
+    private lazy var bpmAnimationView: LottieAnimationView =
+    LottieAnimationView(name: "bpm_animation")
 
     private let progressView = CircularProgressView()
  
@@ -74,11 +76,23 @@ final class MeasuringVC: UIViewController {
             .disposed(by: bag)
         
         viewModel.measurementStarted
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] started in
-                self?.subTitleLabel.text =
+                guard let self = self else { return }
+                subTitleLabel.text =
                 started ? TextConst.measuringSubTitleText : TextConst.subTitleText
+                bpmAnimationView.isHidden = !started
+                if started {
+                    if self.bpmAnimationView.isAnimationPlaying == false {
+                        self.bpmAnimationView.play()
+                    }
+                } else {
+                    self.bpmAnimationView.stop()
+                }
             })
             .disposed(by: bag)
+        
         crossButton.rx.tap
             .bind(to: viewModel.crossButtonTapped)
             .disposed(by: bag)
@@ -105,6 +119,7 @@ final class MeasuringVC: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        bpmAnimationView.stop()
         viewModel.viewWillDisappear.accept(())
     }
 
@@ -119,6 +134,9 @@ private extension MeasuringVC {
         view.addSubview(bpmView)
         view.addSubview(progressView)
         view.addSubview(crossButton)
+        view.addSubview(bpmAnimationView)
+        bpmAnimationView.isHidden = true
+        bpmAnimationView.loopMode = .loop
     }
     
     func setupSnapKitConstraints() {
@@ -143,6 +161,10 @@ private extension MeasuringVC {
         progressView.snp.makeConstraints { make in
             make.center.equalTo(bpmView)
             make.width.height.equalTo(230.0)
+        }
+        bpmAnimationView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(84)
+            make.horizontalEdges.equalToSuperview()
         }
 
     }
