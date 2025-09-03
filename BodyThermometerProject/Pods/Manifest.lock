@@ -1,4 +1,7 @@
 PODS:
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - Realm (10.42.0):
     - Realm/Headers (= 10.42.0)
   - Realm/Headers (10.42.0)
@@ -18,6 +21,7 @@ PODS:
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
+  - DGCharts
   - RealmSwift (= 10.42.0)
   - RxCocoa (= 6.9.0)
   - RxRealm (~> 5.0)
@@ -26,6 +30,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DGCharts
     - Realm
     - RealmSwift
     - RxCocoa
@@ -35,6 +40,7 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   Realm: 490aad28f1360e58fc22256d5d686d3a36525346
   RealmSwift: f6a9b56d747bbdd7931de1835896c5f024b6898a
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
@@ -43,6 +49,6 @@ SPEC CHECKSUMS:
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: dd2c5e9d87901eb429ec9d6fbb556e1de9894007
+PODFILE CHECKSUM: 67d832d50004045cb60fe6171daba479373dd92f
 
 COCOAPODS: 1.16.2

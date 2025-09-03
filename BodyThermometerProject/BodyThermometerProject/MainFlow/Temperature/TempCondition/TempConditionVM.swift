@@ -99,12 +99,10 @@ final class TempConditionVM: TempConditionViewModelProtocol {
                 guard let self else { return }
                 let (tempValue, unitEnum, siteEnum, feelingOpt, notesOpt, dateTime, symptoms) = tuple
 
-                let tempInt16 = Int16(tempValue.rounded())
-
-                let unitString: String = {
+                let convertTemp: Double = {
                     switch unitEnum {
-                    case .celsius: return "ºC"
-                    case .fahrenheit: return "F"
+                    case .celsius: return tempValue
+                    case .fahrenheit: return (tempValue - 32.0) * 5.0/9.0
                     }
                 }()
 
@@ -116,8 +114,8 @@ final class TempConditionVM: TempConditionViewModelProtocol {
                 let dto = TempModelDTO(
                     id: UUID().uuidString,
                     date: dateTime,
-                    temp: tempInt16,
-                    unit: unitString,
+                    temp: convertTemp,
+                    unit: "ºC",
                     measureSite: measureSiteString,
                     symptoms: symptomsStrings,
                     feeling: feelingString,

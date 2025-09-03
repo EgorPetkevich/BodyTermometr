@@ -34,7 +34,23 @@
 		F241BDA22E65AC410060CB4B /* StatisticsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA12E65AC410060CB4B /* StatisticsVM.swift */; };
 		F241BDA42E65AC470060CB4B /* StatisticsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA32E65AC470060CB4B /* StatisticsRouter.swift */; };
 		F241BDA62E65AC4F0060CB4B /* StatisticsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA52E65AC4F0060CB4B /* StatisticsAssembler.swift */; };
-		F241BDA92E65ACB10060CB4B /* StatisticsTempChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */; };
+		F241BDA92E65ACB10060CB4B /* StatChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDA82E65ACB10060CB4B /* StatChartView.swift */; };
+		F241BDAB2E66D8C70060CB4B /* TempBPMControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDAA2E66D8C70060CB4B /* TempBPMControlView.swift */; };
+		F241BDAD2E66E9050060CB4B /* ChartPeriodControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDAC2E66E9050060CB4B /* ChartPeriodControlView.swift */; };
+		F241BDAF2E66F4980060CB4B /* TempUnitControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDAE2E66F4980060CB4B /* TempUnitControlView.swift */; };
+		F241BDB32E674F190060CB4B /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDB22E674F190060CB4B /* HistoryTableView.swift */; };
+		F241BDB52E674F200060CB4B /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDB42E674F200060CB4B /* TempCell.swift */; };
+		F241BDB72E674F360060CB4B /* BpmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDB62E674F360060CB4B /* BpmCell.swift */; };
+		F241BDB92E675CAA0060CB4B /* Date+DisplayString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDB82E675CAA0060CB4B /* Date+DisplayString.swift */; };
+		F241BDBC2E676C1E0060CB4B /* TempRealmManager+Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDBB2E676C1E0060CB4B /* TempRealmManager+Stat.swift */; };
+		F241BDBE2E676CEB0060CB4B /* BPMRealmManager+Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDBD2E676CEB0060CB4B /* BPMRealmManager+Stat.swift */; };
+		F241BDC02E68436B0060CB4B /* HistoryGuideControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDBF2E68436B0060CB4B /* HistoryGuideControlView.swift */; };
+		F241BDC52E685A020060CB4B /* IntGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDC42E685A020060CB4B /* IntGuideCell.swift */; };
+		F241BDC82E685C350060CB4B /* IntGuideTempSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDC72E685C350060CB4B /* IntGuideTempSection.swift */; };
+		F241BDCA2E685E380060CB4B /* IntGuideBpmSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDC92E685E380060CB4B /* IntGuideBpmSection.swift */; };
+		F241BDCC2E685F600060CB4B /* IntGuideTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDCB2E685F600060CB4B /* IntGuideTableView.swift */; };
+		F241BDCF2E687D950060CB4B /* BPMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDCE2E687D950060CB4B /* BPMPoint.swift */; };
+		F241BDD12E687DA40060CB4B /* TempPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BDD02E687DA40060CB4B /* TempPoint.swift */; };
 		F246419F2E4F3A49000D0A07 /* PaywallProdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */; };
 		F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */; };
 		F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */; };
@@ -232,7 +248,23 @@
 		F241BDA12E65AC410060CB4B /* StatisticsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVM.swift; sourceTree = "<group>"; };
 		F241BDA32E65AC470060CB4B /* StatisticsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRouter.swift; sourceTree = "<group>"; };
 		F241BDA52E65AC4F0060CB4B /* StatisticsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembler.swift; sourceTree = "<group>"; };
-		F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTempChartView.swift; sourceTree = "<group>"; };
+		F241BDA82E65ACB10060CB4B /* StatChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatChartView.swift; sourceTree = "<group>"; };
+		F241BDAA2E66D8C70060CB4B /* TempBPMControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempBPMControlView.swift; sourceTree = "<group>"; };
+		F241BDAC2E66E9050060CB4B /* ChartPeriodControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPeriodControlView.swift; sourceTree = "<group>"; };
+		F241BDAE2E66F4980060CB4B /* TempUnitControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUnitControlView.swift; sourceTree = "<group>"; };
+		F241BDB22E674F190060CB4B /* HistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
+		F241BDB42E674F200060CB4B /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
+		F241BDB62E674F360060CB4B /* BpmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpmCell.swift; sourceTree = "<group>"; };
+		F241BDB82E675CAA0060CB4B /* Date+DisplayString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DisplayString.swift"; sourceTree = "<group>"; };
+		F241BDBB2E676C1E0060CB4B /* TempRealmManager+Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TempRealmManager+Stat.swift"; sourceTree = "<group>"; };
+		F241BDBD2E676CEB0060CB4B /* BPMRealmManager+Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPMRealmManager+Stat.swift"; sourceTree = "<group>"; };
+		F241BDBF2E68436B0060CB4B /* HistoryGuideControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryGuideControlView.swift; sourceTree = "<group>"; };
+		F241BDC42E685A020060CB4B /* IntGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntGuideCell.swift; sourceTree = "<group>"; };
+		F241BDC72E685C350060CB4B /* IntGuideTempSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntGuideTempSection.swift; sourceTree = "<group>"; };
+		F241BDC92E685E380060CB4B /* IntGuideBpmSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntGuideBpmSection.swift; sourceTree = "<group>"; };
+		F241BDCB2E685F600060CB4B /* IntGuideTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntGuideTableView.swift; sourceTree = "<group>"; };
+		F241BDCE2E687D950060CB4B /* BPMPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMPoint.swift; sourceTree = "<group>"; };
+		F241BDD02E687DA40060CB4B /* TempPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPoint.swift; sourceTree = "<group>"; };
 		F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVC.swift; sourceTree = "<group>"; };
 		F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdVM.swift; sourceTree = "<group>"; };
 		F24641A22E4F3A59000D0A07 /* PaywallProdAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProdAssembler.swift; sourceTree = "<group>"; };
@@ -502,6 +534,9 @@
 		F241BD9D2E65ABEB0060CB4B /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				F241BDBA2E676BFF0060CB4B /* UseCase */,
+				F241BDCD2E687D830060CB4B /* Chart */,
+				F241BDB02E674EE10060CB4B /* Adapter */,
 				F241BDA72E65AC7B0060CB4B /* Components */,
 				F241BD9E2E65AC030060CB4B /* Router */,
 				F241BD9F2E65AC3D0060CB4B /* StatisticsVC.swift */,
@@ -522,9 +557,93 @@
 		F241BDA72E65AC7B0060CB4B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F241BDA82E65ACB10060CB4B /* StatisticsTempChartView.swift */,
+				F241BDAA2E66D8C70060CB4B /* TempBPMControlView.swift */,
+				F241BDAC2E66E9050060CB4B /* ChartPeriodControlView.swift */,
+				F241BDAE2E66F4980060CB4B /* TempUnitControlView.swift */,
+				F241BDBF2E68436B0060CB4B /* HistoryGuideControlView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F241BDB02E674EE10060CB4B /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDC22E68584F0060CB4B /* IntGuideTableView */,
+				F241BDC12E68583A0060CB4B /* HistoryTableView */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		F241BDB12E674EF10060CB4B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDB42E674F200060CB4B /* TempCell.swift */,
+				F241BDB62E674F360060CB4B /* BpmCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F241BDBA2E676BFF0060CB4B /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDBB2E676C1E0060CB4B /* TempRealmManager+Stat.swift */,
+				F241BDBD2E676CEB0060CB4B /* BPMRealmManager+Stat.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F241BDC12E68583A0060CB4B /* HistoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDB12E674EF10060CB4B /* Cells */,
+				F241BDB22E674F190060CB4B /* HistoryTableView.swift */,
+			);
+			path = HistoryTableView;
+			sourceTree = "<group>";
+		};
+		F241BDC22E68584F0060CB4B /* IntGuideTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDC62E685C170060CB4B /* IntGuideSections */,
+				F241BDC32E68586A0060CB4B /* Cell */,
+				F241BDCB2E685F600060CB4B /* IntGuideTableView.swift */,
+			);
+			path = IntGuideTableView;
+			sourceTree = "<group>";
+		};
+		F241BDC32E68586A0060CB4B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDC42E685A020060CB4B /* IntGuideCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F241BDC62E685C170060CB4B /* IntGuideSections */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDC72E685C350060CB4B /* IntGuideTempSection.swift */,
+				F241BDC92E685E380060CB4B /* IntGuideBpmSection.swift */,
+			);
+			path = IntGuideSections;
+			sourceTree = "<group>";
+		};
+		F241BDCD2E687D830060CB4B /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDD22E687DAB0060CB4B /* Points */,
+				F241BDA82E65ACB10060CB4B /* StatChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		F241BDD22E687DAB0060CB4B /* Points */ = {
+			isa = PBXGroup;
+			children = (
+				F241BDD02E687DA40060CB4B /* TempPoint.swift */,
+				F241BDCE2E687D950060CB4B /* BPMPoint.swift */,
+			);
+			path = Points;
 			sourceTree = "<group>";
 		};
 		F246419D2E4F39C5000D0A07 /* Router */ = {
@@ -1131,6 +1250,7 @@
 				F264417B2E4CE63A007D879B /* UIImageView+Set.swift */,
 				F2FABEF42E5C8E280035BF77 /* StoreKit+Review.swift */,
 				F26808572E609BD1005A6132 /* UICollectionView+Register.swift */,
+				F241BDB82E675CAA0060CB4B /* Date+DisplayString.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1519,6 +1639,7 @@
 				F289DC392E572C2400E05658 /* SelectPhotoButtonView.swift in Sources */,
 				F296A4332E11985100E1348E /* Subject.swift in Sources */,
 				F2765AEE2E5F6398008A54E1 /* MeasuringResultRouter.swift in Sources */,
+				F241BDAD2E66E9050060CB4B /* ChartPeriodControlView.swift in Sources */,
 				F2FABDE32E5C741D0035BF77 /* SettingsGoPremiumView.swift in Sources */,
 				F264419F2E4E6BD6007D879B /* PaywallProdTrialAssembler.swift in Sources */,
 				F264417C2E4CE63A007D879B /* UIImageView+Set.swift in Sources */,
@@ -1535,6 +1656,7 @@
 				F241BC892E6503F70060CB4B /* TempModelDTO.swift in Sources */,
 				F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */,
 				F29BE4572E54E023009E1D66 /* MainStatisticsDataView.swift in Sources */,
+				F241BDC52E685A020060CB4B /* IntGuideCell.swift in Sources */,
 				F24DF76C2E51E75E0091764F /* RegistrationPageControlView.swift in Sources */,
 				F2FCCFA42E5DCAF400241719 /* MeasuringVC.swift in Sources */,
 				F26441692E4C84F5007D879B /* UIView+Style.swift in Sources */,
@@ -1549,7 +1671,7 @@
 				F24DF75A2E51DE460091764F /* RegUserInfoVM.swift in Sources */,
 				F289DC422E57628600E05658 /* FileManagerService+Profile.swift in Sources */,
 				F2FABF0B2E5CC4850035BF77 /* NotificationRouter.swift in Sources */,
-				F241BDA92E65ACB10060CB4B /* StatisticsTempChartView.swift in Sources */,
+				F241BDA92E65ACB10060CB4B /* StatChartView.swift in Sources */,
 				F267F15D2E632CF7007F294C /* TemperatyreUnit.swift in Sources */,
 				F24DF79D2E5375C10091764F /* RealDataManager+Main.swift in Sources */,
 				F268085C2E60C427005A6132 /* NotesView.swift in Sources */,
@@ -1597,6 +1719,7 @@
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
 				F26808652E61B9A0005A6132 /* MeasutingResult+Realm.swift in Sources */,
 				F241BC8B2E65046C0060CB4B /* RealmTempManager.swift in Sources */,
+				F241BDB72E674F360060CB4B /* BpmCell.swift in Sources */,
 				F24DF7922E5356830091764F /* MainVM.swift in Sources */,
 				F267F1562E632842007F294C /* TemperatureInputRouter.swift in Sources */,
 				F24641AB2E4F4579000D0A07 /* PaywallRevAssembler.swift in Sources */,
@@ -1604,11 +1727,14 @@
 				F268084A2E607F88005A6132 /* BPMBarControl.swift in Sources */,
 				F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */,
 				F26808582E609BD1005A6132 /* UICollectionView+Register.swift in Sources */,
+				F241BDAF2E66F4980060CB4B /* TempUnitControlView.swift in Sources */,
 				F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */,
 				F24DF7792E521B890091764F /* KeyboardHelperService.swift in Sources */,
 				F24DF7982E5370280091764F /* Gender.swift in Sources */,
+				F241BDD12E687DA40060CB4B /* TempPoint.swift in Sources */,
 				F26441752E4CD2E0007D879B /* OnbFirstRouter.swift in Sources */,
 				F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */,
+				F241BDB92E675CAA0060CB4B /* Date+DisplayString.swift in Sources */,
 				F27659D62E5F2058008A54E1 /* RGBMesuring.swift in Sources */,
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
@@ -1619,10 +1745,12 @@
 				F2FCCFAA2E5DCB0900241719 /* MeasuringRouter.swift in Sources */,
 				F24DF7642E51DF2F0091764F /* RegGenderVM.swift in Sources */,
 				F24DF7582E51DE3F0091764F /* RegUserInfoVC.swift in Sources */,
+				F241BDBE2E676CEB0060CB4B /* BPMRealmManager+Stat.swift in Sources */,
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
 				F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */,
 				F217C7182E55CFB7005606E1 /* ProfileVM.swift in Sources */,
 				F2765AE92E5F637B008A54E1 /* MeasuringResultVM.swift in Sources */,
+				F241BDB52E674F200060CB4B /* TempCell.swift in Sources */,
 				F2FABEF72E5C8FC00035BF77 /* MailVC.swift in Sources */,
 				F24DF7882E5334120091764F /* RealmDataManager+RegGender.swift in Sources */,
 				F264418A2E4E15C0007D879B /* OnbThirdVM.swift in Sources */,
@@ -1634,7 +1762,9 @@
 				F267F1642E6361EB007F294C /* TempConditionVM.swift in Sources */,
 				F26440FD2E4C6F88007D879B /* OnbThirdVC.swift in Sources */,
 				F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */,
+				F241BDB32E674F190060CB4B /* HistoryTableView.swift in Sources */,
 				F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */,
+				F241BDCA2E685E380060CB4B /* IntGuideBpmSection.swift in Sources */,
 				F2FCCFA62E5DCAF800241719 /* MeasuringVM.swift in Sources */,
 				F241BC812E64C3640060CB4B /* FeelingCell.swift in Sources */,
 				F26441722E4CCFC4007D879B /* OnbFirstVM.swift in Sources */,
@@ -1642,6 +1772,7 @@
 				F268085A2E60B7AD005A6132 /* SaveButtonView.swift in Sources */,
 				F296A4222E11930C00E1348E /* Container.swift in Sources */,
 				F2FCD0C82E5DD9B400241719 /* PulseDetector.swift in Sources */,
+				F241BDAB2E66D8C70060CB4B /* TempBPMControlView.swift in Sources */,
 				F2FCD0C42E5DD98300241719 /* Filter.swift in Sources */,
 				F2FABDDE2E5C56DF0035BF77 /* SettingsSection.swift in Sources */,
 				F264416C2E4CBF9C007D879B /* OnboardingPageControlView.swift in Sources */,
@@ -1655,6 +1786,7 @@
 				F27659D22E5E3DB9008A54E1 /* BPMView.swift in Sources */,
 				F296A4092E11665B00E1348E /* Specimen.swift in Sources */,
 				F296A4242E1193C100E1348E /* ContainerConfigurator.swift in Sources */,
+				F241BDC82E685C350060CB4B /* IntGuideTempSection.swift in Sources */,
 				F217C71C2E55CFC4005606E1 /* ProfileAssembler.swift in Sources */,
 				F267F1602E6345CF007F294C /* KeyBoardHelperService+TemperatureInput.swift in Sources */,
 				F2765AEB2E5F6384008A54E1 /* MeasuringResultAssembler.swift in Sources */,
@@ -1678,6 +1810,7 @@
 				F268085E2E61AC3D005A6132 /* BPMModelMO.swift in Sources */,
 				F217C7162E55CFB0005606E1 /* ProfileVC.swift in Sources */,
 				F26441992E4E213E007D879B /* PaywallProdTrialVM.swift in Sources */,
+				F241BDCC2E685F600060CB4B /* IntGuideTableView.swift in Sources */,
 				F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */,
 				F24DF75E2E51DE550091764F /* RegUserInfoRouter.swift in Sources */,
 				F267F1692E63620F007F294C /* TempConditionRouter.swift in Sources */,
@@ -1695,8 +1828,11 @@
 				F241BDA42E65AC470060CB4B /* StatisticsRouter.swift in Sources */,
 				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
+				F241BDCF2E687D950060CB4B /* BPMPoint.swift in Sources */,
+				F241BDC02E68436B0060CB4B /* HistoryGuideControlView.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,
 				F2FCD0CA2E5DD9C500241719 /* PulseManager.swift in Sources */,
+				F241BDBC2E676C1E0060CB4B /* TempRealmManager+Stat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

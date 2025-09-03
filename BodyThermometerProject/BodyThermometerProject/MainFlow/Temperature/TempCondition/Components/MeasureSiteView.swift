@@ -79,8 +79,10 @@ final class MeasureSiteView: UIView {
         return stack
     }()
     
-    private lazy var firstSeparatorView: UIView = UIView().bgColor(.gray)
-    private lazy var secondSeparatorView: UIView = UIView().bgColor(.gray)
+    private lazy var firstSeparatorView: UIView =
+    UIView().bgColor(.appGrey.withAlphaComponent(0.3))
+    private lazy var secondSeparatorView: UIView =
+    UIView().bgColor(.appGrey.withAlphaComponent(0.3))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -199,8 +201,8 @@ private extension MeasureSiteView {
             firstSeparatorView.isHidden = true
             secondSeparatorView.isHidden = false
         case .forehead:
-            firstSeparatorView.isHidden = false
-            secondSeparatorView.isHidden = false
+            firstSeparatorView.isHidden = true
+            secondSeparatorView.isHidden = true
         case .other:
             firstSeparatorView.isHidden = false
             secondSeparatorView.isHidden = true

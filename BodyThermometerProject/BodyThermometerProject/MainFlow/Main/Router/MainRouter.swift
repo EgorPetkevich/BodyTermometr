@@ -46,4 +46,11 @@ final class MainRouter: MainRouterProtocol {
         root.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func openStatistics() {
+        guard let root else { return }
+        let vc = StatisticsAssembler.assembly(container: container)
+        root.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }

@@ -7,4 +7,12 @@
 
 import UIKit
 
-
+extension UIImageView {
+    
+    @discardableResult
+    func setBgColor(_ color: UIColor) -> UIImageView {
+        self.backgroundColor = color
+        return self
+    }
+    
+}

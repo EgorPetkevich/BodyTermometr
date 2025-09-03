@@ -11,7 +11,7 @@ import RealmSwift
 struct TempModelDTO: Equatable {
     var id: String
     var date: Date
-    var temp: Int16
+    var temp: Double
     var unit: String
     var measureSite: String?
     var symptoms:  [String]
@@ -20,7 +20,7 @@ struct TempModelDTO: Equatable {
     
     init(id: String,
          date: Date,
-         temp: Int16,
+         temp: Double,
          unit: String,
          measureSite: String? = nil,
          symptoms: [String] = [],

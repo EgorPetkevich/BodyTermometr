@@ -42,7 +42,7 @@ final class RealmBPMManager: RealmDataManager {
     }
 
     /// Observe all BPM entries as DTOs, sorted by date
-    func observeAllSortedByDate(desc: Bool = true) -> Observable<[BPMModelDTO]> {
+    func observeAllSortedByDate(desc: Bool = true) -> Observable<[BPMModelDTO]?> {
         let results = getAll(BPMModelMO.self).sorted(byKeyPath: "date", ascending: !desc)
         return Observable.collection(from: results)
             .map { $0.map { BPMModelDTO.fromMO($0) } }

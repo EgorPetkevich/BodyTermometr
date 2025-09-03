@@ -19,7 +19,7 @@ protocol MainViewModelProtocol {
     var settingsButtonTapped: PublishSubject<Void> { get }
     var heartRateTapped: PublishSubject<Void> { get }
     var bodyTempTapped: PublishSubject<Void> { get }
-    
+    var statTapped: PublishSubject<Void> { get }
     func viewWillAppear()
 }
 
@@ -94,6 +94,9 @@ final class MainVC: UIViewController {
             .disposed(by: bag)
         bodyTempView.tap
             .bind(to: viewModel.bodyTempTapped)
+            .disposed(by: bag)
+        statDataView.tap
+            .bind(to: viewModel.statTapped)
             .disposed(by: bag)
         viewModel.iconImage
             .observe(on: MainScheduler.instance)

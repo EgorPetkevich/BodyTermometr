@@ -110,7 +110,7 @@ private extension MainStatisticsDataView {
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(statCircleView.snp.bottom).offset(8.0)
-            make.centerX.equalToSuperview()
+            make.left.equalTo(statCircleView.snp.left)
         }
         mainIconImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(119.0)

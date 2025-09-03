@@ -11,7 +11,7 @@ import RealmSwift
 final class TempModelMO: Object {
     @Persisted(primaryKey: true) var id: String
     @Persisted var date: Date
-    @Persisted var temp: Int16
+    @Persisted var temp: Double
     @Persisted var unit: String
     @Persisted var measureSite: String?
     @Persisted var symptoms:  List<String>
