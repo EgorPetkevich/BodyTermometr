@@ -11,11 +11,22 @@ import RxSwift
 import RxRealm
 
 final class RealmTempManager: RealmDataManager {
-   
+    
     func createOrUpdate(dto: TempModelDTO) {
-        let mo = get(TempModelMO.self, primaryKey: dto.id) ?? TempModelMO()
-        mo.apply(dto: dto)
-        save(mo, update: .modified)
+        if let existing = get(TempModelMO.self, primaryKey: dto.id) {
+            do {
+                try realm.write {
+                    existing.apply(dto: dto)
+                    realm.add(existing, update: .modified)
+                }
+            } catch {
+                print("[Error] Failed to update BPMModelMO: \(error)")
+            }
+        } else {
+            let newMO = TempModelMO()
+            newMO.apply(dto: dto)
+            save(newMO, update: .modified)
+        }
     }
 
     func delete(dto: TempModelDTO) {

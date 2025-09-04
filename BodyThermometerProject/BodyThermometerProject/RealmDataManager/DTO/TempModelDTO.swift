@@ -61,7 +61,6 @@ struct TempModelDTO: Equatable {
     }
     
     public func apply(to mo: TempModelMO) {
-        mo.id = self.id
         mo.date = self.date
         mo.temp = self.temp
         mo.unit = self.unit

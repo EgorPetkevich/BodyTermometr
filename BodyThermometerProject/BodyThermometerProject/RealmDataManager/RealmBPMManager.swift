@@ -11,11 +11,22 @@ import RxSwift
 import RxRealm
 
 final class RealmBPMManager: RealmDataManager {
-   
+    
     func createOrUpdate(dto: BPMModelDTO) {
-        let mo = get(BPMModelMO.self, primaryKey: dto.id) ?? BPMModelMO()
-        mo.apply(dto: dto)
-        save(mo, update: .modified)
+        if let existing = get(BPMModelMO.self, primaryKey: dto.id) {
+            do {
+                try realm.write {
+                    existing.apply(dto: dto)
+                    realm.add(existing, update: .modified)
+                }
+            } catch {
+                print("[Error] Failed to update BPMModelMO: \(error)")
+            }
+        } else {
+            let newMO = BPMModelMO()
+            newMO.apply(dto: dto)
+            save(newMO, update: .modified)
+        }
     }
 
     func delete(dto: BPMModelDTO) {

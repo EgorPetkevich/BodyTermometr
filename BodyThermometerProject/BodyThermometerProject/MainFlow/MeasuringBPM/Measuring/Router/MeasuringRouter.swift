@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MeasuringRouter: MeasuringRouterProtocol {
     
@@ -13,9 +14,11 @@ final class MeasuringRouter: MeasuringRouterProtocol {
     weak var measuringGuideVC: UIViewController?
     
     private var container: Container
+    private var subject: PublishSubject<Int>?
     
-    init(container: Container) {
+    init(container: Container, subject: PublishSubject<Int>? = nil) {
         self.container = container
+        self.subject = subject
     }
     
     func openMeasuringGuide() {
@@ -35,9 +38,15 @@ final class MeasuringRouter: MeasuringRouterProtocol {
     }
     
     func openMeasuringResule(_ result: Int) {
-        let vc = MeasuringResultAssembler.assembly(container: container,
-                                                   bpmResult: result)
-        root?.navigationController?.pushViewController(vc, animated: true)
+        guard let subject else {
+            let vc = MeasuringResultAssembler.assembly(container: container,
+                                                       bpmResult: result)
+            root?.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        subject.onNext(result)
+        root?.navigationController?.popViewController(animated: true)
+       
     }
     
     func dismiss() {

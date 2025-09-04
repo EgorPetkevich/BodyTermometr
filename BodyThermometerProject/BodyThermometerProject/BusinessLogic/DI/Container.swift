@@ -17,10 +17,6 @@ final class Container {
         lazyDependencies["\(T.self)"] = closure
     }
     
-    func register<T>(_ deps: T) {
-        dependencies["\(T.self)"] = deps
-    }
-    
     func resolve<T>() -> T {
         if let deps = dependencies["\(T.self)"] {
             return deps as! T

@@ -11,17 +11,31 @@ import RxCocoa
 import SnapKit
 
 protocol ActivityCollectionProtocol {
+   // Out
     var selectedActivity: Observable<Activity?> { get }
     func getCollection() -> UICollectionView
-    
+    // In
+    var items: BehaviorRelay<[Activity]> { get }
+    var selectActivity: PublishRelay<Void> { get }
+    var allowSelection: Bool { get set }
 }
 
 final class ActivityCollection: NSObject,
-                          UICollectionViewDelegateFlowLayout,
-                          ActivityCollectionProtocol {
+                                UICollectionViewDelegateFlowLayout,
+                                ActivityCollectionProtocol {
     
+    // Out
     @Relay(value: nil)
     var selectedActivity: Observable<Activity?>
+    
+    // In
+    var items = BehaviorRelay(value: Activity.allCases)
+    var selectActivity = PublishRelay<Void>()
+    
+    var allowSelection: Bool {
+        get { collectionView.allowsSelection }
+        set { collectionView.allowsSelection = newValue }
+    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -32,6 +46,7 @@ final class ActivityCollection: NSObject,
         cv.isScrollEnabled = false
         cv.scrollIndicatorInsets = .zero
         cv.allowsSelection = true
+        cv.allowsMultipleSelection = false
         return cv
     }()
     
@@ -48,8 +63,6 @@ final class ActivityCollection: NSObject,
     }
     
     private func bind() {
-        let items = Observable.just(Activity.allCases)
-        
         items
             .bind(to: collectionView.rx.items(
                 cellIdentifier: "\(ActivityCell.self)",
@@ -66,7 +79,22 @@ final class ActivityCollection: NSObject,
             })
             .disposed(by: disposeBag)
         
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        collectionView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        selectActivity
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    self.collectionView.selectItem(
+                        at: indexPath,
+                        animated: true,
+                        scrollPosition: []
+                    )
+                })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Flow layout

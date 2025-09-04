@@ -186,6 +186,14 @@
 		F29BE4592E54E481009E1D66 /* MainHeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */; };
 		F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */; };
 		F29BE45D2E54F261009E1D66 /* MainMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */; };
+		F2AA88932E698D5E00561BCC /* BPMDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88922E698D5E00561BCC /* BPMDetailsVC.swift */; };
+		F2AA88952E698D6200561BCC /* BPMDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88942E698D6200561BCC /* BPMDetailsVM.swift */; };
+		F2AA88972E698D6C00561BCC /* BPMDetailsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88962E698D6C00561BCC /* BPMDetailsAssembler.swift */; };
+		F2AA88992E698D7100561BCC /* BPMDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88982E698D7100561BCC /* BPMDetailsRouter.swift */; };
+		F2AA889C2E699DC900561BCC /* Realm+BPMDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA889B2E699DC900561BCC /* Realm+BPMDetails.swift */; };
+		F2AA889E2E69AA1C00561BCC /* AlertManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA889D2E69AA1C00561BCC /* AlertManagerService.swift */; };
+		F2AA88A12E69ABC300561BCC /* WindowManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88A02E69ABC300561BCC /* WindowManagerService.swift */; };
+		F2AA88A32E69B1AC00561BCC /* Alert+BPMDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88A22E69B1AC00561BCC /* Alert+BPMDetails.swift */; };
 		F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */; };
 		F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */; };
 		F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */; };
@@ -403,6 +411,14 @@
 		F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeartRateView.swift; sourceTree = "<group>"; };
 		F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileButtonView.swift; sourceTree = "<group>"; };
 		F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButtonView.swift; sourceTree = "<group>"; };
+		F2AA88922E698D5E00561BCC /* BPMDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMDetailsVC.swift; sourceTree = "<group>"; };
+		F2AA88942E698D6200561BCC /* BPMDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMDetailsVM.swift; sourceTree = "<group>"; };
+		F2AA88962E698D6C00561BCC /* BPMDetailsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMDetailsAssembler.swift; sourceTree = "<group>"; };
+		F2AA88982E698D7100561BCC /* BPMDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMDetailsRouter.swift; sourceTree = "<group>"; };
+		F2AA889B2E699DC900561BCC /* Realm+BPMDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+BPMDetails.swift"; sourceTree = "<group>"; };
+		F2AA889D2E69AA1C00561BCC /* AlertManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerService.swift; sourceTree = "<group>"; };
+		F2AA88A02E69ABC300561BCC /* WindowManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManagerService.swift; sourceTree = "<group>"; };
+		F2AA88A22E69B1AC00561BCC /* Alert+BPMDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+BPMDetails.swift"; sourceTree = "<group>"; };
 		F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembler.swift; sourceTree = "<group>"; };
@@ -772,15 +788,16 @@
 		F24DF78C2E53560B0091764F /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				F241BD9D2E65ABEB0060CB4B /* Statistics */,
-				F267F14A2E6326D6007F294C /* Temperature */,
 				F24DF78D2E53566D0091764F /* Main */,
 				F217C7132E55CEFF005606E1 /* Profile */,
-				F267F14C2E6327D2007F294C /* MeasuringBPM */,
 				F2FABDD02E5B5C0E0035BF77 /* Settings */,
-				F2FABF022E5CC4560035BF77 /* Notification */,
+				F241BD9D2E65ABEB0060CB4B /* Statistics */,
+				F267F14A2E6326D6007F294C /* Temperature */,
+				F267F14C2E6327D2007F294C /* MeasuringBPM */,
 				F2FCCFA12E5DC7CA00241719 /* MeasuringGuide */,
+				F2AA88902E698D3500561BCC /* BPMDetails */,
 				F289DC2D2E5728E100E05658 /* SelectPhoto */,
+				F2FABF022E5CC4560035BF77 /* Notification */,
 				F2FABEFA2E5C8FCB0035BF77 /* Mail */,
 			);
 			path = MainFlow;
@@ -1235,6 +1252,7 @@
 				F296A4162E11731100E1348E /* BusinessLogic */,
 				F296A4132E1172BB00E1348E /* Design */,
 				F296A40C2E11716900E1348E /* Sources */,
+				F296A4192E11737F00E1348E /* RealmDataManager */,
 				F296A4022E11533800E1348E /* Info.plist */,
 			);
 			path = BodyThermometerProject;
@@ -1300,7 +1318,6 @@
 			isa = PBXGroup;
 			children = (
 				F296A4202E1192F900E1348E /* DI */,
-				F296A4192E11737F00E1348E /* RealmDataManager */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -1311,6 +1328,8 @@
 				F24DF7782E521B890091764F /* KeyboardHelperService.swift */,
 				F289DC3A2E575E0500E05658 /* FileManagerService.swift */,
 				F289DC3C2E575E5200E05658 /* UDManagerService.swift */,
+				F2AA889D2E69AA1C00561BCC /* AlertManagerService.swift */,
+				F2AA88A02E69ABC300561BCC /* WindowManagerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1376,6 +1395,35 @@
 				F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */,
 			);
 			path = MainComponents;
+			sourceTree = "<group>";
+		};
+		F2AA88902E698D3500561BCC /* BPMDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA889A2E699DAE00561BCC /* UseCase */,
+				F2AA88912E698D5100561BCC /* Router */,
+				F2AA88922E698D5E00561BCC /* BPMDetailsVC.swift */,
+				F2AA88942E698D6200561BCC /* BPMDetailsVM.swift */,
+				F2AA88962E698D6C00561BCC /* BPMDetailsAssembler.swift */,
+			);
+			path = BPMDetails;
+			sourceTree = "<group>";
+		};
+		F2AA88912E698D5100561BCC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA88982E698D7100561BCC /* BPMDetailsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F2AA889A2E699DAE00561BCC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA889B2E699DC900561BCC /* Realm+BPMDetails.swift */,
+				F2AA88A22E69B1AC00561BCC /* Alert+BPMDetails.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		F2FABDD02E5B5C0E0035BF77 /* Settings */ = {
@@ -1673,7 +1721,9 @@
 				F2FCCFA42E5DCAF400241719 /* MeasuringVC.swift in Sources */,
 				F26441692E4C84F5007D879B /* UIView+Style.swift in Sources */,
 				F296A4352E11986100E1348E /* Relay.swift in Sources */,
+				F2AA889E2E69AA1C00561BCC /* AlertManagerService.swift in Sources */,
 				F24DF7902E53567C0091764F /* MainVC.swift in Sources */,
+				F2AA88932E698D5E00561BCC /* BPMDetailsVC.swift in Sources */,
 				F24641A92E4F456B000D0A07 /* PaywallRevVM.swift in Sources */,
 				F26441842E4E07EC007D879B /* OnbSecondAssebler.swift in Sources */,
 				F267F1542E63283D007F294C /* TemperatureInputAssembler.swift in Sources */,
@@ -1690,6 +1740,7 @@
 				F24641B22E4FB43F000D0A07 /* PaywallButtonView.swift in Sources */,
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
 				F241BDA02E65AC3D0060CB4B /* StatisticsVC.swift in Sources */,
+				F2AA88A12E69ABC300561BCC /* WindowManagerService.swift in Sources */,
 				F26441782E4CD35C007D879B /* OnbFirstAssembler.swift in Sources */,
 				F267F16C2E636BC3007F294C /* TempConditionTypeView.swift in Sources */,
 				F24641A72E4F455E000D0A07 /* PaywallRevVC.swift in Sources */,
@@ -1700,6 +1751,7 @@
 				F26808482E606A30005A6132 /* BMPStatus.swift in Sources */,
 				F267F1662E6361F8007F294C /* TempConditionAssembler.swift in Sources */,
 				F26808462E606629005A6132 /* BPMStatusView.swift in Sources */,
+				F2AA88972E698D6C00561BCC /* BPMDetailsAssembler.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
 				F241BC852E64F9400060CB4B /* DatePickerVC.swift in Sources */,
 				F267F1522E632835007F294C /* TemperatureInputVM.swift in Sources */,
@@ -1751,6 +1803,7 @@
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
+				F2AA88952E698D6200561BCC /* BPMDetailsVM.swift in Sources */,
 				F267F1592E6329A1007F294C /* TempreratureSwitchView.swift in Sources */,
 				F26808532E6090AA005A6132 /* ActivityCell.swift in Sources */,
 				F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */,
@@ -1761,6 +1814,7 @@
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
 				F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */,
 				F217C7182E55CFB7005606E1 /* ProfileVM.swift in Sources */,
+				F2AA889C2E699DC900561BCC /* Realm+BPMDetails.swift in Sources */,
 				F2765AE92E5F637B008A54E1 /* MeasuringResultVM.swift in Sources */,
 				F241BDB52E674F200060CB4B /* TempCell.swift in Sources */,
 				F2FABEF72E5C8FC00035BF77 /* MailVC.swift in Sources */,
@@ -1813,6 +1867,7 @@
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */,
 				F267F1502E63282E007F294C /* TemperatureInputVC.swift in Sources */,
+				F2AA88992E698D7100561BCC /* BPMDetailsRouter.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
 				F241BC8E2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift in Sources */,
 				F24641AD2E4F4587000D0A07 /* PaywallRevRouter.swift in Sources */,
@@ -1823,6 +1878,7 @@
 				F217C7162E55CFB0005606E1 /* ProfileVC.swift in Sources */,
 				F26441992E4E213E007D879B /* PaywallProdTrialVM.swift in Sources */,
 				F241BDCC2E685F600060CB4B /* IntGuideTableView.swift in Sources */,
+				F2AA88A32E69B1AC00561BCC /* Alert+BPMDetails.swift in Sources */,
 				F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */,
 				F24DF75E2E51DE550091764F /* RegUserInfoRouter.swift in Sources */,
 				F267F1692E63620F007F294C /* TempConditionRouter.swift in Sources */,

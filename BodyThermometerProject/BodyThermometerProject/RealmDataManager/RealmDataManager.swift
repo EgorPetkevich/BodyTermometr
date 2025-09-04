@@ -12,7 +12,7 @@ import RxRealm
 
 class RealmDataManager {
 
-    private let realm: Realm
+    let realm: Realm
 
     init(realm: Realm = try! Realm()) {
         if let originalURL = Realm.Configuration.defaultConfiguration.fileURL {

@@ -17,8 +17,13 @@ enum Mode {
 }
 
 protocol HistoryTableViewTableViewProtocol {
-    var currentUnitRelay: BehaviorRelay<TempUnit> { get }
+    //Out
+    var tempSelected: Observable<TempModelDTO> { get }
+    var bpmSelected: Observable<BPMModelDTO> { get }
     func getTable() -> UITableView
+    
+    // In
+    var currentUnitRelay: BehaviorRelay<TempUnit> { get }
     func setTempItems(_ items: [TempModelDTO])
     func setBpmItems(_ items: [BPMModelDTO])
 }
@@ -31,6 +36,27 @@ final class HistoryTableView: NSObject,
         static let rowHeight: CGFloat = 80.0
         static let sectionFooterHeight: CGFloat = 16.0
     }
+    
+    @Relay()
+    var tempSelected: Observable<TempModelDTO>
+    @Relay()
+    var bpmSelected: Observable<BPMModelDTO>
+    
+    var modeRelay = BehaviorRelay<Mode>(value: .temp([]))
+    let currentUnitRelay = BehaviorRelay<TempUnit>(value: .c)
+    
+    private(set) lazy var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.backgroundColor = .clear
+        tv.isScrollEnabled = true
+        tv.showsVerticalScrollIndicator = false
+        tv.separatorStyle = .none
+        tv.allowsSelection = true
+        tv.allowsMultipleSelection = false
+        tv.sectionFooterHeight = LayoutConst.sectionFooterHeight
+        tv.rowHeight = LayoutConst.rowHeight
+        return tv
+    }()
     
     // Empty state overlay
     private let emptyOverlay = UIView()
@@ -53,27 +79,6 @@ final class HistoryTableView: NSObject,
         l.font = .appRegularFont(ofSize: 15)
         l.textColor = .appBlack.withAlphaComponent(0.6)
         return l
-    }()
-    
-    @Relay()
-    var tempSelected: Observable<TempModelDTO>
-    @Relay()
-    var bpmSelected: Observable<BPMModelDTO>
-    
-    var modeRelay = BehaviorRelay<Mode>(value: .temp([]))
-    let currentUnitRelay = BehaviorRelay<TempUnit>(value: .c)
-    
-    private(set) lazy var tableView: UITableView = {
-        let tv = UITableView(frame: .zero, style: .plain)
-        tv.backgroundColor = .clear
-        tv.isScrollEnabled = true
-        tv.showsVerticalScrollIndicator = false
-        tv.separatorStyle = .none
-        tv.allowsSelection = true
-        tv.allowsMultipleSelection = false
-        tv.sectionFooterHeight = LayoutConst.sectionFooterHeight
-        tv.rowHeight = LayoutConst.rowHeight
-        return tv
     }()
     
     private let disposeBag = DisposeBag()
@@ -111,10 +116,6 @@ final class HistoryTableView: NSObject,
             make.leading.greaterThanOrEqualToSuperview().inset(16)
             make.trailing.lessThanOrEqualToSuperview().inset(16)
         }
-    }
-    
-    func setupEmptyOverlay() {
-        
     }
     
     private func bind() {

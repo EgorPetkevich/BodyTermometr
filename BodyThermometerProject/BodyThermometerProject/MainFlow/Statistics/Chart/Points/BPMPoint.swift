@@ -8,17 +8,17 @@
 import UIKit
 
 struct BPMPoint {
-    let bpm: Int16
+    let bpm: Int
     let date: Date
     var color: UIColor = UIColor()
-    init(bpm: Int16,
+    init(bpm: Int,
          date: Date) {
         self.bpm = bpm
         self.date = date
         self.color = BPMPoint.getColor(from: bpm)
     }
     
-    static func getColor(from bmp: Int16) -> UIColor {
+    static func getColor(from bmp: Int) -> UIColor {
         switch bmp {
         case ..<50:
             return .appPurple
@@ -35,7 +35,7 @@ struct BPMPoint {
         }
     }
     
-    static func getDescription(from bmp: Int16) -> String {
+    static func getDescription(from bmp: Int) -> String {
         switch bmp {
         case ..<50:
             return "Bradycardia (Low heart rate)"

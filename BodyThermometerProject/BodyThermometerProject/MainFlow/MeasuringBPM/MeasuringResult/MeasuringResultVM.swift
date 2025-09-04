@@ -51,6 +51,9 @@ final class MeasuringResultVM: MeasuringResultViewModelProtocol {
     }
     
     private func bind() {
+        collection.items.accept(Activity.allCases)
+        collection.allowSelection = true
+        collection.selectActivity.accept(())
         collection
             .selectedActivity
             .bind(to: selectedActivity)

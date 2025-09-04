@@ -21,6 +21,7 @@ final class AppRouter {
     init(windowScene: UIWindowScene) {
         self.windowScene = windowScene
         self.container = ContainerConfigurator.make()
+        container.lazyRegister({ WindowManager(scene: windowScene) })
         bindFlows()
     }
     

@@ -13,6 +13,8 @@ import RealmSwift
 
 protocol StatisticsRouterProtocol {
     func dismiss()
+    func openBPMDetails(with dto: BPMModelDTO)
+    func openTempDetails(with dto: TempModelDTO)
 }
 
 protocol StatisticsTempRealmManagerUseCaseProtocol {
@@ -64,6 +66,7 @@ final class StatisticsVM: StatisticsViewModelProtocol {
         bindButtons()
         bindChart()
         bindMode()
+        bindHistoryTable()
     }
     
     private func bindButtons() {
@@ -71,6 +74,19 @@ final class StatisticsVM: StatisticsViewModelProtocol {
             self?.router.dismiss()
         }).disposed(by: bag)
             
+    }
+    
+    private func bindHistoryTable() {
+        historyTableView.bpmSelected
+            .subscribe(onNext: { [weak self]  dto in
+                self?.router.openBPMDetails(with: dto)
+            })
+            .disposed(by: bag)
+        historyTableView.tempSelected
+            .subscribe(onNext: { [weak self]  dto in
+                self?.router.openTempDetails(with: dto)
+            })
+            .disposed(by: bag)
     }
     
     private func bindMode() {
@@ -124,7 +140,6 @@ final class StatisticsVM: StatisticsViewModelProtocol {
     }
     
     private func bindChart() {
-        
         
         // Rebuild TEMP when either temp data or period changes and mode is temperature
         Observable.combineLatest(tempDTOSubject.asObservable(),
@@ -234,8 +249,7 @@ private extension StatisticsVM {
 
     func mapBpmPoints(_ items: [BPMModelDTO]) -> [BPMPoint] {
         return items.map { dto in
-            let value = Double(dto.bpm)
-            return BPMPoint(bpm: Int16(value), date: dto.date)
+            return BPMPoint(bpm: dto.bpm, date: dto.date)
         }
     }
     

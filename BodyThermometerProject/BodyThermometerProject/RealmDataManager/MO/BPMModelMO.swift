@@ -11,7 +11,7 @@ import RealmSwift
 final class BPMModelMO: Object {
     @Persisted(primaryKey: true) var id: String
     @Persisted var date: Date
-    @Persisted var bpm: Int16
+    @Persisted var bpm: Int
     @Persisted var activity: String?
     @Persisted var notesText: String?
     
@@ -20,7 +20,6 @@ final class BPMModelMO: Object {
     }
     
     func apply(dto: BPMModelDTO) {
-        self.id = dto.id
         self.date = dto.date
         self.bpm = dto.bpm
         self.activity = dto.activity

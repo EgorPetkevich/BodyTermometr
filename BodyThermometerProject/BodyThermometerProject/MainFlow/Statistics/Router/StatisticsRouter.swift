@@ -17,6 +17,17 @@ final class StatisticsRouter: StatisticsRouterProtocol {
         self.container = container
     }
     
+    func openBPMDetails(with dto: BPMModelDTO) {
+        let vc = BPMDetailsAssembler.assembly(container: container, dto: dto)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        root?.present(nc, animated: true)
+    }
+    
+    func openTempDetails(with dto: TempModelDTO) {
+        
+    }
+    
     func dismiss() {
         root?.navigationController?.popViewController(animated: true)
     }

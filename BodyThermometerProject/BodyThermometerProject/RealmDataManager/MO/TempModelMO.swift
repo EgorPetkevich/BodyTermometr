@@ -23,7 +23,6 @@ final class TempModelMO: Object {
     }
     
     func apply(dto: TempModelDTO) {
-        self.id = dto.id
         self.date = dto.date
         self.temp = dto.temp
         self.unit = dto.unit

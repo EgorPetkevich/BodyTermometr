@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Activity: CaseIterable {
+enum Activity: String, CaseIterable {
     case normal, resting, walking, exercise
 
     var title: String {
@@ -25,5 +25,11 @@ enum Activity: CaseIterable {
         case .walking:  return .measuringActWalking
         case .exercise: return .measuringActExercise
         }
+    }
+    
+    static func getActivity(title: String?) -> Activity? {
+        guard let title else { return nil }
+        let lowercasedTitle = title.lowercased()
+        return Activity(rawValue: lowercasedTitle)
     }
 }

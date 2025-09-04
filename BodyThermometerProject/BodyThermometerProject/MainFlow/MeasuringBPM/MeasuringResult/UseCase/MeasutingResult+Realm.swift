@@ -19,7 +19,7 @@ struct MeasuringResultRealmBPMManagerUseCase:
     func saveBPM(bpm: Int, activity: String?, notesText: String?) {
         let dto = BPMModelDTO(id: UUID().uuidString,
                               date: .now,
-                              bpm: Int16(bpm),
+                              bpm: bpm,
                               activity: activity,
                               notesText: notesText)
         realm.createOrUpdate(dto: dto)

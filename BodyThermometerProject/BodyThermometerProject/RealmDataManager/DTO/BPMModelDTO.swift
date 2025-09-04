@@ -11,13 +11,13 @@ import RealmSwift
 struct BPMModelDTO: Equatable {
     var id: String
     var date: Date
-    var bpm: Int16
+    var bpm: Int
     var activity: String?
     var notesText: String?
 
     init(id: String,
          date: Date,
-         bpm: Int16,
+         bpm: Int,
          activity: String? = nil,
          notesText: String? = nil) {
         self.id = id
@@ -50,7 +50,6 @@ struct BPMModelDTO: Equatable {
     }
     
     public func apply(to mo: BPMModelMO) {
-            mo.id = self.id
             mo.date = self.date
             mo.bpm = self.bpm
             mo.activity = self.activity
