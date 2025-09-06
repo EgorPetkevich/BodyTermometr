@@ -22,7 +22,7 @@ final class NotesView: UIView {
         .setBgColor(.appWhite)
         .setTintColor(.appBlack)
 
-    private let textField: UITextField = {
+    let textField: UITextField = {
         let tf = UITextField()
         tf.borderStyle = .none
         tf.font = .appRegularFont(ofSize: 15)
@@ -45,7 +45,15 @@ final class NotesView: UIView {
     { textField.rx.text.orEmpty.asObservable() }
     
     var doneText: Observable<String> { doneSubject.asObservable() }
+    
+    var text: String? {
+        get { textField.text }
+        set {
+            textField.text = newValue
+        }
+    }
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -77,7 +85,7 @@ final class NotesView: UIView {
             .disposed(by: bag)
         
         crossButton.rx.tap
-            .withLatestFrom(textField.rx.text.orEmpty)
+            .map { [weak self] in self?.textField.text ?? "" }
             .subscribe(onNext: { [weak self] text in
                 self?.endEditing(true)
                 self?.isHidden = true
@@ -86,10 +94,15 @@ final class NotesView: UIView {
         .disposed(by: bag)
     }
 
-    func show(prefill text: String? = nil) {
-        textField.text = text
-        isHidden = false
+    func responder() {
         textField.becomeFirstResponder()
+    }
+    
+    func startEdit() {
+        guard !textField.isFirstResponder else { return }
+        DispatchQueue.main.async { [weak self] in
+            self?.textField.becomeFirstResponder()
+        }
     }
 
     func hide() {

@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import RxRelay
 
 final class TemperatureInputAssembler {
     
     private init() {}
     
-    static func assembly(container: Container) -> UIViewController {
-        let router = TemperatureInputRouter(container: container)
+    static func assembly(
+        container: Container,
+        _ dto: TempModelDTO? = nil,
+    ) -> UIViewController {
+        let router = TemperatureInputRouter(container: container, dto)
         let keyboardHelper =
         TemperatureInputKeyBoardHelperServiceUseCase(
             keyBoardHelperService: container.resolve()

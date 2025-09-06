@@ -19,6 +19,14 @@ final class BPMModelMO: Object {
         return BPMModelDTO.fromMO(self)
     }
     
+    func create(dto: BPMModelDTO) {
+        self.id = dto.id
+        self.date = dto.date
+        self.bpm = dto.bpm
+        self.activity = dto.activity
+        self.notesText = dto.notesText
+    }
+    
     func apply(dto: BPMModelDTO) {
         self.date = dto.date
         self.bpm = dto.bpm

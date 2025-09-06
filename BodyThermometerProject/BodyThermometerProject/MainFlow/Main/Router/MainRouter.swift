@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MainRouter: MainRouterProtocol {
     
     weak var root: UIViewController?
     
     private let container: Container
+    private let bag = DisposeBag()
     
     init(container: Container) {
         self.container = container
@@ -51,6 +53,21 @@ final class MainRouter: MainRouterProtocol {
         let vc = StatisticsAssembler.assembly(container: container)
         root.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func presentAttentionIfNeeded() {
+        guard UDManagerService.dontShowAgain == false else { return }
+        let vc = AttentionAlertVC()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.done
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { dontShow in
+                UDManagerService.dontShowAgain = dontShow
+            })
+            .disposed(by: bag)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        root?.present(vc, animated: true, completion: nil)
     }
     
 }

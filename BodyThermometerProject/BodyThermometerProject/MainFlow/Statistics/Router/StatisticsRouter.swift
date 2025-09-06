@@ -24,8 +24,13 @@ final class StatisticsRouter: StatisticsRouterProtocol {
         root?.present(nc, animated: true)
     }
     
-    func openTempDetails(with dto: TempModelDTO) {
-        
+    func openTempDetails(with dto: TempModelDTO, unit: TempUnit) {
+        let vc = TempDetailsAssembler.assembly(container: container,
+                                               dto: dto,
+                                               unit: unit)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        root?.present(nc, animated: true)
     }
     
     func dismiss() {

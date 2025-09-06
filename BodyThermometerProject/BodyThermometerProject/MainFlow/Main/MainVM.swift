@@ -15,10 +15,13 @@ protocol MainRouterProtocol {
     func openHeartRate()
     func openStatistics()
     func openTemperatureInput()
+    func presentAttentionIfNeeded()
 }
 
 protocol MainRealmDataManagerUseCaseProtocol {
     var userInfo: Observable<UserInfoDTO> { get }
+    func getLastTemperature() -> Observable<Double?>
+    func getLastBPM() -> Observable<Int?>
 }
 
 protocol MainFileManagerServiceUseCaseProtocol {
@@ -31,6 +34,10 @@ final class MainVM: MainViewModelProtocol {
     var userInfoDTO: Observable<UserInfoDTO>
     @Subject()
     var iconImage: Observable<UIImage>
+    @Subject(value: "--")
+    var bpmSubject: Observable<String>
+    @Subject(value: nil)
+    var tempSubject: Observable<Double?>
     //In
     var profileButtonTapped: PublishSubject<Void> = .init()
     var settingsButtonTapped: PublishSubject<Void> = .init()
@@ -63,6 +70,7 @@ final class MainVM: MainViewModelProtocol {
                 self?._iconImage.rx.onNext(img)
             })
             .disposed(by: bag)
+        router.presentAttentionIfNeeded()
     }
     
     private func bind() {
@@ -91,6 +99,14 @@ final class MainVM: MainViewModelProtocol {
         })
         .disposed(by: bag)
         
+        realmDataManager.getLastTemperature()
+            .bind(to: _tempSubject.rx)
+            .disposed(by: bag)
+        realmDataManager.getLastBPM()
+            .map { $0.map { "\($0)" } ?? "--" }
+            .startWith("--")
+            .bind(to: _bpmSubject.rx)
+            .disposed(by: bag)
     }
     
 }

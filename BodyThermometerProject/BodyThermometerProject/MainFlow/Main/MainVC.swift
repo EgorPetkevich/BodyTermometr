@@ -14,6 +14,8 @@ protocol MainViewModelProtocol {
     //Out
     var userInfoDTO: Observable<UserInfoDTO> { get }
     var iconImage: Observable<UIImage> { get }
+    var bpmSubject: Observable<String> { get }
+    var tempSubject: Observable<Double?> { get }
     //In
     var profileButtonTapped: PublishSubject<Void> { get }
     var settingsButtonTapped: PublishSubject<Void> { get }
@@ -71,9 +73,9 @@ final class MainVC: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .appBg
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.viewWillAppear()
         navigationController?.setNavigationBarHidden(true,
                                                      animated: false)
@@ -85,6 +87,12 @@ final class MainVC: UIViewController {
             .subscribe(onNext: { [weak self] dto in
                 self?.setupUserInfo(with: dto)
             })
+            .disposed(by: bag)
+        viewModel.tempSubject
+            .bind(to: bodyTempView.tempSubject)
+            .disposed(by: bag)
+        viewModel.bpmSubject
+            .bind(to: heartRateView.userBMPLabel.rx.text)
             .disposed(by: bag)
         profileButton.tap
             .bind(to: viewModel.profileButtonTapped)

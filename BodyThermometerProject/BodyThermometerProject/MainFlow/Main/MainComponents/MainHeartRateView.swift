@@ -41,7 +41,7 @@ final class MainHeartRateView: UIView {
     private lazy var bmpView: UIView =
     UIView().bgColor(.appBlack)
     
-    private lazy var userBMPLabel: UILabel =
+    lazy var userBMPLabel: UILabel =
         .mediumTitleLabel(withText: "--", ofSize: 24.0, color: .appWhite)
     
     private lazy var bmpLabel: UILabel =

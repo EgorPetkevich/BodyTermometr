@@ -14,7 +14,7 @@ import RealmSwift
 protocol StatisticsRouterProtocol {
     func dismiss()
     func openBPMDetails(with dto: BPMModelDTO)
-    func openTempDetails(with dto: TempModelDTO)
+    func openTempDetails(with dto: TempModelDTO, unit: TempUnit)
 }
 
 protocol StatisticsTempRealmManagerUseCaseProtocol {
@@ -83,8 +83,9 @@ final class StatisticsVM: StatisticsViewModelProtocol {
             })
             .disposed(by: bag)
         historyTableView.tempSelected
-            .subscribe(onNext: { [weak self]  dto in
-                self?.router.openTempDetails(with: dto)
+            .withLatestFrom(tempUnitState)  { dto, unit in (dto, unit) }
+            .subscribe(onNext: { [weak self]  dto, unit in
+                self?.router.openTempDetails(with: dto, unit: unit)
             })
             .disposed(by: bag)
     }
@@ -179,29 +180,31 @@ final class StatisticsVM: StatisticsViewModelProtocol {
 private extension StatisticsVM {
     
     func setupTempChart() {
+        let per = periodSelected.value
         guard let items = try? tempDTOSubject.value() else {
             
-            chart.set(points: [TempPoint]())
+            chart.set(points: [TempPoint](), for: per)
             historyTableView.setTempItems([])
             return
         }
-        let per = periodSelected.value
+       
         let filtered = filter(items, by: per, date: \TempModelDTO.date)
         let points = mapTempPoints(filtered)
-        chart.set(points: points)
+        chart.set(points: points, for: per)
         historyTableView.setTempItems(items)
     }
 
     func setupBpmChart() {
+        let per = periodSelected.value
         guard let items = try? bpmDTOSubject.value() else {
-            chart.set(points: [BPMPoint]())
+            chart.set(points: [BPMPoint](), for: per)
             historyTableView.setBpmItems([])
             return
         }
-        let per = periodSelected.value
+       
         let filtered = filter(items, by: per, date: \BPMModelDTO.date)
         let points = mapBpmPoints(filtered)
-        chart.set(points: points)
+        chart.set(points: points, for: per)
         historyTableView.setBpmItems(items)
     }
     

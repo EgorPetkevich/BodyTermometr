@@ -12,15 +12,19 @@ final class TemperatureInputRouter: TemperatureInputRouterProtocol {
     weak var root: UIViewController?
     
     private let container: Container
+    private let dto: TempModelDTO?
     
-    init(container: Container) {
+    init(container: Container, _ dto: TempModelDTO? = nil) {
         self.container = container
+        self.dto = dto
     }
     
-    func openTempCondition(temperature: Double, unit: TemperatureUnit) {
+    func openTempCondition(temperature: Double, unit: TempUnit) {
         let vc = TempConditionAssembler.assembly(container: container,
                                                  temp: temperature,
-                                                 unit: unit)
+                                                 unit: unit,
+                                                 dto
+        )
         root?.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -13,7 +13,7 @@ struct TempModelDTO: Equatable {
     var date: Date
     var temp: Double
     var unit: String
-    var measureSite: String?
+    var measureSite: String
     var symptoms:  [String]
     var feeling: String?
     var notesText: String?
@@ -22,7 +22,7 @@ struct TempModelDTO: Equatable {
          date: Date,
          temp: Double,
          unit: String,
-         measureSite: String? = nil,
+         measureSite: String,
          symptoms: [String] = [],
          feeling: String? = nil,
          notesText: String? = nil) {
@@ -61,6 +61,7 @@ struct TempModelDTO: Equatable {
     }
     
     public func apply(to mo: TempModelMO) {
+        mo.id = self.id
         mo.date = self.date
         mo.temp = self.temp
         mo.unit = self.unit

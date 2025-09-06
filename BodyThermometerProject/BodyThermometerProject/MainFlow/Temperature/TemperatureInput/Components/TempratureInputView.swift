@@ -19,13 +19,14 @@ final class TemperatureInputView: UIView, UITextFieldDelegate {
         textField.textColor = .appBlack
         textField.keyboardType = .decimalPad
         textField.textAlignment = .center
+        textField.tintColor = .appBlack
         return textField
     }()
     
     private let bag = DisposeBag()
     private let temperatureSubject = BehaviorSubject<Double?>(value: nil)
     
-    var unit: TemperatureUnit = .celsius {
+    var unit: TempUnit = .c {
         didSet {
             convertDisplayedValue(from: oldValue, to: unit)
             updatePlaceholder(for: unit)
@@ -60,12 +61,14 @@ final class TemperatureInputView: UIView, UITextFieldDelegate {
             .disposed(by: bag)
     }
 
-    private func updatePlaceholder(for unit: TemperatureUnit) {
+    private func updatePlaceholder(for unit: TempUnit) {
         switch unit {
-        case .celsius:
+        case .c:
             temperatureTextField.placeholder = "36,6"
-        case .fahrenheit:
+            
+        case .f:
             temperatureTextField.placeholder = "97,9"
+            
         }
     }
     
@@ -77,7 +80,7 @@ final class TemperatureInputView: UIView, UITextFieldDelegate {
     
     private func formatTemperature(
         _ value: Double,
-        for unit: TemperatureUnit
+        for unit: TempUnit
     ) -> String {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -88,17 +91,17 @@ final class TemperatureInputView: UIView, UITextFieldDelegate {
     }
     
     private func convertDisplayedValue(
-        from oldUnit: TemperatureUnit,
-        to newUnit: TemperatureUnit
+        from oldUnit: TempUnit,
+        to newUnit: TempUnit
     ) {
         guard
             let value = parseTemperature(temperatureTextField.text)
         else { return }
         let converted: Double
         switch (oldUnit, newUnit) {
-        case (.celsius, .fahrenheit):
+        case (.c, .f):
             converted = value * 9.0/5.0 + 32.0
-        case (.fahrenheit, .celsius):
+        case (.f, .c):
             converted = (value - 32.0) * 5.0/9.0
         default:
             converted = value

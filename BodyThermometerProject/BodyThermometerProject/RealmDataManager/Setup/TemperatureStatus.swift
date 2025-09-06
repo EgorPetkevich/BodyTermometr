@@ -15,12 +15,12 @@ enum TemperatureStatus {
     case fever
     case hyperpyrexia
 
-    init(value: Double, unit: TemperatureUnit) {
+    init(value: Double, unit: TempUnit) {
         let tempC: Double
         switch unit {
-        case .celsius:
+        case .c:
             tempC = value
-        case .fahrenheit:
+        case .f:
             tempC = (value - 32.0) * 5.0 / 9.0
         }
         switch tempC {

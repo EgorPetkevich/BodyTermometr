@@ -22,6 +22,11 @@ final class MainBodyTempView: UIView {
         static let circleViewSize: CGFloat = 48.0
         static let arrowViewSize: CGFloat = 48.0
     }
+
+    var tempSubject = PublishSubject<Double?>()
+    
+    private var tempLabelBottomConstraint: Constraint?
+
     
     private lazy var titleLabel: UILabel =
         .mediumTitleLabel(withText: TextConst.titleText, ofSize: 18.0)
@@ -35,7 +40,7 @@ final class MainBodyTempView: UIView {
     private lazy var tempIconImageView: UIImageView =
     UIImageView(image: .mainTermometrIcon)
     
-    private lazy var tempLabel: UILabel =
+    lazy var tempLabel: UILabel =
         .mediumTitleLabel(withText: TextConst.tempText, ofSize: 24.0)
     
     private lazy var arrowView: UIView =
@@ -43,6 +48,10 @@ final class MainBodyTempView: UIView {
         .bgColor(.appBlack)
     private lazy var arrowImageView: UIImageView =
     UIImageView(image: .arrowIcon)
+    
+    private lazy var typeView: UIView = UIView()
+    private lazy var typeLabel: UILabel =
+        .semiBoldTitleLabel(withText: "", ofSize: 14.0, color: .white)
     
     private lazy var coverButton: UIButton = UIButton()
     
@@ -66,6 +75,23 @@ final class MainBodyTempView: UIView {
     
     
     private func bind() {
+        tempSubject
+            .map { [weak self] temp in
+                guard let self, let temp else {
+                    self?.typeView.isHidden = true
+                    self?.tempLabelBottomConstraint?.update(inset: 19.0)
+                    return "--"
+                }
+                let status = TemperatureStatus(value: temp, unit: .c)
+                typeView.isHidden = false
+                typeView.backgroundColor = status.color
+                typeLabel.text = status.title
+                tempLabelBottomConstraint?.update(inset: 39.0)
+                return "\(temp)" + "°C"
+            }
+            .bind(to: tempLabel.rx.text)
+            .disposed(by: bag)
+        
         coverButton.rx.controlEvent(.touchDown)
             .subscribe(onNext: { [weak self] in
                 UIView.animate(withDuration: 0.15) {
@@ -91,6 +117,7 @@ final class MainBodyTempView: UIView {
 private extension MainBodyTempView {
     
     func commonInit() {
+        self.typeView.isHidden = true
         self.backgroundColor = .appWhite
         self.radius = 24.0
         self.addSubview(titleLabel)
@@ -101,6 +128,8 @@ private extension MainBodyTempView {
         self.addSubview(arrowView)
         arrowView.addSubview(arrowImageView)
         self.addSubview(coverButton)
+        self.addSubview(typeView)
+        typeView.addSubview(typeLabel)
         coverButton.layer.zPosition = .greatestFiniteMagnitude
     }
     
@@ -128,7 +157,7 @@ private extension MainBodyTempView {
             make.bottom.equalToSuperview().inset(60.0)
         }
         tempLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(19.0)
+            tempLabelBottomConstraint = make.bottom.equalToSuperview().inset(19.0).constraint
             make.left.equalToSuperview().inset(12.0)
         }
         arrowView.snp.makeConstraints { make in
@@ -142,6 +171,16 @@ private extension MainBodyTempView {
         }
         coverButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        typeView.snp.makeConstraints { make in
+            make.height.equalTo(25.0)
+            make.bottom.equalToSuperview().inset(10.0)
+            make.left.equalToSuperview().inset(12)
+        }
+        typeView.radius = 25 / 2
+        typeLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(8.0)
         }
     }
     

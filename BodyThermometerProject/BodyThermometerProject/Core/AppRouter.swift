@@ -28,6 +28,7 @@ final class AppRouter {
     
     func start() {
         window = UIWindow(windowScene: windowScene)
+        window?.overrideUserInterfaceStyle = .light
         UDManagerService.setIsPremium(false)
 //        startOnbordingFlow()
         startMainFlow()

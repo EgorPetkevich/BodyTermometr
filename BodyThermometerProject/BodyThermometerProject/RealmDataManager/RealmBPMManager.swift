@@ -24,7 +24,7 @@ final class RealmBPMManager: RealmDataManager {
             }
         } else {
             let newMO = BPMModelMO()
-            newMO.apply(dto: dto)
+            newMO.create(dto: dto)
             save(newMO, update: .modified)
         }
     }
@@ -63,6 +63,12 @@ final class RealmBPMManager: RealmDataManager {
     /// Delete all BPM entries
     func deleteAllBPM() {
         deleteAll(BPMModelMO.self)
+    }
+    
+    func getLastBPM() -> Observable<Int?> {
+        observeAllSortedByDate()
+            .map { dtos in dtos?.first?.bpm }
+            .distinctUntilChanged()
     }
     
 }

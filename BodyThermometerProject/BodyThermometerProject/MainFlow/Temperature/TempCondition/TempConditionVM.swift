@@ -28,14 +28,16 @@ final class TempConditionVM: TempConditionViewModelProtocol {
     // Out
     @Subject(value: 0.0)
     var temperature: Observable<Double>
-    @Subject(value: TemperatureUnit.celsius)
-    var tempUnit: Observable<TemperatureUnit>
+    @Subject(value: TempUnit.c)
+    var tempUnit: Observable<TempUnit>
     @Subject(value: "")
     var datePicked: Observable<String>
     @Subject(value: "")
     var timePicked: Observable<String>
     @Subject(value: Date())
     var pickedDateTime: Observable<Date>
+    @Subject(value: "")
+    var noteTextSubject: Observable<String?>
     
     // In
     var saveTapped = PublishRelay<Void>()
@@ -50,15 +52,17 @@ final class TempConditionVM: TempConditionViewModelProtocol {
     private let feelingCollection: FeelingctivityCollectionProtocol
     private let realmDataManager: TempConditionRealmDataManagerUseCaseProtocol
     
+    private let dto: TempModelDTO?
+    
     private var bag = DisposeBag()
     
     init(router: TempConditionRouterProtocol,
          temperature: Double,
-         tempUnit: TemperatureUnit,
+         tempUnit: TempUnit,
          symptomsCollection: SymptomsCollectionProtocol,
          feelingCollection: FeelingctivityCollectionProtocol,
-         realmDataManager: TempConditionRealmDataManagerUseCaseProtocol
-         
+         realmDataManager: TempConditionRealmDataManagerUseCaseProtocol,
+         _ dto: TempModelDTO? = nil
     ) {
         self.router = router
         self._temperature.rx.onNext(temperature)
@@ -66,11 +70,22 @@ final class TempConditionVM: TempConditionViewModelProtocol {
         self.symptomsCollection = symptomsCollection
         self.feelingCollection = feelingCollection
         self.realmDataManager = realmDataManager
+        self.dto = dto
         self._pickedDateTime.rx.onNext(Date())
         bind()
     }
     
     private func bind() {
+        if let dto = dto {
+            _pickedDateTime.rx.onNext(dto.date)
+            siteSelected.accept(MeasuringSiteUnit.getSite(title: dto.measureSite))
+            feelingCollection.selectFeeling.accept(Feeling.getFeeling(title: dto.feeling))
+            _noteTextSubject.rx.onNext(dto.notesText)
+            notesText.accept(dto.notesText)
+            symptomsCollection.selectItems.accept(Symptoms.getSymptoms(titles: dto.symptoms))
+        } else {
+            feelingCollection.selectFeeling.accept(Feeling.normal)
+        }
         
         crossTapped.subscribe(onNext: { [weak self] in
             self?.router.dismiss()
@@ -101,8 +116,8 @@ final class TempConditionVM: TempConditionViewModelProtocol {
 
                 let convertTemp: Double = {
                     switch unitEnum {
-                    case .celsius: return tempValue
-                    case .fahrenheit: return (tempValue - 32.0) * 5.0/9.0
+                    case .c: return tempValue
+                    case .f: return (tempValue - 32.0) * 5.0/9.0
                     }
                 }()
 
@@ -112,7 +127,7 @@ final class TempConditionVM: TempConditionViewModelProtocol {
                 let symptomsStrings = symptoms.map { $0.rawValue }
 
                 let dto = TempModelDTO(
-                    id: UUID().uuidString,
+                    id: dto?.id ?? UUID().uuidString,
                     date: dateTime,
                     temp: convertTemp,
                     unit: "ºC",

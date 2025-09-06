@@ -14,7 +14,9 @@ final class MainAssembler {
     static func assembly(container: Container) -> UIViewController {
         let router = MainRouter(container: container)
         let realmDataManager =
-        MainRealmDataManagerUseCase(realmDataManager: container.resolve())
+        MainRealmDataManagerUseCase(realmDataManager: container.resolve(),
+                                    realmBPMManager: container.resolve(),
+                                    realmTempManager: container.resolve())
         let fileManagerService =
         MainFileManagerServiceUseCase(fileManager: container.resolve())
         let viewModel = MainVM(router: router,

@@ -13,9 +13,10 @@ import SnapKit
 protocol TempConditionViewModelProtocol {
     // Out
     var temperature: Observable<Double> { get }
-    var tempUnit: Observable<TemperatureUnit> { get }
+    var tempUnit: Observable<TempUnit> { get }
     var datePicked: Observable<String> { get }
     var timePicked: Observable<String> { get }
+    var noteTextSubject: Observable<String?> { get }
     // In
     var saveTapped: PublishRelay<Void> { get }
     var crossTapped: PublishRelay<Void> { get }
@@ -133,7 +134,20 @@ final class TempConditionVC: UIViewController {
         
         measureSiteView
             .selectedUnit
-            .bind(to: viewModel.siteSelected)
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.asyncInstance)
+            .bind(onNext: { [weak self] unit in
+                guard let vm = self?.viewModel else { return }
+                if vm.siteSelected.value != unit {
+                    vm.siteSelected.accept(unit)
+                }
+            })
+            .disposed(by: bag)
+
+        viewModel.siteSelected
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.asyncInstance)
+            .bind(to: measureSiteView.selectedUnit)
             .disposed(by: bag)
         
         crossButton.rx.tap
@@ -168,6 +182,17 @@ final class TempConditionVC: UIViewController {
             .map { false }
             .bind(to: notesView.rx.isHidden)
             .disposed(by: bag)
+        
+        viewModel.noteTextSubject
+            .subscribe(onNext: { [weak self] text in
+                guard let self, let text, !text.isEmpty else { return }
+                notesLabel.text = text
+                notesView.text = text
+                notesTextView.isHidden = false
+                addNotesButton.isHidden = true
+        })
+        .disposed(by: bag)
+        
     }
     
 }

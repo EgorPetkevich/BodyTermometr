@@ -24,7 +24,7 @@ final class RealmTempManager: RealmDataManager {
             }
         } else {
             let newMO = TempModelMO()
-            newMO.apply(dto: dto)
+            newMO.create(dto: dto)
             save(newMO, update: .modified)
         }
     }
@@ -59,10 +59,25 @@ final class RealmTempManager: RealmDataManager {
             .map { $0.map { TempModelDTO.fromMO($0) } }
             .distinctUntilChanged()
     }
+    
+    func observeTempModel(by id: String) -> Observable<TempModelDTO?> {
+        let results = realm.objects(TempModelMO.self)
+            .filter("id == %@", id)
+        return Observable.collection(from: results)
+            .map { $0.first }
+            .map { mo in mo.map { TempModelDTO.fromMO($0) } }
+            .distinctUntilChanged()
+    }
 
     /// Delete all BPM entries
     func deleteAllBPM() {
         deleteAll(TempModelMO.self)
+    }
+    
+    func getLastTemperature() -> Observable<Double?> {
+        observeAllSortedByDate()
+            .map { dtos in dtos?.first?.temp }
+            .distinctUntilChanged()
     }
     
 }

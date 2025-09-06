@@ -14,7 +14,8 @@ final class TempConditionAssembler {
     static func assembly(
         container: Container,
         temp: Double,
-        unit: TemperatureUnit
+        unit: TempUnit,
+        _ dto: TempModelDTO? = nil
     ) -> UIViewController {
             let router = TempConditionRouter(container: container)
         
@@ -27,7 +28,8 @@ final class TempConditionAssembler {
                                         tempUnit: unit,
                                         symptomsCollection: symptomsCollection,
                                         feelingCollection: feelingCollection,
-                                        realmDataManager: realmDataManager)
+                                        realmDataManager: realmDataManager,
+                                        dto)
         let viewController = TempConditionVC(viewModel: viewModel)
         
         router.root = viewController

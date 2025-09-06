@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol TemperatureInputRouterProtocol {
-    func openTempCondition(temperature: Double, unit: TemperatureUnit)
+    func openTempCondition(temperature: Double, unit: TempUnit)
     func dismiss()
 }
 
@@ -26,7 +26,7 @@ final class TemperatureInputVM: TemperatureInputViewModelProtocol {
     var crossButtonTapped = PublishRelay<Void>()
     var continuButtonTapped = PublishRelay<Void>()
     var temperatureSubject = BehaviorSubject<Double?>(value: nil)
-    var temperatureUnitSubject = BehaviorSubject<TemperatureUnit?>(value: nil)
+    var temperatureUnitSubject = BehaviorSubject<TempUnit?>(value: nil)
     
     private var router: TemperatureInputRouterProtocol
     private var keyboardHelper: TemperatureInputKeyBoardHelperServiceUseCaseProtocol
@@ -70,12 +70,12 @@ final class TemperatureInputVM: TemperatureInputViewModelProtocol {
     
     private func isValidTemperature(
         _ value: Double,
-        for unit: TemperatureUnit
+        for unit: TempUnit
     ) -> Bool {
         switch unit {
-        case .celsius:
+        case .c:
             return value >= 30 && value <= 45
-        case .fahrenheit:
+        case .f:
             return value >= 86 && value <= 113
         }
     }

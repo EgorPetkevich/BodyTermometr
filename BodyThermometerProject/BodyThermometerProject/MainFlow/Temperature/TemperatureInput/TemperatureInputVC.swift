@@ -17,7 +17,7 @@ protocol TemperatureInputViewModelProtocol {
     var crossButtonTapped: PublishRelay<Void> { get }
     var continuButtonTapped: PublishRelay<Void> { get }
     var temperatureSubject: BehaviorSubject<Double?> { get }
-    var temperatureUnitSubject: BehaviorSubject<TemperatureUnit?> { get }
+    var temperatureUnitSubject: BehaviorSubject<TempUnit?> { get }
 }
 
 final class TemperatureInputVC: UIViewController {

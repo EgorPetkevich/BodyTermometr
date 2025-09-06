@@ -14,13 +14,26 @@ enum MeasuringSiteUnit: String {
     case oral = "Oral"
     case forehead = "Forehead"
     case other = "Other"
+    
+    static func getSite(title: String?) -> MeasuringSiteUnit {
+        let key = title?
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+
+        switch key {
+        case "oral": return .oral
+        case "forehead": return .forehead
+        case "other": return .other
+        default: return .oral
+        }
+    }
 }
 
 final class MeasureSiteView: UIView {
     
     private let bag = DisposeBag()
     
-    let selectedUnit = BehaviorRelay<MeasuringSiteUnit>(value: .oral)
+    let selectedUnit = PublishRelay<MeasuringSiteUnit>()
     
     private lazy var titleLabel: UILabel =
         .mediumTitleLabel(withText: "Measure Site", ofSize: 18.0)
@@ -164,7 +177,7 @@ private extension MeasureSiteView {
         }
         secondSeparatorView.radius = 0.5
         
-        updateSelection(selectedUnit.value)
+//        updateSelection(selectedUnit.value)
     }
  
     private func updateSelection(_ unit: MeasuringSiteUnit) {

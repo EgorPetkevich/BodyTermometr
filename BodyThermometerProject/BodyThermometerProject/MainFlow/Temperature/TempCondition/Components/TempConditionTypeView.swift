@@ -23,7 +23,7 @@ final class TempConditionTypeView: UIView {
     }
     
     var temperatureSubject = BehaviorSubject<Double?>(value: nil)
-    var unitSubject = BehaviorSubject<TemperatureUnit?>(value: nil)
+    var unitSubject = BehaviorSubject<TempUnit?>(value: nil)
     
     private lazy var bodyTempLabel: UILabel =
         .regularTitleLabel(withText: TextConst.bodyTempText, ofSize: 15.0)
@@ -64,8 +64,8 @@ final class TempConditionTypeView: UIView {
                 let t = String(format: "%.1f", temp)
                     .replacingOccurrences(of: ".", with: ",")
                 switch unit {
-                case .celsius:    return "\(t)ºC"
-                case .fahrenheit: return "\(t)F"
+                case .c:    return "\(t)ºC"
+                case .f: return "\(t)F"
                 }
             }
             .bind(to: tempLabel.rx.text)

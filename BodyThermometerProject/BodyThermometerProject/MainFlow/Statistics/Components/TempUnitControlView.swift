@@ -12,6 +12,30 @@ import SnapKit
 
 enum TempUnit {
     case c, f
+    
+    var title: String {
+        switch self {
+        case .c:
+            "Celsius,ºC"
+        case .f:
+            "Fahrenheit, F"
+        }
+    }
+    
+    static func getUnit(_ unit: String) -> TempUnit {
+        let normalized = unit
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+        
+        switch normalized {
+        case "c", "celsius":
+            return .c
+        case "f", "fahrenheit":
+            return .f
+        default:
+            return .c
+        }
+    }
 }
 
 final class TempUnitControlView: UIView {

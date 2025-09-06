@@ -20,8 +20,8 @@ protocol StatChartViewProtocol {
     var selectedPeriodRelay: BehaviorRelay<Period> { get }
     var selectedUnit: BehaviorRelay<TempUnit> { get }
     
-    func set(points: [BPMPoint])
-    func set(points: [TempPoint])
+    func set(points: [BPMPoint], for period: Period)
+    func set(points: [TempPoint], for period: Period)
     func set(period: Period)
     func getChart() -> ScatterChartView
 }
@@ -129,58 +129,9 @@ final class StatChartView: ScatterChartView, StatChartViewProtocol {
         return .month
     }
 
-    func set(points: [BPMPoint]) {
-        let period = inferPeriod(from: points.map { $0.date })
-        bpmStore[period] = points
+    // Render helpers that don't infer period
+    private func renderBPM(_ points: [BPMPoint]) {
         lastKind = .bpm
-        
-        guard !points.isEmpty else {
-            self.data = nil
-            self.emptyOverlay.isHidden = false
-            return
-        }
-        self.emptyOverlay.isHidden = false // will be hidden after data set below
-
-        if period == selectedPeriodRelay.value {
-            let entries: [ChartDataEntry] = points.enumerated().map { (idx, p) in
-                ChartDataEntry(x: Double(idx), y: Double(p.bpm))
-            }
-
-            let set = ScatterChartDataSet(entries: entries, label: "")
-            set.setScatterShape(.circle)
-            set.scatterShapeSize = 16
-            set.drawValuesEnabled = true
-            set.valueFont = .appRegularFont(ofSize: 12)
-
-            set.valueColors = points.map { $0.color }
-
-            set.valueFormatter = FixedDecimalValueFormatter(decimals: 1)
-
-            set.setColor(.clear)
-            set.drawIconsEnabled = false
-            set.highlightEnabled = false
-
-            let data = ScatterChartData(dataSet: set)
-            self.data = data
-
-            self.emptyOverlay.isHidden = false
-            self.emptyOverlay.isHidden = true
-
-            set.colors = points.map { $0.color }
-
-            configureAxesForBPM()
-
-            self.setNeedsDisplay()
-        } else {
-            self.data = nil
-        }
-    }
-    
-    func set(points: [TempPoint]) {
-        let period = inferPeriod(from: points.map { $0.date })
-        tempStore[period] = points
-        lastKind = .temp
-        
         guard !points.isEmpty else {
             self.data = nil
             self.emptyOverlay.isHidden = false
@@ -188,59 +139,92 @@ final class StatChartView: ScatterChartView, StatChartViewProtocol {
         }
         self.emptyOverlay.isHidden = false
 
-        if period == selectedPeriodRelay.value {
-            let unit = selectedUnit.value
-            let entries: [ChartDataEntry] = points.enumerated().map { (idx, p) in
-                let value: Double
-                switch unit {
-                case .c:
-                    value = p.valueC
-                case .f:
-                    value = p.valueC * 9 / 5 + 32
-                }
-                return ChartDataEntry(x: Double(idx), y: value)
-            }
-
-            let set = ScatterChartDataSet(entries: entries, label: "")
-           
-            set.shapeRenderer = tempOvalRenderer
-            set.scatterShapeSize = 12
-            set.drawValuesEnabled = true
-            set.valueFont = .appRegularFont(ofSize: 12)
-            set.valueFormatter = FixedDecimalValueFormatter(decimals: 1)
-
-            set.setColor(.clear)
-            set.valueColors = points.map { $0.color }
-            set.colors = points.map { $0.color }
-
-            set.drawIconsEnabled = false
-            set.highlightEnabled = false
-
-            let data = ScatterChartData(dataSet: set)
-            self.data = data
-
-            self.emptyOverlay.isHidden = true
-
-            configureAxesForTemp()
-            self.setNeedsDisplay()
-        } else {
-            self.data = nil
+        let entries: [ChartDataEntry] = points.enumerated().map { (idx, p) in
+            ChartDataEntry(x: Double(idx), y: Double(p.bpm))
         }
+
+        let set = ScatterChartDataSet(entries: entries, label: "")
+        set.setScatterShape(.circle)
+        set.scatterShapeSize = 16
+        set.drawValuesEnabled = true
+        set.valueFont = .appRegularFont(ofSize: 12)
+        set.valueColors = points.map { $0.color }
+        set.valueFormatter = FixedDecimalValueFormatter(decimals: 1)
+        set.setColor(.clear)
+        set.drawIconsEnabled = false
+        set.highlightEnabled = false
+
+        let data = ScatterChartData(dataSet: set)
+        self.data = data
+        self.emptyOverlay.isHidden = true
+        set.colors = points.map { $0.color }
+        configureAxesForBPM()
+        self.setNeedsDisplay()
+    }
+
+    private func renderTemp(_ points: [TempPoint]) {
+        lastKind = .temp
+        guard !points.isEmpty else {
+            self.data = nil
+            self.emptyOverlay.isHidden = false
+            return
+        }
+        self.emptyOverlay.isHidden = false
+
+        let unit = selectedUnit.value
+        let entries: [ChartDataEntry] = points.enumerated().map { (idx, p) in
+            let value: Double = (unit == .c) ? p.valueC : (p.valueC * 9 / 5 + 32)
+            return ChartDataEntry(x: Double(idx), y: value)
+        }
+
+        let set = ScatterChartDataSet(entries: entries, label: "")
+        set.shapeRenderer = tempOvalRenderer
+        set.scatterShapeSize = 12
+        set.drawValuesEnabled = true
+        set.valueFont = .appRegularFont(ofSize: 12)
+        set.valueFormatter = FixedDecimalValueFormatter(decimals: 1)
+        set.setColor(.clear)
+        set.valueColors = points.map { $0.color }
+        set.colors = points.map { $0.color }
+        set.drawIconsEnabled = false
+        set.highlightEnabled = false
+
+        let data = ScatterChartData(dataSet: set)
+        self.data = data
+        self.emptyOverlay.isHidden = true
+        configureAxesForTemp()
+        self.setNeedsDisplay()
+    }
+
+    func set(points: [BPMPoint]) {
+        let period = inferPeriod(from: points.map { $0.date })
+        bpmStore[period] = points
+        self.renderBPM(points)
+    }
+    
+    func set(points: [TempPoint]) {
+        let period = inferPeriod(from: points.map { $0.date })
+        tempStore[period] = points
+        self.renderTemp(points)
     }
 
     func set(points: [BPMPoint], for period: Period) {
         bpmStore[period] = points
-        lastKind = .bpm
         if period == selectedPeriodRelay.value {
-            self.set(points: points)
+            self.renderBPM(points)
+        } else {
+            self.data = nil
+            self.emptyOverlay.isHidden = points.isEmpty == false ? false : true
         }
     }
 
     func set(points: [TempPoint], for period: Period) {
         tempStore[period] = points
-        lastKind = .temp
         if period == selectedPeriodRelay.value {
-            self.set(points: points)
+            self.renderTemp(points)
+        } else {
+            self.data = nil
+            self.emptyOverlay.isHidden = points.isEmpty == false ? false : true
         }
     }
 
@@ -345,13 +329,12 @@ final class StatChartView: ScatterChartView, StatChartViewProtocol {
         let period = selectedPeriodRelay.value
         switch lastKind {
         case .bpm:
-            if let pts = bpmStore[period] { self.set(points: pts) } else { self.data = nil }
+            if let pts = bpmStore[period] { self.renderBPM(pts) } else { self.data = nil }
         case .temp:
-            if let pts = tempStore[period] { self.set(points: pts) } else { self.data = nil }
+            if let pts = tempStore[period] { self.renderTemp(pts) } else { self.data = nil }
         case .none:
-          
-            if let pts = tempStore[period] { lastKind = .temp; self.set(points: pts) }
-            else if let pts = bpmStore[period] { lastKind = .bpm; self.set(points: pts) }
+            if let pts = tempStore[period] { lastKind = .temp; self.renderTemp(pts) }
+            else if let pts = bpmStore[period] { lastKind = .bpm; self.renderBPM(pts) }
             else { self.data = nil }
         }
         self.emptyOverlay.isHidden = (self.data != nil)

@@ -19,12 +19,14 @@ final class UDManagerService {
         case notificationState
         case measuringGuideState
         case timer
+        case attentionConsentDontShow
     }
     
     private static var ud: UserDefaults = .standard
     private static let isPremiumRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.isPremium))
     private static let notificationStateRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.notificationState))
     private static let measuringGuideStateRelay = BehaviorRelay<Bool>(value: UDManagerService.getMesuringGuideState())
+    private static let attentionConsentRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.attentionConsentDontShow))
     
     
     private init() {}
@@ -46,6 +48,34 @@ final class UDManagerService {
         }
     }
     
+}
+
+// Attention Consent
+extension UDManagerService {
+    
+    static var attentionConsentObservable: Observable<Bool> {
+        attentionConsentRelay
+            .asObservable()
+            .distinctUntilChanged()
+    }
+    
+    static var attentionConsentDriver: Driver<Bool> {
+        attentionConsentRelay
+            .asDriver()
+            .distinctUntilChanged()
+    }
+    
+    static func setAttentionConsentDontShow(_ value: Bool) {
+        UDManagerService.set(.attentionConsentDontShow, value: value)
+        if attentionConsentRelay.value != value {
+            attentionConsentRelay.accept(value)
+        }
+    }
+    
+    static var dontShowAgain: Bool {
+        get { get(.attentionConsentDontShow) }
+        set { setAttentionConsentDontShow(newValue) }
+    }
 }
 
 // Timer

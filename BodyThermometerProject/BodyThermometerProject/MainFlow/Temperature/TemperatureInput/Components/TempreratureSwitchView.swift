@@ -14,11 +14,11 @@ final class TemperatureSwitchView: UIView {
     
     private let bag = DisposeBag()
     
-    let selectedUnit = BehaviorRelay<TemperatureUnit>(value: .celsius)
+    let selectedUnit = BehaviorRelay<TempUnit>(value: .c)
     
     private let celsiusButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(TemperatureUnit.celsius.rawValue, for: .normal)
+        button.setTitle(TempUnit.c.title, for: .normal)
         button.titleLabel?.font = UIFont.appRegularFont(ofSize: 15.0)
         button.layer.cornerRadius = 7
         button.layer.borderWidth = 1
@@ -31,7 +31,7 @@ final class TemperatureSwitchView: UIView {
     
     private let fahrenheitButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(TemperatureUnit.fahrenheit.rawValue, for: .normal)
+        button.setTitle(TempUnit.f.title, for: .normal)
         button.titleLabel?.font = UIFont.appRegularFont(ofSize: 15.0)
         button.layer.cornerRadius = 7
         button.layer.borderWidth = 1
@@ -67,16 +67,16 @@ final class TemperatureSwitchView: UIView {
         celsiusButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.selectedUnit.accept(.celsius)
-                self.updateSelection(.celsius)
+                self.selectedUnit.accept(.c)
+                self.updateSelection(.c)
             })
             .disposed(by: bag)
         
         fahrenheitButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.selectedUnit.accept(.fahrenheit)
-                self.updateSelection(.fahrenheit)
+                self.selectedUnit.accept(.f)
+                self.updateSelection(.f)
             })
             .disposed(by: bag)
         
@@ -103,14 +103,14 @@ private extension TemperatureSwitchView {
         updateSelection(selectedUnit.value)
     }
  
-    private func updateSelection(_ unit: TemperatureUnit) {
+    private func updateSelection(_ unit: TempUnit) {
         switch unit {
-        case .celsius:
+        case .c:
             celsiusButton.layer.borderColor = UIColor.appButton.cgColor
             celsiusButton.setTitleColor(.black, for: .normal)
             fahrenheitButton.layer.borderColor = UIColor.clear.cgColor
             fahrenheitButton.setTitleColor(.appGrey, for: .normal)
-        case .fahrenheit:
+        case .f:
             fahrenheitButton.layer.borderColor = UIColor.appButton.cgColor
             fahrenheitButton.setTitleColor(.appBlack, for: .normal)
             celsiusButton.layer.borderColor = UIColor.clear.cgColor
