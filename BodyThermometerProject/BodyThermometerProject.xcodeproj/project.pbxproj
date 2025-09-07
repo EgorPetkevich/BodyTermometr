@@ -201,6 +201,12 @@
 		F2AA88B02E6B815500561BCC /* Realm+TempDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88AF2E6B815500561BCC /* Realm+TempDetails.swift */; };
 		F2AA88B22E6B81CD00561BCC /* AlertService+TempDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88B12E6B81CD00561BCC /* AlertService+TempDetails.swift */; };
 		F2AA88B42E6C9CEF00561BCC /* AttentionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA88B32E6C9CEF00561BCC /* AttentionAlertVC.swift */; };
+		F2B45EC02E6DAC5D00ABC8A5 /* AlertService+Measuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBF2E6DAC5D00ABC8A5 /* AlertService+Measuring.swift */; };
+		F2B45EC22E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC12E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift */; };
+		F2B45EC52E6DBCB000ABC8A5 /* DeleteEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC42E6DBCB000ABC8A5 /* DeleteEntryVC.swift */; };
+		F2B45EC72E6DC6BE00ABC8A5 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */; };
+		F2B45ECA2E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC92E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift */; };
+		F2B45ECC2E6DEBFF00ABC8A5 /* ApphudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */; };
 		F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */; };
 		F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */; };
 		F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */; };
@@ -433,6 +439,12 @@
 		F2AA88AF2E6B815500561BCC /* Realm+TempDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+TempDetails.swift"; sourceTree = "<group>"; };
 		F2AA88B12E6B81CD00561BCC /* AlertService+TempDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+TempDetails.swift"; sourceTree = "<group>"; };
 		F2AA88B32E6C9CEF00561BCC /* AttentionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionAlertVC.swift; sourceTree = "<group>"; };
+		F2B45EBF2E6DAC5D00ABC8A5 /* AlertService+Measuring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Measuring.swift"; sourceTree = "<group>"; };
+		F2B45EC12E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertManagerService+Profile.swift"; sourceTree = "<group>"; };
+		F2B45EC42E6DBCB000ABC8A5 /* DeleteEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEntryVC.swift; sourceTree = "<group>"; };
+		F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F2B45EC92E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Notificatoin.swift"; sourceTree = "<group>"; };
+		F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApphudService.swift; sourceTree = "<group>"; };
 		F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembler.swift; sourceTree = "<group>"; };
@@ -498,8 +510,8 @@
 		F217C7132E55CEFF005606E1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				F217C71D2E55D1D2005606E1 /* ProfileComponents */,
 				F217C7282E560D7D005606E1 /* UseCase */,
+				F217C71D2E55D1D2005606E1 /* ProfileComponents */,
 				F217C7142E55CF07005606E1 /* Router */,
 				F217C7152E55CFB0005606E1 /* ProfileVC.swift */,
 				F217C7172E55CFB7005606E1 /* ProfileVM.swift */,
@@ -532,6 +544,7 @@
 				F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */,
 				F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */,
 				F289DC412E57628600E05658 /* FileManagerService+Profile.swift */,
+				F2B45EC12E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -944,9 +957,10 @@
 			isa = PBXGroup;
 			children = (
 				F26441642E4C7F36007D879B /* ContinueButtonView.swift */,
-				F217C7242E55E4E8005606E1 /* UserNameTextFieldView.swift */,
-				F217C7262E55EAD0005606E1 /* UserAgeTextFieldView.swift */,
+				F2B45EC42E6DBCB000ABC8A5 /* DeleteEntryVC.swift */,
 				F26808592E60B7AD005A6132 /* SaveButtonView.swift */,
+				F217C7262E55EAD0005606E1 /* UserAgeTextFieldView.swift */,
+				F217C7242E55E4E8005606E1 /* UserNameTextFieldView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1345,6 +1359,8 @@
 				F289DC3C2E575E5200E05658 /* UDManagerService.swift */,
 				F2AA889D2E69AA1C00561BCC /* AlertManagerService.swift */,
 				F2AA88A02E69ABC300561BCC /* WindowManagerService.swift */,
+				F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */,
+				F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1403,12 +1419,12 @@
 		F29BE4512E547B39009E1D66 /* MainComponents */ = {
 			isa = PBXGroup;
 			children = (
-				F29BE4522E547B6F009E1D66 /* MainBodyTempView.swift */,
-				F29BE4562E54E023009E1D66 /* MainStatisticsDataView.swift */,
-				F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */,
-				F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */,
-				F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */,
 				F2AA88B32E6C9CEF00561BCC /* AttentionAlertVC.swift */,
+				F29BE4522E547B6F009E1D66 /* MainBodyTempView.swift */,
+				F29BE4582E54E481009E1D66 /* MainHeartRateView.swift */,
+				F29BE45C2E54F261009E1D66 /* MainMenuButtonView.swift */,
+				F29BE45A2E54F0C8009E1D66 /* MainProfileButtonView.swift */,
+				F29BE4562E54E023009E1D66 /* MainStatisticsDataView.swift */,
 			);
 			path = MainComponents;
 			sourceTree = "<group>";
@@ -1467,6 +1483,22 @@
 			children = (
 				F2AA88AF2E6B815500561BCC /* Realm+TempDetails.swift */,
 				F2AA88B12E6B81CD00561BCC /* AlertService+TempDetails.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F2B45EBE2E6DAC4B00ABC8A5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F2B45EBF2E6DAC5D00ABC8A5 /* AlertService+Measuring.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F2B45EC82E6DCC4100ABC8A5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F2B45EC92E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1537,6 +1569,7 @@
 		F2FABF022E5CC4560035BF77 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				F2B45EC82E6DCC4100ABC8A5 /* UseCase */,
 				F2FABF092E5CC47A0035BF77 /* Router */,
 				F2FABF032E5CC4680035BF77 /* NotificationVC.swift */,
 				F2FABF052E5CC46D0035BF77 /* NotificationVM.swift */,
@@ -1556,6 +1589,7 @@
 		F2FCCFA02E5DC78700241719 /* Measuring */ = {
 			isa = PBXGroup;
 			children = (
+				F2B45EBE2E6DAC4B00ABC8A5 /* UseCase */,
 				F2FCD0C22E5DD97200241719 /* RateLogic */,
 				F2FCD0BD2E5DD81A00241719 /* Components */,
 				F2FCCFA22E5DC81100241719 /* Router */,
@@ -1797,6 +1831,7 @@
 				F267F1662E6361F8007F294C /* TempConditionAssembler.swift in Sources */,
 				F26808462E606629005A6132 /* BPMStatusView.swift in Sources */,
 				F2AA88972E698D6C00561BCC /* BPMDetailsAssembler.swift in Sources */,
+				F2B45EC52E6DBCB000ABC8A5 /* DeleteEntryVC.swift in Sources */,
 				F24DF7622E51DF290091764F /* RegGenderVC.swift in Sources */,
 				F241BC852E64F9400060CB4B /* DatePickerVC.swift in Sources */,
 				F267F1522E632835007F294C /* TemperatureInputVM.swift in Sources */,
@@ -1816,6 +1851,7 @@
 				F2FCD0D52E5E197E00241719 /* MeasuringGuideRouter.swift in Sources */,
 				F296A41F2E118B2200E1348E /* RealmDataManager.swift in Sources */,
 				F289DC312E57290400E05658 /* SelectPhotoVM.swift in Sources */,
+				F2B45EC72E6DC6BE00ABC8A5 /* NotificationService.swift in Sources */,
 				F2FCD0BF2E5DD83100241719 /* CameraPreviewView.swift in Sources */,
 				F2AA88B22E6B81CD00561BCC /* AlertService+TempDetails.swift in Sources */,
 				F289DC362E57291600E05658 /* SelectPhotoAssembler.swift in Sources */,
@@ -1828,6 +1864,7 @@
 				F2FCD0C62E5DD99E00241719 /* HeartbeatHapticEngine.swift in Sources */,
 				F26441672E4C8330007D879B /* UIView+Layer.swift in Sources */,
 				F289DC3F2E57618100E05658 /* UserIconPath.swift in Sources */,
+				F2B45EC22E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift in Sources */,
 				F26441A12E4E6BEC007D879B /* PaywallProdTrialRouter.swift in Sources */,
 				F26808652E61B9A0005A6132 /* MeasutingResult+Realm.swift in Sources */,
 				F241BC8B2E65046C0060CB4B /* RealmTempManager.swift in Sources */,
@@ -1852,6 +1889,7 @@
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
+				F2B45ECA2E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift in Sources */,
 				F2AA88952E698D6200561BCC /* BPMDetailsVM.swift in Sources */,
 				F267F1592E6329A1007F294C /* TempreratureSwitchView.swift in Sources */,
 				F26808532E6090AA005A6132 /* ActivityCell.swift in Sources */,
@@ -1862,6 +1900,7 @@
 				F241BDBE2E676CEB0060CB4B /* BPMRealmManager+Stat.swift in Sources */,
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
 				F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */,
+				F2B45ECC2E6DEBFF00ABC8A5 /* ApphudService.swift in Sources */,
 				F217C7182E55CFB7005606E1 /* ProfileVM.swift in Sources */,
 				F2AA88A72E69FA0500561BCC /* TempDetailsRouter.swift in Sources */,
 				F2AA889C2E699DC900561BCC /* Realm+BPMDetails.swift in Sources */,
@@ -1920,6 +1959,7 @@
 				F2AA88992E698D7100561BCC /* BPMDetailsRouter.swift in Sources */,
 				F29BE45B2E54F0C8009E1D66 /* MainProfileButtonView.swift in Sources */,
 				F241BC8E2E6508DA0060CB4B /* RealmDataManager+TempCondition.swift in Sources */,
+				F2B45EC02E6DAC5D00ABC8A5 /* AlertService+Measuring.swift in Sources */,
 				F2AA88AD2E69FA1500561BCC /* TempDetailsAssembler.swift in Sources */,
 				F24641AD2E4F4587000D0A07 /* PaywallRevRouter.swift in Sources */,
 				F268084E2E6084EB005A6132 /* BPMBarControl+Rx.swift in Sources */,
@@ -2100,6 +2140,8 @@
 				DEVELOPMENT_TEAM = HS3N4SX6NK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyThermometerProject/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to allow you to capture new photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select existing photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2133,6 +2175,8 @@
 				DEVELOPMENT_TEAM = HS3N4SX6NK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyThermometerProject/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to allow you to capture new photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select existing photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

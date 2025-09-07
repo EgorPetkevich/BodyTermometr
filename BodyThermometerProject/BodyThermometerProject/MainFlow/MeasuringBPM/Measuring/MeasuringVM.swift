@@ -18,6 +18,13 @@ protocol MeasuringRouterProtocol {
     func dismiss()
 }
 
+protocol MeasuringAlertManagerServiceUseCaseProtocol {
+    func showCameraError(title: String,
+                         message: String,
+                         goSettings: String,
+                         goSettingsHandler: @escaping () -> Void)
+}
+
 final class MeasuringVM: MeasuringViewModelProtocol {
     
     // Out
@@ -46,6 +53,7 @@ final class MeasuringVM: MeasuringViewModelProtocol {
     private var heartRateManager: HeartRateManager!
     private var hapticEngine = HeartbeatHapticEngine()
     private var router: MeasuringRouterProtocol
+    private var alertService: MeasuringAlertManagerServiceUseCaseProtocol
     
     private var showGuideDriver: Driver<Bool> {
         UDManagerService.measuringGuideDriver
@@ -62,8 +70,10 @@ final class MeasuringVM: MeasuringViewModelProtocol {
 
     private let bag = DisposeBag()
     
-    init(router: MeasuringRouterProtocol) {
+    init(router: MeasuringRouterProtocol,
+         alertService: MeasuringAlertManagerServiceUseCaseProtocol) {
         self.router = router
+        self.alertService = alertService
         initVideoCapture()
         bindLifecycle()
         bindActions()
@@ -78,6 +88,23 @@ final class MeasuringVM: MeasuringViewModelProtocol {
         heartRateManager.imageBufferHandler = { [unowned self] (imageBuffer) in
             self.handle(buffer: imageBuffer)
         }
+        heartRateManager.showErrorAlertSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext:  { [weak self] in
+                self?.alertService.showCameraError(
+                    title: "Camera Error",
+                    message: "This app requires access to your camera.",
+                    goSettings: "Go to Settings") {
+                    if let appSettings =
+                        URL(string: UIApplication.openSettingsURLString) {
+                               UIApplication.shared.open(appSettings,
+                                                         options: [:],
+                                                         completionHandler: nil)
+                        
+                    }
+                }
+            })
+            .disposed(by: bag)
     }
     
     func initCaptureSession() {

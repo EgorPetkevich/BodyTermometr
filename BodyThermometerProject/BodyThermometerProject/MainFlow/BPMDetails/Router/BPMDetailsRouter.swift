@@ -7,12 +7,17 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class BPMDetailsRouter: BPMDetailsRouterProtocol {
     
     weak var root: UIViewController?
     
     private let container: Container
+    
+    var deleteTapped = PublishRelay<Void>()
+    
+    private var bag = DisposeBag()
     
     init(container: Container) {
         self.container = container
@@ -25,7 +30,35 @@ final class BPMDetailsRouter: BPMDetailsRouterProtocol {
     }
     
     func dismiss() {
-        root?.dismiss(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let root = self?.root else { return }
+            func close(_ vc: UIViewController) {
+                if let presented = vc.presentedViewController {
+                    presented.dismiss(animated: true) { close(vc) }
+                    return
+                }
+               
+                if vc.presentingViewController != nil {
+                    vc.dismiss(animated: true, completion: nil)
+                    return
+                }
+             
+                vc.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            }
+            close(root)
+        }
+    }
+    
+    func presentDeleteEntry() {
+        let vc = DeleteEntryVC()
+        vc.deleteTapped
+            .bind(to: deleteTapped)
+            .disposed(by: bag)
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        root?.present(vc, animated: true, completion: nil)
     }
     
 }

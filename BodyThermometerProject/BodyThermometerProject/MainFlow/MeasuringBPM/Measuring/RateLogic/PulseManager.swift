@@ -7,6 +7,8 @@
 
 import AVFoundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 struct VideoSpec {
@@ -17,60 +19,76 @@ struct VideoSpec {
 typealias ImageBufferHandler = ((_ imageBuffer: CMSampleBuffer) -> ())
 
 class HeartRateManager: NSObject {
+    
+    var showErrorAlertSubject: PublishSubject<Void> = .init()
+    
     let captureSession = AVCaptureSession()
     private var videoDevice: AVCaptureDevice!
     private var videoConnection: AVCaptureConnection!
     private var audioConnection: AVCaptureConnection!
-
+    
+    private var isConfigured = false
+    private var storedPreferredSpec: VideoSpec?
 
     var imageBufferHandler: ImageBufferHandler?
 
     init(preferredSpec: VideoSpec?, previewContainer: CALayer?) {
         super.init()
 
-        videoDevice = AVCaptureDevice.default(
-            .builtInWideAngleCamera,
-            for: .video,
-            position: .back
-        )
+        storedPreferredSpec = preferredSpec
+        // Defer full configuration until we know camera permission
+        captureSession.sessionPreset = .low
+        // Try to cache a device reference; may be nil on simulator/denied permission
+        videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+    }
+    
+    private func configureSessionIfNeeded() {
+        guard !isConfigured else { return }
 
-        // MARK: - Setup Video Format
-        do {
-            captureSession.sessionPreset = .low
-            if let preferredSpec = preferredSpec {
-                videoDevice.updateFormatWithPreferredVideoSpec(preferredSpec: preferredSpec)
-            }
+        // Resolve (or re-resolve) the video device
+        if videoDevice == nil {
+            videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+        }
+        guard let videoDevice else {
+            // No camera device available (e.g., simulator)
+            showErrorAlertSubject.onNext(())
+            return
         }
 
-        // MARK: - Setup video device input
-        let videoDeviceInput: AVCaptureDeviceInput
-        do {
-            videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
-        } catch let error {
-            fatalError("Could not create AVCaptureDeviceInput instance with error: \(error).")
+        // Apply preferred format if provided
+        if let preferredSpec = storedPreferredSpec {
+            videoDevice.updateFormatWithPreferredVideoSpec(preferredSpec: preferredSpec)
         }
-        guard captureSession.canAddInput(videoDeviceInput) else { fatalError() }
+
+        // Setup input
+        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
+            showErrorAlertSubject.onNext(())
+            return
+        }
+        guard captureSession.canAddInput(videoDeviceInput) else {
+            showErrorAlertSubject.onNext(())
+            return
+        }
         captureSession.addInput(videoDeviceInput)
 
-       
-
-        // MARK: - Setup video output
+        // Setup output
         let videoDataOutput = AVCaptureVideoDataOutput()
-        videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : NSNumber(value: kCVPixelFormatType_32BGRA)] as [String : Any]
+        videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA)] as [String: Any]
         videoDataOutput.alwaysDiscardsLateVideoFrames = true
         let queue = DispatchQueue(label: "com.covidsense.videosamplequeue")
         videoDataOutput.setSampleBufferDelegate(self, queue: queue)
         guard captureSession.canAddOutput(videoDataOutput) else {
-            fatalError()
+            showErrorAlertSubject.onNext(())
+            return
         }
         captureSession.addOutput(videoDataOutput)
         videoConnection = videoDataOutput.connection(with: .video)
+
+        isConfigured = true
     }
 
     func startCapture() {
-        #if DEBUG
         print(#function + "\(self.classForCoder)/")
-        #endif
         if captureSession.isRunning {
             #if DEBUG
             print("Capture Session is already running 🏃‍♂️.")
@@ -78,8 +96,37 @@ class HeartRateManager: NSObject {
             return
         }
 
-        DispatchQueue.global().async {
-            self.captureSession.startRunning()
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .authorized:
+            self.configureSessionIfNeeded()
+            guard self.isConfigured else {
+                self.showErrorAlertSubject.onNext(())
+                return
+            }
+            DispatchQueue.global().async {
+                self.captureSession.startRunning()
+            }
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                guard let self = self else { return }
+                if granted {
+                    self.configureSessionIfNeeded()
+                    guard self.isConfigured else {
+                        self.showErrorAlertSubject.onNext(())
+                        return
+                    }
+                    DispatchQueue.global().async {
+                        self.captureSession.startRunning()
+                    }
+                } else {
+                    self.showErrorAlertSubject.onNext(())
+                }
+            }
+        case .denied, .restricted:
+            self.showErrorAlertSubject.onNext(())
+        @unknown default:
+            self.showErrorAlertSubject.onNext(())
         }
     }
 
@@ -89,7 +136,7 @@ class HeartRateManager: NSObject {
         #endif
         if !captureSession.isRunning {
             #if DEBUG
-            print("Capture Session has already stopped 🛑.")
+            print("Capture Session has already stopped.")
             #endif
             return
         }

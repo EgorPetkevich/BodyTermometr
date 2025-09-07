@@ -9,8 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
-
 final class UDManagerService {
     
     enum Keys: String {
@@ -24,7 +22,7 @@ final class UDManagerService {
     
     private static var ud: UserDefaults = .standard
     private static let isPremiumRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.isPremium))
-    private static let notificationStateRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.notificationState))
+    private static let notificationStateRelay = BehaviorRelay<Bool>(value: UDManagerService.getNautificationState())
     private static let measuringGuideStateRelay = BehaviorRelay<Bool>(value: UDManagerService.getMesuringGuideState())
     private static let attentionConsentRelay = BehaviorRelay<Bool>(value: UDManagerService.get(.attentionConsentDontShow))
     
@@ -45,6 +43,15 @@ final class UDManagerService {
             return true
         } else {
             return UDManagerService.get(.measuringGuideState)
+        }
+    }
+    
+    static func getNautificationState() -> Bool {
+        if UserDefaults.standard.object(forKey: Keys.notificationState.rawValue) == nil {
+            UserDefaults.standard.setValue(true, forKey: Keys.notificationState.rawValue)
+            return true
+        } else {
+            return UDManagerService.get(.notificationState)
         }
     }
     

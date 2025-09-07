@@ -18,12 +18,12 @@ final class FileManagerService {
     
     init() {
         if !UDManagerService.get(.createImageDirectory) {
-            creatDierectory(name: .iconImage)
+            createDirectory(name: .iconImage)
             UDManagerService.set(.createImageDirectory, value: true)
         }
     }
     
-    func creatDierectory(name directory: NameOfDirectory) {
+    func createDirectory(name directory: NameOfDirectory) {
         let documentURL = FileManager.default.urls(for: .documentDirectory,
                                                    in: .userDomainMask).first!
         let url = documentURL.appendingPathComponent(directory.rawValue)
@@ -37,12 +37,16 @@ final class FileManagerService {
         }
     }
     
+    private func fileURL(for directory: NameOfDirectory, path: String) -> URL {
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let userPhotosURL = documentURL.appendingPathComponent(directory.rawValue)
+        return userPhotosURL.appendingPathComponent("\(path).jpg")
+    }
+    
     func save(directory: NameOfDirectory, image: UIImage,
               with path: String) -> Observable<UIImage>? {
-        let documentURL = FileManager.default.urls(for: .documentDirectory,
-                                                   in: .userDomainMask).first!
-        let userPhotosURL = documentURL.appendingPathComponent(directory.rawValue)
-        let userProfileURL = userPhotosURL.appendingPathComponent("\(path).jpg")
+        let userProfileURL = fileURL(for: directory, path: path)
+        let userPhotosURL = userProfileURL.deletingLastPathComponent()
 
         // Ensure directory exists (defensive; init already creates it)
         if !FileManager.default.fileExists(atPath: userPhotosURL.path) {
@@ -77,14 +81,11 @@ final class FileManagerService {
     }
     
     func read(directory: NameOfDirectory, with path: String) -> Observable<UIImage>? {
-        let documentURL = FileManager.default.urls(for: .documentDirectory,
-                                                   in: .userDomainMask).first!
-        let userPhotosURL = documentURL.appendingPathComponent(directory.rawValue)
-        let userProfileURL = userPhotosURL.appendingPathComponent("\(path).jpg")
+        let userProfileURL = fileURL(for: directory, path: path)
 
         // Return nil (as before) if the file doesn't exist — preserves current callers that use optional chaining.
         guard FileManager.default.fileExists(atPath: userProfileURL.path) else {
-            print(#function, "File does not exist at path: \(userProfileURL.path)")
+            print(#function, "File does not exist at path:", userProfileURL.path)
             return nil
         }
 

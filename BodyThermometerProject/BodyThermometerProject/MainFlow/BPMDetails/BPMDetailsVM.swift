@@ -10,7 +10,9 @@ import RxSwift
 import RxCocoa
 
 protocol BPMDetailsRouterProtocol {
+    var deleteTapped: PublishRelay<Void> { get }
     func openEdit(with subject: PublishSubject<Int>)
+    func presentDeleteEntry() 
     func dismiss()
 }
 
@@ -70,6 +72,15 @@ final class BPMDetailsVM: BPMDetailsViewModelProtocol {
         _bpm.rx.onNext(dto.bpm)
         _noteText.rx.onNext(dto.notesText)
         
+        router.deleteTapped
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self else { return }
+                realmBPMManager.deleteDTO(dto)
+                router.dismiss()
+        })
+        .disposed(by: bag)
+        
         self.resultSubject
             .subscribe(onNext: { [weak self] result in
                 guard let self = self else { return }
@@ -110,8 +121,7 @@ final class BPMDetailsVM: BPMDetailsViewModelProtocol {
                 case .first:
                     self.router.openEdit(with: self.resultSubject)
                 case .second:
-                    self.realmBPMManager.deleteDTO(self.dto)
-                    self.router.dismiss()
+                    self.router.presentDeleteEntry()
                 case .cancel:
                     break
                 }

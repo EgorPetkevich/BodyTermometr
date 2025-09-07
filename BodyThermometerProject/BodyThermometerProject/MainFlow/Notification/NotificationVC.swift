@@ -13,8 +13,12 @@ import SnapKit
 protocol NotificationViewModelProtocol {
     // Out
     var notificationState: Driver<Bool> { get }
+    var switchState: Driver<Bool> { get }
+    var isSwitchEnabled: Driver<Bool> { get }
     // In
     var backButtonTapped: PublishRelay<Void> { get }
+    var viewWillAppear: PublishRelay<Void> { get }
+    var switchToggled: PublishRelay<Bool> { get }
 }
 
 final class NotificationVC: UIViewController {
@@ -74,6 +78,7 @@ final class NotificationVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true,
                                                      animated: false)
+        viewModel.viewWillAppear.accept(())
     }
     
     private func bind() {
@@ -81,13 +86,21 @@ final class NotificationVC: UIViewController {
             .bind(to: viewModel.backButtonTapped)
             .disposed(by: bag)
         
-        viewModel.notificationState
+        viewModel.switchState
             .drive(notificationSwitch.rx.isOn)
             .disposed(by: bag)
         
+        viewModel.isSwitchEnabled
+            .drive(notificationSwitch.rx.isEnabled)
+            .disposed(by: bag)
+        
         notificationSwitch.rx.isOn
-            .observe(on: MainScheduler.instance)
-            .bind(to: subNotificationLabel.rx.isHidden)
+            .skip(1)
+            .bind(to: viewModel.switchToggled)
+            .disposed(by: bag)
+        viewModel.switchState
+            .map { $0 } 
+            .drive(subNotificationLabel.rx.isHidden)
             .disposed(by: bag)
     }
     
@@ -131,4 +144,3 @@ private extension NotificationVC {
     
     
 }
-

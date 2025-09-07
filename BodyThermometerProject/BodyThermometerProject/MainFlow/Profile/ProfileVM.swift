@@ -34,6 +34,13 @@ protocol ProfileFileManagerServiceUseCaseProtocol {
     func getIconImage() -> Observable<UIImage>?
 }
 
+protocol ProfileAlertManagerServiceUseCaseProtocol {
+    func showError(title: String,
+                   message: String,
+                   goSettings: String,
+                   goSettingsHandler: @escaping () -> Void)
+}
+
 final class ProfileVM: NSObject, ProfileViewModelProtocol {
     
     //Out
@@ -60,18 +67,21 @@ final class ProfileVM: NSObject, ProfileViewModelProtocol {
     private var realmDataManager: ProfileRealmDataManagerUseCaseProtocol
     private var keyboardHelper: ProfileKeyBoardHelperServiceUseCaseProtocol
     private var fileManageService: ProfileFileManagerServiceUseCaseProtocol
+    private var alertService: ProfileAlertManagerServiceUseCaseProtocol
     
     private var bag = DisposeBag()
     
     init(router: ProfileRouterProtocol,
          realmDataManager: ProfileRealmDataManagerUseCaseProtocol,
          keyboardHelper: ProfileKeyBoardHelperServiceUseCaseProtocol,
-         fileManageService: ProfileFileManagerServiceUseCaseProtocol
+         fileManageService: ProfileFileManagerServiceUseCaseProtocol,
+         alertService: ProfileAlertManagerServiceUseCaseProtocol
     ) {
         self.router = router
         self.realmDataManager = realmDataManager
         self.keyboardHelper = keyboardHelper
         self.fileManageService = fileManageService
+        self.alertService = alertService
         super.init()
         bind()
     }
@@ -214,16 +224,12 @@ extension ProfileVM: UIImagePickerControllerDelegate,
                 let image = info[.originalImage] as? UIImage
             {
                 
-//                self._iconImage.rx.onNext(image)
                 self.fileManageService.save(icon: image)?
                     .observe(on: MainScheduler.instance)
                     .subscribe(onNext: { [weak self] img in
-                        self?._iconImage.rx.onNext(img) // only onNext; avoid completing the Subject
+                        self?._iconImage.rx.onNext(img)
                     })
                     .disposed(by: self.bag)
-                
-                // Navigate to editor with the originally selected image
-//                self.router.openEditor(with: image)
                 
             }
         }
@@ -271,18 +277,38 @@ extension ProfileVM: UIImagePickerControllerDelegate,
     }
     
     private func showGalleryErrorAlert() {
-//        DispatchQueue.main.async { [weak self] in
-//            self?.alertService.showCameraError(goSettingsHandler: {
-//                if let appSettings =
-//                    URL(string: UIApplication.openSettingsURLString) {
-//                           UIApplication.shared.open(appSettings,
-//                                                     options: [:],
-//                                                     completionHandler: nil)
-//
-//                }
-//            })
-            
-//        }
+        DispatchQueue.main.async { [weak self] in
+            self?.alertService.showError(
+                title: "Gallery Error",
+                message: "This app requires access to your photo library to allow you to select  existing photos.",
+                goSettings: "Go to Settings") {
+                    if let appSettings =
+                        URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(appSettings,
+                                                  options: [:],
+                                                  completionHandler: nil)
+                        
+                    }
+                }
+        }
+        
+    }
+    
+    private func showCameraErrorAlert() {
+        DispatchQueue.main.async { [weak self] in
+            self?.alertService.showError(
+                title: "Camera Error",
+                message: "This app requires access to your camera.",
+                goSettings: "Go to Settings") {
+                    if let appSettings =
+                        URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(appSettings,
+                                                  options: [:],
+                                                  completionHandler: nil)
+                        
+                    }
+                }
+        }
     }
     
     private func openCamera() {
@@ -301,12 +327,12 @@ extension ProfileVM: UIImagePickerControllerDelegate,
                     if granted {
                         self?.createAndShowCameraPicker()
                     } else {
-                        self?.showGalleryErrorAlert()
+                        self?.showCameraErrorAlert()
                     }
                 }
             }
         case .denied, .restricted:
-            showGalleryErrorAlert()
+            showCameraErrorAlert()
         @unknown default:
             break
         }

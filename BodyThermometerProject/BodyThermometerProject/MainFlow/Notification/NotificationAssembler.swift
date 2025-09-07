@@ -11,9 +11,11 @@ final class NotificationAssembler {
     
     private init() {}
     
-    static func assembly() -> UIViewController {
+    static func assembly(container: Container) -> UIViewController {
         let router = NotificationRouter()
-        let viewModel = NotificationVM(router: router)
+        let alertService = NotificationAlertServiceUseCase(alertService: AlertManagerService(container: container))
+        let viewModel = NotificationVM(router: router,
+                                       alertService: alertService)
         let viewController = NotificationVC(viewModel: viewModel)
         
         router.root = viewController

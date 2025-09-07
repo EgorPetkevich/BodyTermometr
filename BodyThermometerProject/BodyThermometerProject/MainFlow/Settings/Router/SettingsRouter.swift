@@ -11,6 +11,12 @@ final class SettingsRouter: SettingsRouterProtocol {
     
     weak var root: UIViewController?
     
+    private let container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
+    
     func openMail() {
         guard
             let root,
@@ -21,7 +27,7 @@ final class SettingsRouter: SettingsRouterProtocol {
     }
     
     func openNotificationSettings() {
-        let vc = NotificationAssembler.assembly()
+        let vc = NotificationAssembler.assembly(container: container)
         vc.modalPresentationStyle = .fullScreen
         root?.present(vc, animated: true)
     }

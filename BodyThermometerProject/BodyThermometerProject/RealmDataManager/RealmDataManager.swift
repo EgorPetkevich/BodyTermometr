@@ -12,17 +12,31 @@ import RxRealm
 
 class RealmDataManager {
 
+    private static var didCopyDebugRealm = false
+
     let realm: Realm
 
     init(realm: Realm = try! Realm()) {
-        if let originalURL = Realm.Configuration.defaultConfiguration.fileURL {
+#if DEBUG
+        if !RealmDataManager.didCopyDebugRealm,
+           let originalURL = Realm.Configuration.defaultConfiguration.fileURL {
             let debugURL = originalURL
                 .deletingLastPathComponent()
                 .appendingPathComponent("debug.realm")
-
-            try? FileManager.default.copyItem(at: originalURL, to: debugURL)
-            print("Debug Realm copied to: \(debugURL)")
+            // Replace existing copy with fresh one per app launch
+            let fm = FileManager.default
+            if fm.fileExists(atPath: debugURL.path) {
+                try? fm.removeItem(at: debugURL)
+            }
+            do {
+                try fm.copyItem(at: originalURL, to: debugURL)
+                print("Debug Realm copied to: \(debugURL)")
+            } catch {
+                print("Failed to copy debug Realm: \(error)")
+            }
+            RealmDataManager.didCopyDebugRealm = true
         }
+#endif
         self.realm = realm
     }
 
@@ -136,4 +150,3 @@ extension RealmDataManager {
             .distinctUntilChanged()
     }
 }
-

@@ -74,7 +74,7 @@ final class HistoryTableView: NSObject,
     private let emptSubTitleLabel: UILabel = {
         let l = UILabel()
         l.text = "Start your first measurement to see your \nbody temperature here."
-        l.numberOfLines = 2
+        l.numberOfLines = 0
         l.textAlignment = .center
         l.font = .appRegularFont(ofSize: 15)
         l.textColor = .appBlack.withAlphaComponent(0.6)
@@ -99,22 +99,19 @@ final class HistoryTableView: NSObject,
         emptyOverlay.frame = tableView.bounds
         emptyOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.backgroundView = emptyOverlay
-        emptyOverlay.isHidden = true
 
         emptyOverlay.addSubview(emptTitleLabel)
         emptyOverlay.addSubview(emptSubTitleLabel)
 
-        emptTitleLabel.snp.makeConstraints { make in
+        emptTitleLabel.snp.remakeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(emptyOverlay.snp.centerY).offset(-4)
-            make.leading.greaterThanOrEqualToSuperview().inset(16)
-            make.trailing.lessThanOrEqualToSuperview().inset(16)
+            make.width.lessThanOrEqualTo(emptyOverlay.snp.width).inset(32)
         }
-        emptSubTitleLabel.snp.makeConstraints { make in
+        emptSubTitleLabel.snp.remakeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(emptyOverlay.snp.centerY).offset(4)
-            make.leading.greaterThanOrEqualToSuperview().inset(16)
-            make.trailing.lessThanOrEqualToSuperview().inset(16)
+            make.width.lessThanOrEqualTo(emptyOverlay.snp.width).inset(32)
         }
     }
     

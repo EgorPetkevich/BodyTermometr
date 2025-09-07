@@ -17,7 +17,9 @@ final class MeasuringAssembler {
         subject: PublishSubject<Int>? = nil,
     ) -> UIViewController {
         let router = MeasuringRouter(container: container, subject: subject)
-        let viewModel = MeasuringVM(router: router)
+        let alertService =
+        MeasuringAlertServiceUseCase(alertService: AlertManagerService(container: container))
+        let viewModel = MeasuringVM(router: router, alertService: alertService)
         let viewController = MeasuringVC(viewModel: viewModel)
         
         router.root = viewController

@@ -11,8 +11,8 @@ final class SettingsAssembler {
     
     private init() {}
     
-    static func assembly() -> UIViewController {
-        let router = SettingsRouter()
+    static func assembly(container: Container) -> UIViewController {
+        let router = SettingsRouter(container: container)
         let viewModel = SettingsVM(router: router)
         let viewController = SettingsVC(viewModel: viewModel)
         

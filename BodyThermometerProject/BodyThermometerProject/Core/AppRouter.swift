@@ -30,6 +30,23 @@ final class AppRouter {
         window = UIWindow(windowScene: windowScene)
         window?.overrideUserInterfaceStyle = .light
         UDManagerService.setIsPremium(false)
+        
+        
+        // Notifications
+        let notifications: NotificationsServiceProtocol = container.resolve()
+        notifications.configure()
+        notifications.requestAuthorization()
+            .subscribe(onSuccess: { granted in
+                guard granted else { return }
+                let times: [DateComponents] = [
+                    DateComponents(hour: 9, minute: 41),
+                    DateComponents(hour: 20, minute: 0)
+                ]
+                notifications.scheduleDailyReminders(times)
+            })
+            .disposed(by: bag)
+        
+        
 //        startOnbordingFlow()
         startMainFlow()
 //        let vc = MeasuringResultAssembler.assembly(container: container, bpmResult: 40)

@@ -20,6 +20,7 @@ final class ContainerConfigurator {
         container.lazyRegister { RealmDataManager() }
         container.lazyRegister { RealmBPMManager() }
         container.lazyRegister { RealmTempManager() }
+        container.lazyRegister { NotificationsService() as NotificationsServiceProtocol }
         
         return container
     }

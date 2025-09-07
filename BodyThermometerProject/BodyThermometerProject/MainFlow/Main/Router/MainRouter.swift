@@ -26,7 +26,7 @@ final class MainRouter: MainRouterProtocol {
     }
     
     func openSettings() {
-        let vc = SettingsAssembler.assembly()
+        let vc = SettingsAssembler.assembly(container: container)
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom { _ in return 663 }]
             sheet.prefersGrabberVisible = false

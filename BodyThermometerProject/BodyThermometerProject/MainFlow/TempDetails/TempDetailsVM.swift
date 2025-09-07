@@ -10,7 +10,9 @@ import RxSwift
 import RxCocoa
 
 protocol TempDetailsRouterProtocol {
+    var deleteTapped: PublishRelay<Void> { get }
     func openEdit(with dto: TempModelDTO)
+    func presentDeleteEntry()
     func dismiss()
 }
 
@@ -155,13 +157,21 @@ final class TempDetailsVM: TempDetailsViewModelProtocol {
                 case .first:
                     self.router.openEdit(with: dto)
                 case .second:
-                    realmTempManager.deleteDTO(dto)
-                    self.router.dismiss()
+                    self.router.presentDeleteEntry()
                 case .cancel:
                     break
                 }
             })
             .disposed(by: self.bag)
+        
+        router.deleteTapped
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self else { return }
+                realmTempManager.deleteDTO(dto)
+                self.router.dismiss()
+        })
+        .disposed(by: bag)
     }
     
     func getSymptomsCollection() -> UICollectionView {
