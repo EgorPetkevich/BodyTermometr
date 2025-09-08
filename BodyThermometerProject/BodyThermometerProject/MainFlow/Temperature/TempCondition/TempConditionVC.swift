@@ -25,6 +25,7 @@ protocol TempConditionViewModelProtocol {
     var timeTapped: PublishRelay<Void> { get }
     var siteSelected :BehaviorRelay<MeasuringSiteUnit> { get }
     
+    func viewDidLoad()
     func getSymptomsCollection() -> UICollectionView
     func getFeelingsCollection() -> UICollectionView
 }
@@ -104,6 +105,7 @@ final class TempConditionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .appBg
+        viewModel.viewDidLoad()
     }
     
     private func bind() {

@@ -12,7 +12,7 @@ final class MeasuringResultAssembler {
     private init() {}
     
     static func assembly(container: Container, bpmResult: Int) -> UIViewController {
-        let router = MeasuringResultRouter()
+        let router = MeasuringResultRouter(container: container)
         let collection = ActivityCollection()
         
         let realmManager =

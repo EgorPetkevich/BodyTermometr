@@ -59,5 +59,11 @@ final class TempDetailsRouter: TempDetailsRouterProtocol {
         root?.present(vc, animated: true, completion: nil)
     }
     
+    func showPaywall() {
+        let vc = PaywallRevAssembler.assemble(container: container)
+        vc.modalPresentationStyle = .fullScreen
+        root?.present(vc, animated: true)
+    }
+    
     
 }

@@ -13,6 +13,7 @@ protocol TempDetailsRouterProtocol {
     var deleteTapped: PublishRelay<Void> { get }
     func openEdit(with dto: TempModelDTO)
     func presentDeleteEntry()
+    func showPaywall()
     func dismiss()
 }
 
@@ -155,7 +156,12 @@ final class TempDetailsVM: TempDetailsViewModelProtocol {
 
                 switch choice {
                 case .first:
-                    self.router.openEdit(with: dto)
+                    if UDManagerService.isPremium() {
+                        self.router.openEdit(with: dto)
+                    } else {
+                        router.showPaywall()
+                    }
+                   
                 case .second:
                     self.router.presentDeleteEntry()
                 case .cancel:

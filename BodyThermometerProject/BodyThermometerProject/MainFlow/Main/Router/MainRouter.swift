@@ -72,6 +72,7 @@ final class MainRouter: MainRouterProtocol {
     
     func showPaywall() {
         let vc = PaywallRevAssembler.assemble(container: container)
+        vc.modalPresentationStyle = .fullScreen
         root?.present(vc, animated: true)
     }
     

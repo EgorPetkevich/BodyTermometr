@@ -15,6 +15,7 @@ protocol TempConditionRouterProtocol {
     
     func openDatePicker()
     func openTimePicker()
+    func showPaywall()
     func openMain()
     func dismiss()
 }
@@ -73,6 +74,11 @@ final class TempConditionVM: TempConditionViewModelProtocol {
         self.dto = dto
         self._pickedDateTime.rx.onNext(Date())
         bind()
+    }
+    
+    func viewDidLoad() {
+        guard UDManagerService.isPremium() == false else { return }
+        router.showPaywall()
     }
     
     private func bind() {

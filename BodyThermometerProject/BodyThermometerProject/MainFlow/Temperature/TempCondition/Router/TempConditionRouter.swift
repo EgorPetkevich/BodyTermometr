@@ -64,6 +64,12 @@ final class TempConditionRouter: TempConditionRouterProtocol {
         
     }
     
+    func showPaywall() {
+        let vc = PaywallRevAssembler.assemble(container: container)
+        vc.modalPresentationStyle = .fullScreen
+        root?.present(vc, animated: true)
+    }
+    
 }
 
 

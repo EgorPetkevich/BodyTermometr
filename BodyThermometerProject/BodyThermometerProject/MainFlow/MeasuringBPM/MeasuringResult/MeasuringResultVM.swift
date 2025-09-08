@@ -11,7 +11,9 @@ import RxCocoa
 
 protocol MeasuringResultRouterProtocol {
     func openMain()
+    func showPaywall()
     func dismiss()
+    
 }
 
 protocol MeasuringResultRealmBPMManagerUseCaseProtocol {
@@ -48,6 +50,11 @@ final class MeasuringResultVM: MeasuringResultViewModelProtocol {
         self.realmManager = realmManager
         _bpm.rx.onNext(bpmResult)
         bind()
+    }
+    
+    func viewDidLoad() {
+        guard UDManagerService.isPremium() == false else { return }
+        router.showPaywall()
     }
     
     private func bind() {

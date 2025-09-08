@@ -12,7 +12,8 @@ import RxCocoa
 protocol BPMDetailsRouterProtocol {
     var deleteTapped: PublishRelay<Void> { get }
     func openEdit(with subject: PublishSubject<Int>)
-    func presentDeleteEntry() 
+    func presentDeleteEntry()
+    func showPaywall()
     func dismiss()
 }
 
@@ -119,7 +120,12 @@ final class BPMDetailsVM: BPMDetailsViewModelProtocol {
                 guard let self = self else { return }
                 switch choice {
                 case .first:
-                    self.router.openEdit(with: self.resultSubject)
+                    if UDManagerService.isPremium() {
+                        self.router.openEdit(with: self.resultSubject)
+                    } else {
+                        router.showPaywall()
+                    }
+                   
                 case .second:
                     self.router.presentDeleteEntry()
                 case .cancel:

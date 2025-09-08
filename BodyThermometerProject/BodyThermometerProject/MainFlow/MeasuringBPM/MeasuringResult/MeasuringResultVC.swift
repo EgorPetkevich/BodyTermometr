@@ -19,6 +19,8 @@ protocol MeasuringResultViewModelProtocol {
     var shareTapped: PublishRelay<Void> { get }
     var crossTapped: PublishRelay<Void> { get }
     var notesText: BehaviorRelay<String?> { get }
+    
+    func viewDidLoad()
 }
 
 final class MeasuringResultVC: UIViewController {
@@ -101,6 +103,7 @@ final class MeasuringResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .appBg
+        viewModel.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
