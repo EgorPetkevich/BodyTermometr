@@ -15,6 +15,7 @@ protocol StatisticsRouterProtocol {
     func dismiss()
     func openBPMDetails(with dto: BPMModelDTO)
     func openTempDetails(with dto: TempModelDTO, unit: TempUnit)
+    func showPaywall()
 }
 
 protocol StatisticsTempRealmManagerUseCaseProtocol {
@@ -25,7 +26,9 @@ protocol StatisticsBPMRealmManagerUseCaseProtocol {
 }
 
 final class StatisticsVM: StatisticsViewModelProtocol {
-    
+    //Out
+    @Relay(value: Period.day)
+    var setDayPeriodRelay: Observable<Period>
     // In
     var crossButtonTapped = PublishRelay<Void>()
     var tempUnitState = BehaviorRelay<TempUnit>(value: TempUnit.c)
@@ -103,11 +106,29 @@ final class StatisticsVM: StatisticsViewModelProtocol {
         
         periodSelected
             .subscribe(onNext: { [weak self] period in
-                self?.chart.set(period: period)
-                if let mode = self?.modeSelected.value {
-                    switch mode {
-                    case .temperature: self?.setupTempChart()
-                    case .heartRate:  self?.setupBpmChart()
+                if UDManagerService.isPremium() {
+                    self?.chart.set(period: period)
+                    if let mode = self?.modeSelected.value {
+                        switch mode {
+                        case .temperature: self?.setupTempChart()
+                        case .heartRate:  self?.setupBpmChart()
+                        }
+                    }
+                } else {
+                    switch period {
+                    case .day:
+                        if let mode = self?.modeSelected.value {
+                            switch mode {
+                            case .temperature: self?.setupTempChart()
+                            case .heartRate:  self?.setupBpmChart()
+                            }
+                        }
+                    case .week:
+                        self?._setDayPeriodRelay.rx.accept(.day)
+                        self?.router.showPaywall()
+                    case .month:
+                        self?._setDayPeriodRelay.rx.accept(.day)
+                        self?.router.showPaywall()
                     }
                 }
             })

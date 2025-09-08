@@ -63,6 +63,7 @@ final class TemperatureInputVM: TemperatureInputViewModelProtocol {
                 guard let self,
                       isValidTemperature(temp, for: unit)
                 else { return }
+                UDManagerService.setIsFirstTempMeasurement(true)
                 router.openTempCondition(temperature: temp, unit: unit)
             })
             .disposed(by: bag)

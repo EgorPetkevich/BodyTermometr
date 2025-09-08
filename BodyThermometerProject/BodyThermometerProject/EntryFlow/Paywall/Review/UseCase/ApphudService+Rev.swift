@@ -1,0 +1,46 @@
+//
+//  ApphudService+Rev.swift
+//  BodyThermometerProject
+//
+//  Created by George Popkich on 7.09.25.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+import ApphudSDK
+import StoreKit
+
+struct PaywallRevApphudManagerUseCase: PaywallRevApphudManagerUseCaseProtocol {
+    
+    var config: RemoteConfig
+    
+    private let apphudService: ApphudRxManager
+    
+    init(apphudService: ApphudRxManager) {
+        self.apphudService = apphudService
+        self.config = apphudService.configRelay.value
+    }
+    
+    func getTrialPrice() -> String? {
+        let prod = apphudService.product(for: .trial)
+        return prod?.price
+    }
+    
+    func getProdPrice() -> String? {
+        let prod = apphudService.product(for: .prod)
+        return prod?.price
+    }
+    
+    func makePurchase(isTrial: Bool) -> Single<ApphudSubscription> {
+        guard
+            let prod = apphudService.product(for: isTrial ? .trial : .prod)
+        else { return Single.error(PurchaseError.productNotFound) }
+        return apphudService.purchase(prod.apphudProduct)
+    }
+    
+    func restorePurchases() -> Single<Bool> {
+        apphudService.restorePurchases()
+    }
+    
+}

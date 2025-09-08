@@ -32,9 +32,10 @@ final class PaywallButtonView: UIView {
         static let arrowViewRadius: CGFloat = 24.0
     }
     
+    var buttonTitleRelay: BehaviorRelay<String?> = .init(value: nil)
     var isTrialRelay: BehaviorRelay<Bool> = .init(value: false)
-    var subTrialPriceRelay: BehaviorRelay<String> = .init(value: "$6.99")
-    var subPriceRelay: BehaviorRelay<String> = .init(value: "$6.99")
+    var subTrialPriceRelay: BehaviorRelay<String?> = .init(value: nil)
+    var subPriceRelay: BehaviorRelay<String?> = .init(value: nil)
     
     private lazy var coverButton: UIButton = UIButton()
     private lazy var mainTitleLabel: UILabel =
@@ -65,11 +66,20 @@ final class PaywallButtonView: UIView {
     
     private func bind() {
         Observable
-            .combineLatest(isTrialRelay, subTrialPriceRelay, subPriceRelay)
-            .map { isTrial, trialPrice, price in
-                isTrial
-                    ? TextConst.getTrialSubTitleText(with: trialPrice)
-                    : TextConst.getSubTitleText(with: price)
+            .combineLatest(buttonTitleRelay,
+                           isTrialRelay,
+                           subTrialPriceRelay,
+                           subPriceRelay)
+            .map { buttonTitle, isTrial, trialPrice, price in
+                if let buttonTitle = buttonTitle {
+                    self.subTitleLabel.text = ""
+                    return buttonTitle
+                } else {
+                    return isTrial
+                    ? TextConst.getTrialSubTitleText(with: trialPrice ?? "")
+                    : TextConst.getSubTitleText(with: price ?? "")
+                }
+                
             }
             .bind(to: mainTitleLabel.rx.text)
             .disposed(by: bag)

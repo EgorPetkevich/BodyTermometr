@@ -33,6 +33,11 @@ final class StatisticsRouter: StatisticsRouterProtocol {
         root?.present(nc, animated: true)
     }
     
+    func showPaywall() {
+        let vc = PaywallRevAssembler.assemble(container: container)
+        root?.present(vc, animated: true)
+    }
+    
     func dismiss() {
         root?.navigationController?.popViewController(animated: true)
     }

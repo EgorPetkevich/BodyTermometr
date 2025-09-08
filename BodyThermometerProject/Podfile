@@ -9,6 +9,7 @@ target 'BodyThermometerProject' do
   pod 'RxRealm', '~> 5.0' 
   pod 'DGCharts'
   pod 'lottie-ios'
+  pod 'ApphudSDK', '~> 3.6'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

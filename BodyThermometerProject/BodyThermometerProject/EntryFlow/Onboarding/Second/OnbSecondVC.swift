@@ -11,6 +11,10 @@ import RxCocoa
 import SnapKit
 
 protocol OnbSecondViewModelProtocol {
+    //Out
+    var onbSubtitleAlphaRelay: Observable<Double> { get }
+    var onbButtonTitle: Observable<String?> { get }
+    var isPagingEnabledRelay: Observable<Bool> { get }
     //In
     var continueButtonSubject: PublishSubject<Void> { get }
 }
@@ -69,6 +73,18 @@ final class OnbSecondVC: UIViewController {
     }
     
     private func bind() {
+        viewModel.onbButtonTitle
+            .bind(to: continueButton.mainTitleLabel.rx.text)
+            .disposed(by: bag)
+        viewModel.isPagingEnabledRelay
+            .map { !$0 }
+            .bind(to: onbPageControl.rx.isHidden)
+            .disposed(by: bag)
+        viewModel.onbSubtitleAlphaRelay
+            .map { CGFloat($0) }
+            .bind(to: underHeaderTextLabel.rx.alpha)
+            .disposed(by: bag)
+        
         continueButton
             .tap
             .bind(to: viewModel.continueButtonSubject)

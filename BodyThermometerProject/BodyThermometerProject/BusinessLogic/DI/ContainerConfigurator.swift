@@ -21,6 +21,7 @@ final class ContainerConfigurator {
         container.lazyRegister { RealmBPMManager() }
         container.lazyRegister { RealmTempManager() }
         container.lazyRegister { NotificationsService() as NotificationsServiceProtocol }
+        container.lazyRegister { ApphudRxManager.instanse }
         
         return container
     }

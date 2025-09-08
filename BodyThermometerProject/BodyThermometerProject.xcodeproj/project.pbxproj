@@ -19,6 +19,19 @@
 		F217C72A2E560D8B005606E1 /* RealmDataManager+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */; };
 		F217C72C2E561F10005606E1 /* ProfileSaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */; };
 		F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */; };
+		F233C89B2E6E132400572194 /* AlertService+Rev.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C89A2E6E132400572194 /* AlertService+Rev.swift */; };
+		F233C89D2E6E133500572194 /* ApphudService+Rev.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C89C2E6E133500572194 /* ApphudService+Rev.swift */; };
+		F233C8A02E6E36E300572194 /* AlertService+Prod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C89F2E6E36E300572194 /* AlertService+Prod.swift */; };
+		F233C8A22E6E36F700572194 /* ApphudManager+Prod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C8A12E6E36F700572194 /* ApphudManager+Prod.swift */; };
+		F233C9B22E6E3F9E00572194 /* AlertService+Trial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9B12E6E3F9E00572194 /* AlertService+Trial.swift */; };
+		F233C9B52E6E3FBB00572194 /* ApphudService+Trial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9B42E6E3FBB00572194 /* ApphudService+Trial.swift */; };
+		F233C9B82E6E543900572194 /* ApphudManager+OnbFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9B72E6E543900572194 /* ApphudManager+OnbFirst.swift */; };
+		F233C9BB2E6E544A00572194 /* ApphudManager+OnbSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9BA2E6E544A00572194 /* ApphudManager+OnbSecond.swift */; };
+		F233C9BE2E6E545800572194 /* ApphudManager+OnbThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9BD2E6E545800572194 /* ApphudManager+OnbThird.swift */; };
+		F233C9C12E6E688200572194 /* PaywallProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9C02E6E688200572194 /* PaywallProduct.swift */; };
+		F233C9C32E6E68CD00572194 /* StoreKit+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9C22E6E68CD00572194 /* StoreKit+Price.swift */; };
+		F233C9C62E6E690100572194 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9C52E6E690100572194 /* Setup.swift */; };
+		F233C9C82E6E698A00572194 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233C9C72E6E698A00572194 /* RemoteConfig.swift */; };
 		F241BC772E6497620060CB4B /* DateTimePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC762E6497620060CB4B /* DateTimePickView.swift */; };
 		F241BC792E64A57E0060CB4B /* MeasureSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC782E64A57E0060CB4B /* MeasureSiteView.swift */; };
 		F241BC7D2E64B1B70060CB4B /* SymptomsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241BC7C2E64B1B70060CB4B /* SymptomsCollection.swift */; };
@@ -206,7 +219,7 @@
 		F2B45EC52E6DBCB000ABC8A5 /* DeleteEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC42E6DBCB000ABC8A5 /* DeleteEntryVC.swift */; };
 		F2B45EC72E6DC6BE00ABC8A5 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */; };
 		F2B45ECA2E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EC92E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift */; };
-		F2B45ECC2E6DEBFF00ABC8A5 /* ApphudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */; };
+		F2B45ECC2E6DEBFF00ABC8A5 /* ApphudRxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B45ECB2E6DEBFF00ABC8A5 /* ApphudRxManager.swift */; };
 		F2FABDD22E5B5C230035BF77 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */; };
 		F2FABDD42E5B5C290035BF77 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */; };
 		F2FABDD62E5B5C4B0035BF77 /* SettingsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */; };
@@ -255,6 +268,19 @@
 		F217C7292E560D8B005606E1 /* RealmDataManager+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDataManager+Profile.swift"; sourceTree = "<group>"; };
 		F217C72B2E561F10005606E1 /* ProfileSaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSaveButtonView.swift; sourceTree = "<group>"; };
 		F217C72D2E5624F8005606E1 /* KeyBordHelperService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyBordHelperService+Profile.swift"; sourceTree = "<group>"; };
+		F233C89A2E6E132400572194 /* AlertService+Rev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Rev.swift"; sourceTree = "<group>"; };
+		F233C89C2E6E133500572194 /* ApphudService+Rev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudService+Rev.swift"; sourceTree = "<group>"; };
+		F233C89F2E6E36E300572194 /* AlertService+Prod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Prod.swift"; sourceTree = "<group>"; };
+		F233C8A12E6E36F700572194 /* ApphudManager+Prod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudManager+Prod.swift"; sourceTree = "<group>"; };
+		F233C9B12E6E3F9E00572194 /* AlertService+Trial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Trial.swift"; sourceTree = "<group>"; };
+		F233C9B42E6E3FBB00572194 /* ApphudService+Trial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudService+Trial.swift"; sourceTree = "<group>"; };
+		F233C9B72E6E543900572194 /* ApphudManager+OnbFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudManager+OnbFirst.swift"; sourceTree = "<group>"; };
+		F233C9BA2E6E544A00572194 /* ApphudManager+OnbSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudManager+OnbSecond.swift"; sourceTree = "<group>"; };
+		F233C9BD2E6E545800572194 /* ApphudManager+OnbThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApphudManager+OnbThird.swift"; sourceTree = "<group>"; };
+		F233C9C02E6E688200572194 /* PaywallProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallProduct.swift; sourceTree = "<group>"; };
+		F233C9C22E6E68CD00572194 /* StoreKit+Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreKit+Price.swift"; sourceTree = "<group>"; };
+		F233C9C52E6E690100572194 /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
+		F233C9C72E6E698A00572194 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		F241BC762E6497620060CB4B /* DateTimePickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickView.swift; sourceTree = "<group>"; };
 		F241BC782E64A57E0060CB4B /* MeasureSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureSiteView.swift; sourceTree = "<group>"; };
 		F241BC7C2E64B1B70060CB4B /* SymptomsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsCollection.swift; sourceTree = "<group>"; };
@@ -444,7 +470,7 @@
 		F2B45EC42E6DBCB000ABC8A5 /* DeleteEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEntryVC.swift; sourceTree = "<group>"; };
 		F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F2B45EC92E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Notificatoin.swift"; sourceTree = "<group>"; };
-		F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApphudService.swift; sourceTree = "<group>"; };
+		F2B45ECB2E6DEBFF00ABC8A5 /* ApphudRxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApphudRxManager.swift; sourceTree = "<group>"; };
 		F2FABDD12E5B5C230035BF77 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F2FABDD32E5B5C290035BF77 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F2FABDD52E5B5C4B0035BF77 /* SettingsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembler.swift; sourceTree = "<group>"; };
@@ -547,6 +573,101 @@
 				F2B45EC12E6DB1B000ABC8A5 /* AlertManagerService+Profile.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C8992E6E131000572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C89A2E6E132400572194 /* AlertService+Rev.swift */,
+				F233C89C2E6E133500572194 /* ApphudService+Rev.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C89E2E6E36A600572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C89F2E6E36E300572194 /* AlertService+Prod.swift */,
+				F233C8A12E6E36F700572194 /* ApphudManager+Prod.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C9B32E6E3FA300572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9B12E6E3F9E00572194 /* AlertService+Trial.swift */,
+				F233C9B42E6E3FBB00572194 /* ApphudService+Trial.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C9B62E6E542400572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9B72E6E543900572194 /* ApphudManager+OnbFirst.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C9B92E6E544000572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9BA2E6E544A00572194 /* ApphudManager+OnbSecond.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C9BC2E6E545000572194 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9BD2E6E545800572194 /* ApphudManager+OnbThird.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F233C9BF2E6E687000572194 /* Apphud */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9C92E6E69A800572194 /* Helpers */,
+				F2B45ECB2E6DEBFF00ABC8A5 /* ApphudRxManager.swift */,
+			);
+			path = Apphud;
+			sourceTree = "<group>";
+		};
+		F233C9C92E6E69A800572194 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9C52E6E690100572194 /* Setup.swift */,
+				F233C9C02E6E688200572194 /* PaywallProduct.swift */,
+				F233C9C72E6E698A00572194 /* RemoteConfig.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F233C9CA2E6E6A9000572194 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F233C9CB2E6E6AC300572194 /* AppFlow */,
+				F26441852E4E0930007D879B /* AppRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F233C9CB2E6E6AC300572194 /* AppFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F24DF7892E5340C90091764F /* AppFlow.swift */,
+			);
+			path = AppFlow;
+			sourceTree = "<group>";
+		};
+		F233C9CC2E6E6AD300572194 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F2FABDE42E5C7D990035BF77 /* AppConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		F241BC7A2E64B1920060CB4B /* Adapter */ = {
@@ -905,6 +1026,7 @@
 		F26440FF2E4C70EB007D879B /* First */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9B62E6E542400572194 /* UseCase */,
 				F264419A2E4E2146007D879B /* Router */,
 				F26440F82E4C6F6E007D879B /* OnbFirstVC.swift */,
 				F26441712E4CCFC4007D879B /* OnbFirstVM.swift */,
@@ -980,6 +1102,7 @@
 		F264417D2E4DE2D7007D879B /* Second */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9B92E6E544000572194 /* UseCase */,
 				F264419B2E4E2156007D879B /* Router */,
 				F26440FA2E4C6F7B007D879B /* OnbSecondVC.swift */,
 				F264417F2E4E076B007D879B /* OnbSecondVM.swift */,
@@ -991,6 +1114,7 @@
 		F264417E2E4DE2EF007D879B /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9BC2E6E545000572194 /* UseCase */,
 				F264419C2E4E2163007D879B /* Router */,
 				F26440FC2E4C6F88007D879B /* OnbThirdVC.swift */,
 				F26441892E4E15C0007D879B /* OnbThirdVM.swift */,
@@ -1013,6 +1137,7 @@
 		F26441922E4E20B3007D879B /* Production */ = {
 			isa = PBXGroup;
 			children = (
+				F233C89E2E6E36A600572194 /* UseCase */,
 				F246419D2E4F39C5000D0A07 /* Router */,
 				F246419E2E4F3A49000D0A07 /* PaywallProdVC.swift */,
 				F24641A02E4F3A50000D0A07 /* PaywallProdVM.swift */,
@@ -1024,6 +1149,7 @@
 		F26441932E4E20BF007D879B /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				F233C8992E6E131000572194 /* UseCase */,
 				F24641AE2E4F459A000D0A07 /* Router */,
 				F24641A62E4F455E000D0A07 /* PaywallRevVC.swift */,
 				F24641A82E4F456B000D0A07 /* PaywallRevVM.swift */,
@@ -1035,6 +1161,7 @@
 		F26441952E4E2114007D879B /* ProductionTrial */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9B32E6E3FA300572194 /* UseCase */,
 				F264419D2E4E216E007D879B /* Router */,
 				F26441962E4E212E007D879B /* PaywallProdTrialVC.swift */,
 				F26441982E4E213E007D879B /* PaywallProdTrialVM.swift */,
@@ -1308,6 +1435,7 @@
 				F2FABEF42E5C8E280035BF77 /* StoreKit+Review.swift */,
 				F26808572E609BD1005A6132 /* UICollectionView+Register.swift */,
 				F241BDB82E675CAA0060CB4B /* Date+DisplayString.swift */,
+				F233C9C22E6E68CD00572194 /* StoreKit+Price.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1315,11 +1443,10 @@
 		F296A4112E11728B00E1348E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9CC2E6E6AD300572194 /* Config */,
+				F233C9CA2E6E6A9000572194 /* Router */,
 				F296A3F42E11533500E1348E /* AppDelegate.swift */,
 				F296A3F62E11533500E1348E /* SceneDelegate.swift */,
-				F26441852E4E0930007D879B /* AppRouter.swift */,
-				F24DF7892E5340C90091764F /* AppFlow.swift */,
-				F2FABDE42E5C7D990035BF77 /* AppConfig.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1346,6 +1473,7 @@
 		F296A4162E11731100E1348E /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				F233C9BF2E6E687000572194 /* Apphud */,
 				F296A4202E1192F900E1348E /* DI */,
 			);
 			path = BusinessLogic;
@@ -1360,7 +1488,6 @@
 				F2AA889D2E69AA1C00561BCC /* AlertManagerService.swift */,
 				F2AA88A02E69ABC300561BCC /* WindowManagerService.swift */,
 				F2B45EC62E6DC6BE00ABC8A5 /* NotificationService.swift */,
-				F2B45ECB2E6DEBFF00ABC8A5 /* ApphudService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1786,6 +1913,7 @@
 				F2765AE72E5F6375008A54E1 /* MeasuringResultVC.swift in Sources */,
 				F2FCD0D22E5E192E00241719 /* MeasuringGuideVM.swift in Sources */,
 				F24DF7942E53568B0091764F /* MainAssembler.swift in Sources */,
+				F233C9BB2E6E544A00572194 /* ApphudManager+OnbSecond.swift in Sources */,
 				F264415E2E4C7584007D879B /* IBMPlexSansFont.swift in Sources */,
 				F2FCD0C12E5DD84000241719 /* CircularProgressView.swift in Sources */,
 				F217C71F2E55D1E4005606E1 /* ProfileUserIconView.swift in Sources */,
@@ -1802,6 +1930,7 @@
 				F296A4352E11986100E1348E /* Relay.swift in Sources */,
 				F2AA889E2E69AA1C00561BCC /* AlertManagerService.swift in Sources */,
 				F24DF7902E53567C0091764F /* MainVC.swift in Sources */,
+				F233C9B82E6E543900572194 /* ApphudManager+OnbFirst.swift in Sources */,
 				F2AA88932E698D5E00561BCC /* BPMDetailsVC.swift in Sources */,
 				F24641A92E4F456B000D0A07 /* PaywallRevVM.swift in Sources */,
 				F26441842E4E07EC007D879B /* OnbSecondAssebler.swift in Sources */,
@@ -1820,8 +1949,10 @@
 				F264416E2E4CC6C3007D879B /* OnbordingPageControl+Setup.swift in Sources */,
 				F241BDA02E65AC3D0060CB4B /* StatisticsVC.swift in Sources */,
 				F2AA88A12E69ABC300561BCC /* WindowManagerService.swift in Sources */,
+				F233C8A22E6E36F700572194 /* ApphudManager+Prod.swift in Sources */,
 				F26441782E4CD35C007D879B /* OnbFirstAssembler.swift in Sources */,
 				F267F16C2E636BC3007F294C /* TempConditionTypeView.swift in Sources */,
+				F233C9B52E6E3FBB00572194 /* ApphudService+Trial.swift in Sources */,
 				F24641A72E4F455E000D0A07 /* PaywallRevVC.swift in Sources */,
 				F217C72E2E5624F8005606E1 /* KeyBordHelperService+Profile.swift in Sources */,
 				F26441A32E4E82F3007D879B /* UIButton+Style.swift in Sources */,
@@ -1888,6 +2019,7 @@
 				F27659D62E5F2058008A54E1 /* RGBMesuring.swift in Sources */,
 				F24DF77D2E522B380091764F /* RegistrationGenderCellsView.swift in Sources */,
 				F24641A32E4F3A59000D0A07 /* PaywallProdAssembler.swift in Sources */,
+				F233C9B22E6E3F9E00572194 /* AlertService+Trial.swift in Sources */,
 				F26441822E4E07C7007D879B /* OnbSecondRouter.swift in Sources */,
 				F2B45ECA2E6DCC5500ABC8A5 /* AlertService+Notificatoin.swift in Sources */,
 				F2AA88952E698D6200561BCC /* BPMDetailsVM.swift in Sources */,
@@ -1895,12 +2027,14 @@
 				F26808532E6090AA005A6132 /* ActivityCell.swift in Sources */,
 				F24641A12E4F3A50000D0A07 /* PaywallProdVM.swift in Sources */,
 				F2FCCFAA2E5DCB0900241719 /* MeasuringRouter.swift in Sources */,
+				F233C8A02E6E36E300572194 /* AlertService+Prod.swift in Sources */,
 				F24DF7642E51DF2F0091764F /* RegGenderVM.swift in Sources */,
+				F233C89B2E6E132400572194 /* AlertService+Rev.swift in Sources */,
 				F24DF7582E51DE3F0091764F /* RegUserInfoVC.swift in Sources */,
 				F241BDBE2E676CEB0060CB4B /* BPMRealmManager+Stat.swift in Sources */,
 				F24DF7822E532C040091764F /* RealDataManager+RegUserInfo.swift in Sources */,
 				F217C7252E55E4E8005606E1 /* UserNameTextFieldView.swift in Sources */,
-				F2B45ECC2E6DEBFF00ABC8A5 /* ApphudService.swift in Sources */,
+				F2B45ECC2E6DEBFF00ABC8A5 /* ApphudRxManager.swift in Sources */,
 				F217C7182E55CFB7005606E1 /* ProfileVM.swift in Sources */,
 				F2AA88A72E69FA0500561BCC /* TempDetailsRouter.swift in Sources */,
 				F2AA889C2E699DC900561BCC /* Realm+BPMDetails.swift in Sources */,
@@ -1910,6 +2044,7 @@
 				F24DF7882E5334120091764F /* RealmDataManager+RegGender.swift in Sources */,
 				F264418A2E4E15C0007D879B /* OnbThirdVM.swift in Sources */,
 				F26440FB2E4C6F7B007D879B /* OnbSecondVC.swift in Sources */,
+				F233C9C82E6E698A00572194 /* RemoteConfig.swift in Sources */,
 				F26441972E4E212E007D879B /* PaywallProdTrialVC.swift in Sources */,
 				F296A4312E11982F00E1348E /* OutputProperty.swift in Sources */,
 				F289DC3D2E575E5200E05658 /* UDManagerService.swift in Sources */,
@@ -1920,6 +2055,7 @@
 				F241BDB32E674F190060CB4B /* HistoryTableView.swift in Sources */,
 				F2FABEF52E5C8E280035BF77 /* StoreKit+Review.swift in Sources */,
 				F241BDCA2E685E380060CB4B /* IntGuideBpmSection.swift in Sources */,
+				F233C89D2E6E133500572194 /* ApphudService+Rev.swift in Sources */,
 				F2FCCFA62E5DCAF800241719 /* MeasuringVM.swift in Sources */,
 				F241BC812E64C3640060CB4B /* FeelingCell.swift in Sources */,
 				F26441722E4CCFC4007D879B /* OnbFirstVM.swift in Sources */,
@@ -1953,6 +2089,7 @@
 				F2FCCFA82E5DCB0300241719 /* MeasuringAssembler.swift in Sources */,
 				F241BC872E6502680060CB4B /* TempModelMO.swift in Sources */,
 				F268084C2E6084CB005A6132 /* BPMStatusView+Rx.swift in Sources */,
+				F233C9BE2E6E545800572194 /* ApphudManager+OnbThird.swift in Sources */,
 				F24DF77B2E5220C00091764F /* Reactive+UIViewController.swift in Sources */,
 				F2FABDE02E5C59E60035BF77 /* SettingsRow.swift in Sources */,
 				F267F1502E63282E007F294C /* TemperatureInputVC.swift in Sources */,
@@ -1973,6 +2110,7 @@
 				F2AA88A32E69B1AC00561BCC /* Alert+BPMDetails.swift in Sources */,
 				F2FABDE52E5C7D990035BF77 /* AppConfig.swift in Sources */,
 				F24DF75E2E51DE550091764F /* RegUserInfoRouter.swift in Sources */,
+				F233C9C32E6E68CD00572194 /* StoreKit+Price.swift in Sources */,
 				F267F1692E63620F007F294C /* TempConditionRouter.swift in Sources */,
 				F24DF7962E5356910091764F /* MainRouter.swift in Sources */,
 				F24DF7852E532D0E0091764F /* KeyBoardHelperService+RegUseInfo.swift in Sources */,
@@ -1984,11 +2122,13 @@
 				F26441652E4C7F36007D879B /* ContinueButtonView.swift in Sources */,
 				F296A3F72E11533500E1348E /* SceneDelegate.swift in Sources */,
 				F2FABF042E5CC4680035BF77 /* NotificationVC.swift in Sources */,
+				F233C9C12E6E688200572194 /* PaywallProduct.swift in Sources */,
 				F2FABF082E5CC4750035BF77 /* NotificationAssembler.swift in Sources */,
 				F241BDA42E65AC470060CB4B /* StatisticsRouter.swift in Sources */,
 				F289DC342E57290E00E05658 /* SelectPhotoRouter.swift in Sources */,
 				F26441802E4E076B007D879B /* OnbSecondVM.swift in Sources */,
 				F241BDCF2E687D950060CB4B /* BPMPoint.swift in Sources */,
+				F233C9C62E6E690100572194 /* Setup.swift in Sources */,
 				F241BDC02E68436B0060CB4B /* HistoryGuideControlView.swift in Sources */,
 				F24DF7722E51FC950091764F /* UIColor+Style.swift in Sources */,
 				F2FCD0CA2E5DD9C500241719 /* PulseManager.swift in Sources */,
@@ -2135,13 +2275,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HS3N4SX6NK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyThermometerProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Body Thermometer";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to allow you to capture new photo.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select existing photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2152,8 +2294,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = egorpetkevich.WorkProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.body.therm.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2170,13 +2313,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HS3N4SX6NK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyThermometerProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Body Thermometer";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to allow you to capture new photo.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select existing photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to your photo library to allow you to select photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2187,8 +2332,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = egorpetkevich.WorkProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.body.therm.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

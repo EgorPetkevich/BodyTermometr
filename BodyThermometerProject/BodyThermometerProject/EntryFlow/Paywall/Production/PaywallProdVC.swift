@@ -13,12 +13,16 @@ import SnapKit
 protocol PaywallProdViewModelProtocol {
     //Out
     var showCrossButton: Observable<Void> { get }
+    var prodPriceRelay: Observable<String?> { get }
+    var paywallButtonTitleRelay: Observable<String?> { get }
+    var isPagingEnabledRelay: Observable<Bool> { get }
     //In
     var crossTapped: PublishSubject<Void> { get }
     var viewDidLoad: PublishSubject<Void> { get }
     var didSelectPrivacy: PublishSubject<Void> { get }
     var didSelectRestore: PublishSubject<Void> { get }
     var didSelectTerms: PublishSubject<Void> { get }
+    var makePurchaseTapped: PublishSubject<Void> { get }
 }
 
 final class PaywallProdVC: UIViewController {
@@ -47,7 +51,7 @@ final class PaywallProdVC: UIViewController {
         .textAlignment(.center)
     
     private lazy var underHeaderPriceLabel: UILabel =
-        .regularTitleLabel(withText: TextConst.underheaderText(with: "$6.99"),
+        .regularTitleLabel(withText: "",
                            ofSize: 15.0,
                            color: .appBlack.withAlphaComponent(0.6))
         .textAlignment(.center)
@@ -104,6 +108,22 @@ final class PaywallProdVC: UIViewController {
         }
         .disposed(by: bag)
         
+        viewModel.prodPriceRelay
+            .subscribe(onNext: { [weak self] price in
+                self?.underHeaderPriceLabel.text =
+                TextConst.underheaderText(with: price ?? "")
+            })
+            .disposed(by: bag)
+        
+        viewModel.paywallButtonTitleRelay
+            .bind(to: continueButton.mainTitleLabel.rx.text)
+            .disposed(by: bag)
+        
+        viewModel.isPagingEnabledRelay
+            .map { !$0 }
+            .bind(to: onbPageControl.rx.isHidden)
+            .disposed(by: bag)
+        
         crossButton.rx.tap
             .bind(to: viewModel.crossTapped)
             .disposed(by: bag)
@@ -116,6 +136,9 @@ final class PaywallProdVC: UIViewController {
             .disposed(by: bag)
         termsButton.rx.tap
             .bind(to: viewModel.didSelectTerms)
+            .disposed(by: bag)
+        continueButton.tap
+            .bind(to: viewModel.makePurchaseTapped)
             .disposed(by: bag)
     }
     

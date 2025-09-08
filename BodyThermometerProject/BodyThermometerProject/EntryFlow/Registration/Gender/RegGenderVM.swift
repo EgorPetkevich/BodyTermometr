@@ -47,6 +47,7 @@ final class RegGenderVM: RegGenderViewModelProtocol {
         continueTapped
             .withLatestFrom(selectedGenderSubject)
             .do(onNext: { [weak self] gender in
+                UDManagerService.setIsUserRegistrated(true)
                 self?.realmDataManager.saveGender(gender)
             })
             .observe(on: MainScheduler.instance)

@@ -13,7 +13,10 @@ final class OnbThirdAssebler {
     
     static func assembly(container: Container) -> UIViewController {
         let router = OnbThirdRouter(container: container)
-        let viewModel = OnbThirdVM(router: router)
+        let apphudManager =
+        OnbThirdApphudManagerUseCase(apphudService: container.resolve())
+        let viewModel = OnbThirdVM(router: router,
+                                   apphudManager: apphudManager)
         let viewController = OnbThirdVC(viewModel: viewModel)
         
         router.viewController = viewController

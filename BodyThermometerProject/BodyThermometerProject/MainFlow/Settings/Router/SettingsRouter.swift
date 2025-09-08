@@ -36,4 +36,16 @@ final class SettingsRouter: SettingsRouterProtocol {
         root?.dismiss(animated: true)
     }
     
+    func shareApp(url: URL) {
+        let shareSheetVC = UIActivityViewController(activityItems: [url],
+                                                    applicationActivities: nil)
+        
+        self.root?.present(shareSheetVC, animated: true)
+    }
+    
+    func openPaywall() {
+        let vc = PaywallRevAssembler.assemble(container: container)
+        self.root?.present(vc, animated: true)
+    }
+    
 }

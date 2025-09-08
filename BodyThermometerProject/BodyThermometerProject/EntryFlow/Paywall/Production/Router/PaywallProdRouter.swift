@@ -20,6 +20,7 @@ final class PaywallProdRouter: PaywallProdRouterProtocol {
     }
     
     func finish() {
+        UDManagerService.setIsOnboardingShown(true)
         flow.didFinishOnboarding.accept(())
     }
     

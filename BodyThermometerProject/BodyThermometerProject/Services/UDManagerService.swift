@@ -13,11 +13,17 @@ final class UDManagerService {
     
     enum Keys: String {
         case isPremium
+        case isOnboardingShown
+        case isUserRegistrated
+        
         case createImageDirectory
         case notificationState
         case measuringGuideState
         case timer
         case attentionConsentDontShow
+        
+        case isFirstBPMMeasurement
+        case isFirstTempMeasurement
     }
     
     private static var ud: UserDefaults = .standard
@@ -53,6 +59,42 @@ final class UDManagerService {
         } else {
             return UDManagerService.get(.notificationState)
         }
+    }
+    
+    static func isOnboardingShown() -> Bool {
+        get(.isOnboardingShown)
+    }
+    
+    static func isUserRegistrated() -> Bool {
+        get(.isUserRegistrated)
+    }
+    
+    static func isPremium() -> Bool {
+        get(.isPremium)
+    }
+    
+    static func isFirstBPMMeasurement() -> Bool {
+        get(.isFirstBPMMeasurement)
+    }
+    
+    static func isFirstTempMeasurement() -> Bool {
+        get(.isFirstTempMeasurement)
+    }
+    
+    static func setIsFirstBPMMeasurement(_ value: Bool) {
+        set(.isFirstBPMMeasurement, value: value)
+    }
+    
+    static func setIsFirstTempMeasurement(_ value: Bool) {
+        set(.isFirstTempMeasurement, value: value)
+    }
+    
+    static func setIsOnboardingShown(_ value: Bool) {
+        set(.isOnboardingShown, value: value)
+    }
+    
+    static func setIsUserRegistrated(_ value: Bool) {
+        set(.isUserRegistrated, value: value)
     }
     
 }

@@ -16,6 +16,7 @@ protocol MainRouterProtocol {
     func openStatistics()
     func openTemperatureInput()
     func presentAttentionIfNeeded()
+    func showPaywall()
 }
 
 protocol MainRealmDataManagerUseCaseProtocol {
@@ -87,11 +88,25 @@ final class MainVM: MainViewModelProtocol {
         })
         .disposed(by: bag)
         heartRateTapped.subscribe(onNext: { [weak self] in
-            self?.router.openHeartRate()
+            if
+                UDManagerService.isPremium() ||
+                !UDManagerService.isFirstBPMMeasurement()
+            {
+                self?.router.openHeartRate()
+            } else {
+                self?.router.showPaywall()
+            }
         })
         .disposed(by: bag)
         bodyTempTapped.subscribe(onNext: { [weak self] in
-            self?.router.openTemperatureInput()
+            if
+                UDManagerService.isPremium() ||
+                !UDManagerService.isFirstTempMeasurement()
+            {
+                self?.router.openTemperatureInput()
+            } else {
+                self?.router.showPaywall()
+            }
         })
         .disposed(by: bag)
         statTapped.subscribe(onNext: { [weak self] in

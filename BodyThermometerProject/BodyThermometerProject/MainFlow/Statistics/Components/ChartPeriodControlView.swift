@@ -86,30 +86,25 @@ final class ChartPeriodControlView: UIView {
     private func bind() {
         dayButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.selectedPeriod.accept(.day)
-                self.updateSelection(.day)
+                self?.selectedPeriod.accept(.day)
             })
             .disposed(by: bag)
 
         weekButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.selectedPeriod.accept(.week)
-                self.updateSelection(.week)
+                self?.selectedPeriod.accept(.week)
             })
             .disposed(by: bag)
 
         monthButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.selectedPeriod.accept(.month)
-                self.updateSelection(.month)
+                self?.selectedPeriod.accept(.month)
             })
             .disposed(by: bag)
 
         selectedPeriod
             .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] period in
                 self?.updateSelection(period)
             })
@@ -155,7 +150,13 @@ final class ChartPeriodControlView: UIView {
     }
     
     func setSelected(_ period: Period) {
-        selectedPeriod.accept(period)
+        if Thread.isMainThread {
+            selectedPeriod.accept(period)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.selectedPeriod.accept(period)
+            }
+        }
     }
     
     private func updateSelection(_ period: Period) {

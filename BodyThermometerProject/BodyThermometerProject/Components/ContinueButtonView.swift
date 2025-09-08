@@ -30,7 +30,7 @@ final class ContinueButtonView: UIView {
     }
     
     private lazy var coverButton: UIButton = UIButton()
-    private lazy var mainTitleLabel: UILabel =
+    lazy var mainTitleLabel: UILabel =
         .semiBoldTitleLabel(withText: Constants.title, ofSize: 14.0)
     private lazy var arrowView: UIView = .simpleView(color: .black)
     private lazy var arrowImageView: UIImageView = UIImageView(image: .arrowIcon)

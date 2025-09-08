@@ -164,9 +164,10 @@ final class MeasuringVM: MeasuringViewModelProtocol {
         showResultSubject
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] result in
-            self?.router.openMeasuringResule(result)
-        })
-        .disposed(by: bag)
+                UDManagerService.setIsFirstBPMMeasurement(true)
+                self?.router.openMeasuringResule(result)
+            })
+            .disposed(by: bag)
         
         Observable
             .combineLatest(

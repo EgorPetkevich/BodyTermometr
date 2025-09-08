@@ -13,7 +13,10 @@ final class OnbFirstAssembler {
     
     static func assembly(container: Container) -> UIViewController {
         let router = OnbFirstRouter(container: container)
-        let viewModel = OnbFirstVM(router: router)
+        let apphudManager =
+        OnbFirstApphudManagerUseCase(apphudService: container.resolve())
+        let viewModel = OnbFirstVM(router: router,
+                                   apphudManager: apphudManager)
         let viewController = OnbFirstVC(viewModel: viewModel)
         router.root = viewController
         

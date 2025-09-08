@@ -1,4 +1,5 @@
 PODS:
+  - ApphudSDK (3.6.2)
   - DGCharts (5.1.0):
     - DGCharts/Core (= 5.1.0)
   - DGCharts/Core (5.1.0)
@@ -22,6 +23,7 @@ PODS:
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
+  - ApphudSDK (~> 3.6)
   - DGCharts
   - lottie-ios
   - RealmSwift (= 10.42.0)
@@ -32,6 +34,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ApphudSDK
     - DGCharts
     - lottie-ios
     - Realm
@@ -43,6 +46,7 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
+  ApphudSDK: 787b3f4f41427a07f4f8d02590470f31f567cfdf
   DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   lottie-ios: 96784afc26ea031d3e2b6cae342a4b8915072489
   Realm: 490aad28f1360e58fc22256d5d686d3a36525346
@@ -53,6 +57,6 @@ SPEC CHECKSUMS:
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: 186547eb2d3e40e58899bbe381fff9095e28ce68
+PODFILE CHECKSUM: a990549f28a87a9c42c2f0a51f4a9f5cf115f02e
 
 COCOAPODS: 1.16.2

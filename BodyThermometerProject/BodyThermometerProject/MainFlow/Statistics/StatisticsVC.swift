@@ -12,7 +12,8 @@ import SnapKit
 import DGCharts
 
 protocol StatisticsViewModelProtocol {
-    
+    // Out
+    var setDayPeriodRelay: Observable<Period> { get }
     // In
     var tempUnitState: BehaviorRelay<TempUnit> { get }
     var modeSelected: BehaviorRelay<StatMode> { get }
@@ -155,6 +156,11 @@ final class StatisticsVC: UIViewController {
             .disposed(by: bag)
         chartPeriodControlView.rx.period
             .bind(to: viewModel.periodSelected)
+            .disposed(by: bag)
+        viewModel.setDayPeriodRelay
+            .subscribe(onNext: { [weak self] period in
+                self?.chartPeriodControlView.setSelected(period)
+            })
             .disposed(by: bag)
     }
     

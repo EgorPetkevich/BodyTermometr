@@ -10,7 +10,11 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-protocol OnbThirdVCViewModelProtocol {
+protocol OnbThirdViewModelProtocol {
+    //Out
+    var onbSubtitleAlphaRelay: Observable<Double> { get }
+    var onbButtonTitle: Observable<String?> { get }
+    var isPagingEnabledRelay: Observable<Bool> { get }
     //In
     var continueButtonSubject: PublishSubject<Void> { get }
 }
@@ -45,11 +49,11 @@ final class OnbThirdVC: UIViewController {
     
     private lazy var continueButton: ContinueButtonView = ContinueButtonView()
     
-    private var viewModel: OnbSecondViewModelProtocol
+    private var viewModel: OnbThirdViewModelProtocol
     
     private var bag = DisposeBag()
     
-    init(viewModel: OnbSecondViewModelProtocol) {
+    init(viewModel: OnbThirdViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         bind()
@@ -68,6 +72,18 @@ final class OnbThirdVC: UIViewController {
     }
     
     private func bind() {
+        viewModel.onbButtonTitle
+            .bind(to: continueButton.mainTitleLabel.rx.text)
+            .disposed(by: bag)
+        viewModel.isPagingEnabledRelay
+            .map { !$0 }
+            .bind(to: onbPageControl.rx.isHidden)
+            .disposed(by: bag)
+        viewModel.onbSubtitleAlphaRelay
+            .map { CGFloat($0) }
+            .bind(to: underHeaderTextLabel.rx.alpha)
+            .disposed(by: bag)
+        
         continueButton
             .tap
             .bind(to: viewModel.continueButtonSubject)

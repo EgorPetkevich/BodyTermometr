@@ -13,7 +13,15 @@ final class PaywallProdTrialAssembler {
     
     static func assemble(container: Container) -> UIViewController {
         let router = PaywallProdTrialRouter(container: container)
-        let viewModel = PaywallProdTrialVM(router: router)
+        let alertService =
+        PaywallProdTrialAlertServiceUseCase(
+            alertService: AlertManagerService(container: container)
+        )
+        let apphudManager =
+        PaywallProdTrialApphudManagerUseCase(apphudService: container.resolve())
+        let viewModel = PaywallProdTrialVM(router: router,
+                                           apphudManager: apphudManager,
+                                           alertService: alertService)
         let viewController = PaywallProdTrialVC(viewMode: viewModel)
         
         router.root = viewController

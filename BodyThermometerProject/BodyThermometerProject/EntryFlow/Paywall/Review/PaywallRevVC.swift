@@ -14,12 +14,17 @@ import SnapKit
 protocol PaywallRevViewModelProtocol {
     //Out
     var showCrossButton: Observable<Void> { get }
+    var trialPriceRelay: Observable<String?> { get }
+    var prodPriceRelay: Observable<String?> { get }
+    var paywallButtonTitleRelay: Observable<String?> { get }
     //In
     var crossTapped: PublishSubject<Void> { get }
     var viewDidLoad: PublishSubject<Void> { get }
     var didSelectPrivacy: PublishSubject<Void> { get }
     var didSelectRestore: PublishSubject<Void> { get }
     var didSelectTerms: PublishSubject<Void> { get }
+    var makePurchaseTapped: PublishSubject<Void> { get }
+    var isTrialRelay: BehaviorRelay<Bool> { get }
 }
 
 final class PaywallRevVC: UIViewController {
@@ -93,6 +98,25 @@ final class PaywallRevVC: UIViewController {
             .observe(on: MainScheduler.instance)
             .map { false }
             .bind(to: crossButton.rx.isHidden)
+            .disposed(by: bag)
+        
+        viewModel.trialPriceRelay
+            .bind(to: paywallButtonView.subTrialPriceRelay)
+            .disposed(by: bag)
+        viewModel.prodPriceRelay
+            .bind(to: paywallButtonView.subPriceRelay)
+            .disposed(by: bag)
+        
+        viewModel.paywallButtonTitleRelay
+            .bind(to: paywallButtonView.buttonTitleRelay)
+            .disposed(by: bag)
+        
+        paywallButtonView.tap
+            .bind(to: viewModel.makePurchaseTapped)
+            .disposed(by: bag)
+        
+        enableTrialView.isTrialRelay
+            .bind(to: viewModel.isTrialRelay)
             .disposed(by: bag)
         
         enableTrialView.isTrialRelay

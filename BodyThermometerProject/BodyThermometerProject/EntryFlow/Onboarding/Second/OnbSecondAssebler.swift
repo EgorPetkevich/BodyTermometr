@@ -13,7 +13,10 @@ final class OnbSecondAssebler {
     
     static func assembly(container: Container) -> UIViewController {
         let router = OnbSecondRouter(container: container)
-        let viewModel = OnbSecondVM(router: router)
+        let apphudManager =
+        OnbSecondApphudManagerUseCase(apphudService: container.resolve())
+        let viewModel = OnbSecondVM(router: router,
+                                    apphudManager: apphudManager)
         let viewController = OnbSecondVC(viewModel: viewModel)
         
         router.root = viewController

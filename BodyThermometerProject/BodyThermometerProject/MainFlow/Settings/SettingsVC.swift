@@ -16,6 +16,7 @@ protocol SettingsViewModelProtocol {
     var isPremium: Driver<Bool> { get }
     // In
     var closeTapped: PublishSubject<Void> { get }
+    var upgradeButtonDidTap: PublishSubject<Void> { get }
     func didSelect(_ item: SettingsSection.Settings)
 }
 
@@ -96,6 +97,9 @@ final class SettingsVC: UIViewController {
             )) { _, item, cell in
                 cell.configure(item)
             }
+            .disposed(by: bag)
+        goPremiumButton.tap
+            .bind(to: viewModel.upgradeButtonDidTap)
             .disposed(by: bag)
 
         tableView.rx.modelSelected(SettingsSection.Settings.self)

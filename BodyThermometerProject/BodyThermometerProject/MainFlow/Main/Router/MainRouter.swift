@@ -70,4 +70,9 @@ final class MainRouter: MainRouterProtocol {
         root?.present(vc, animated: true, completion: nil)
     }
     
+    func showPaywall() {
+        let vc = PaywallRevAssembler.assemble(container: container)
+        root?.present(vc, animated: true)
+    }
+    
 }

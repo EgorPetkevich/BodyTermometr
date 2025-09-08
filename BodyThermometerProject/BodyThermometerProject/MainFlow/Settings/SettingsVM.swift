@@ -12,8 +12,10 @@ import StoreKit
 
 protocol SettingsRouterProtocol {
     func openNotificationSettings()
+    func shareApp(url: URL)
     func openMail()
     func dismiss()
+    func openPaywall()
 }
 
 final class SettingsVM: SettingsViewModelProtocol {
@@ -33,6 +35,7 @@ final class SettingsVM: SettingsViewModelProtocol {
         
     // In
     var closeTapped: PublishSubject<Void> = .init()
+    var upgradeButtonDidTap: PublishSubject<Void> = .init()
     
     private let isPremiumRelay = BehaviorRelay<Bool>(value: false)
     
@@ -59,6 +62,10 @@ final class SettingsVM: SettingsViewModelProtocol {
             self?.router.dismiss()
         })
         .disposed(by: bag)
+        upgradeButtonDidTap.subscribe(onNext: { [weak self] in
+            self?.router.openPaywall()
+        })
+        .disposed(by: bag)
     }
     
     // In
@@ -74,6 +81,9 @@ final class SettingsVM: SettingsViewModelProtocol {
             SKStoreReviewController.requestReviewInCurrentScene()
             break
         case .shareApp:
+            if let url = URL(string: AppConfig.Settings.appLink) {
+                router.shareApp(url: url)
+            }
             break
         case .privacyPolicy:
             if let url = URL(string: AppConfig.Settings.privacyPolicyLink) {
