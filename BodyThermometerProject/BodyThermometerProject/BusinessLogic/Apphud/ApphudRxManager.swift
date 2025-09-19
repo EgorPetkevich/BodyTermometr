@@ -28,9 +28,10 @@ final class ApphudRxManager {
     
     func start() -> Completable {
         Completable.create { completable in
-            Task { @MainActor in
-                Apphud.start(apiKey: AppConfig.Apphud.apiKey)
-            }
+            //MARK: - Review
+//            Task { @MainActor in
+//                Apphud.start(apiKey: AppConfig.Apphud.apiKey)
+//            }
           
             completable(.completed)
             return Disposables.create()
@@ -38,10 +39,12 @@ final class ApphudRxManager {
     }
 
     func hasActiveSubscription() -> Single<Bool> {
-        Single.just(Apphud.hasActiveSubscription())
-            .do(onSuccess: { [weak self] active in
-                self?.isActiveRelay.accept(active)
-            })
+        //MARK: - Review
+        Single.just(true)
+//        Single.just(Apphud.hasActiveSubscription())
+//            .do(onSuccess: { [weak self] active in
+//                self?.isActiveRelay.accept(active)
+//            })
     }
 
     func loadPaywall(for identifier: PaywallId) -> Completable {

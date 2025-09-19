@@ -74,6 +74,7 @@ final class OnbFirstVC: UIViewController {
     
     private func bind() {
         viewModel.onbButtonTitle
+            .map { $0 ?? "Continue"}
             .bind(to: continueButton.mainTitleLabel.rx.text)
             .disposed(by: bag)
         viewModel.isPagingEnabledRelay

@@ -12,7 +12,7 @@ final class AppConfig {
     private init() {}
     
     enum Apphud {
-        static let apiKey: String = "app_erup337fCttBnbPfkFg7PJeWwBsCEE"
+        static let apiKey: String = ""
     }
     
     enum Settings {
