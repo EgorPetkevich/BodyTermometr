@@ -25,14 +25,15 @@ All collected data is displayed in **statistics** with charts, where users can e
 
 ---
 
- Architecture
-	•	MVVM → separates UI and business logic
-	•	Router → manages navigation between screens
-	•	Assembler → handles dependency injection
-	•	RxSwift → reactive streams for UI and data binding
-	•	Realm → persistent storage for measurements
-	•	DGCharts → visual statistics (day/week/month graphs)
-
+## 🏗️ Architecture
+- **MVVM** → separates UI and business logic  
+- **Router** → manages navigation between screens  
+- **Assembler** → handles dependency injection  
+- **RxSwift** → reactive streams for UI and data binding  
+- **Realm** → persistent storage for measurements  
+- **DGCharts** → visual statistics (day/week/month graphs)  
+- **Apphud** → subscription management, paywalls
+  
 ---
 
 ## Screenshots
