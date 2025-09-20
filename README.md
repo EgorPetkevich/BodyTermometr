@@ -28,13 +28,15 @@ All collected data is displayed in **statistics** with charts, where users can e
 ## 🏗️ Architecture
 - **MVVM** → separates UI and business logic  
 - **Router** → manages navigation between screens  
-- **Assembler** → handles dependency injection  
+- **Assembler** → handles dependency injection
+  
 ---
 
 ## 📦 Technologies
 - **RxSwift** → reactive streams for UI and data binding  
 - **Realm** → persistent storage for measurements  
-- **DGCharts** → visual statistics (day/week/month graphs)  
+- **DGCharts** → visual statistics (day/week/month graphs)
+- **SnapKit** → UI layout
 - **Apphud** → subscription management, paywalls, and A/B testing
 
 ---
@@ -52,13 +54,13 @@ All collected data is displayed in **statistics** with charts, where users can e
   <img src="Screenshots/Profile.PNG" alt="Profile" width="200"/>
 </p>
 
-
 ---
 
 ## Installation
 1. Clone the repository: git clone https://github.com/EgorPetkevich/BodyTermometr.git
 
 ---
+
 ##  Dependencies (CocoaPods)
 ```ruby
 pod 'RxSwift', '6.9.0'
